@@ -35,8 +35,6 @@ public class LangMessages {
                 messages.getLossMessages().clear();
                 messages.setLossMessages(null);
             }
-
-            messages = null;
         }
 
         langMessagesObjectList.clear();
@@ -116,21 +114,7 @@ public class LangMessages {
             }
 
             getLangMessagesObjectList().add(langMessageObject);
-
-            /*
-            System.out.println("reward random boolean: " + langMessageObject.isRewardRandomMessage());
-            System.out.println("reward messages: " + langMessageObject.getRewardMessages());
-            System.out.println("---");
-            System.out.println("loss random boolean: " + langMessageObject.isLossRandomMessage());
-            System.out.println("loss messages: " + langMessageObject.getLossMessages());
-            */
         }
-
-        /*
-        System.out.println("---");
-        System.out.println("prefix: " + getPrefix());
-        System.out.println("currency: " + getCurrency());
-        */
     }
 
     private EntityType entityType;
