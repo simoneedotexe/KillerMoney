@@ -21,11 +21,15 @@ public class KillerMoneyCommand implements CommandExecutor {
 
         if (strings[0].equalsIgnoreCase("help")) {
             commandSender.sendMessage("");
-            commandSender.sendMessage(ChatColor.DARK_GRAY + ">>>" + ChatColor.RED + " KillerMoney info " + ChatColor.DARK_GRAY + "<<<");
+            commandSender.sendMessage(ChatColor.DARK_GRAY + ">>>" + ChatColor.RED + " KillerMoney info " +
+                    ChatColor.DARK_GRAY + "<<<");
             commandSender.sendMessage("");
-            commandSender.sendMessage(ChatColor.DARK_GRAY + ">" + ChatColor.RED + " /killermoney help " + ChatColor.GRAY + " | " + ChatColor.YELLOW + "Show all available commands");
-            commandSender.sendMessage(ChatColor.DARK_GRAY + ">" + ChatColor.RED + " /killermoney info " + ChatColor.GRAY + " | " + ChatColor.YELLOW + "Show plugin informations");
-            commandSender.sendMessage(ChatColor.DARK_GRAY + ">" + ChatColor.RED + " /killermoney reload " + ChatColor.GRAY + " | " + ChatColor.YELLOW + "Reload all configuration files");
+            commandSender.sendMessage(ChatColor.DARK_GRAY + ">" + ChatColor.RED + " /killermoney help " +
+                    ChatColor.GRAY + " | " + ChatColor.YELLOW + "Show all available commands");
+            commandSender.sendMessage(ChatColor.DARK_GRAY + ">" + ChatColor.RED + " /killermoney info " +
+                    ChatColor.GRAY + " | " + ChatColor.YELLOW + "Show plugin informations");
+            commandSender.sendMessage(ChatColor.DARK_GRAY + ">" + ChatColor.RED + " /killermoney reload " +
+                    ChatColor.GRAY + " | " + ChatColor.YELLOW + "Reload all configuration files");
             return true;
         }
 
@@ -49,12 +53,17 @@ public class KillerMoneyCommand implements CommandExecutor {
 
         if (strings[0].equalsIgnoreCase("info")) {
             commandSender.sendMessage("");
-            commandSender.sendMessage(ChatColor.DARK_GRAY + ">>>" + ChatColor.RED + " KillerMoney info " + ChatColor.DARK_GRAY + "<<<");
+            commandSender.sendMessage(ChatColor.DARK_GRAY + ">>>" + ChatColor.RED + " KillerMoney info " +
+                    ChatColor.DARK_GRAY + "<<<");
             commandSender.sendMessage("");
-            commandSender.sendMessage(ChatColor.DARK_GRAY + ">" + ChatColor.RED + " Plugin name: " + ChatColor.YELLOW + "KillerMoney");
-            commandSender.sendMessage(ChatColor.DARK_GRAY + ">" + ChatColor.RED + " version: " + ChatColor.YELLOW + "v" + KillerMoney.getInstance().getDescription().getVersion());
-            commandSender.sendMessage(ChatColor.DARK_GRAY + ">" + ChatColor.RED + " author: " + ChatColor.YELLOW + "diecode" + ChatColor.RED + " | " + ChatColor.YELLOW + "www.diecode.net");
-            commandSender.sendMessage(ChatColor.DARK_GRAY + ">" + ChatColor.RED + " website: " + ChatColor.YELLOW + KillerMoney.getInstance().getDescription().getWebsite());
+            commandSender.sendMessage(ChatColor.DARK_GRAY + ">" + ChatColor.RED + " Plugin name: " +
+                    ChatColor.YELLOW + "KillerMoney");
+            commandSender.sendMessage(ChatColor.DARK_GRAY + ">" + ChatColor.RED + " version: " +
+                    ChatColor.YELLOW + "v" + KillerMoney.getInstance().getDescription().getVersion());
+            commandSender.sendMessage(ChatColor.DARK_GRAY + ">" + ChatColor.RED + " author: " +
+                    ChatColor.YELLOW + "diecode" + ChatColor.RED + " | " + ChatColor.YELLOW + "www.diecode.net");
+            commandSender.sendMessage(ChatColor.DARK_GRAY + ">" + ChatColor.RED + " website: " +
+                    ChatColor.YELLOW + KillerMoney.getInstance().getDescription().getWebsite());
             commandSender.sendMessage("");
             return true;
         }
