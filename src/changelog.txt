@@ -2,7 +2,7 @@
 --
 - Updated to 1.9
 - Updated dependencies
-- Fixed depreceted methods
+- Fixed deprecated methods
 - Integrated cz and fr locale
 
 3.13
