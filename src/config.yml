@@ -1,0 +1,29 @@
+# Language, supported en, hu ( send me translations! )
+Locale: en
+
+# Check plugin update when server is starting
+Check-update: true
+
+# Decimal places in money
+Decimal-places: 2
+
+# Anti farming settings
+Farming:
+    Disable-spawner-farming: false
+    Disable-egg-farming: false
+
+Global-settings:
+    Money-multiplier: 1
+    Disable-functions-on-these-worlds:
+        - world_the_end
+    Disable-functions-in-creative-mode: false
+
+
+# The money multiplier. You can change it on double coins weekend. Money * Multiplier.
+Global-money-multiplier: 1
+
+# Hook settings
+Hook:
+    MobArena:
+        Enabled: false
+        Config-processing-when-players-in-arena: false

@@ -1,0 +1,17 @@
+name: KillerMoney
+main: net.diecode.KillerMoney.KillerMoney
+version: 3.14
+softdepend: [Vault, MobArena]
+author: diecode
+website: http://dev.bukkit.org/bukkit-plugins/killermoney/
+
+commands:
+    killermoney:
+        description: "This is the main command of KillerMoney"
+        usage: "Please type /<command> help"
+        default: true
+
+permissions:
+    killermoney.cmd.reload:
+        description: Reload KillerMoney's configurations and locale files
+        default: op

@@ -1,0 +1,342 @@
+prefix: '&7[KillerMoney]&c'
+currency: '$'
+
+Entities:
+   PIG:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy malacot, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   SHEEP:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy bárányt, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   CHICKEN:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy csirkét, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   COW:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy tehenet, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   HORSE:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy lovat, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   RABBIT:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy nyúlat, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   WOLF:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy farkast, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   OCELOT:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy ocelotot, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   BAT:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy denevért, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   BLAZE:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy őrlángot, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   CAVE_SPIDER:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy bányapókot, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   CREEPER:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy creepert, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   ENDER_DRAGON:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy végzet sárkányt, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   ENDERMAN:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy bevégzőt, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   ENDERMITE:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy végbogarat, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   GHAST:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy kísértetet, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   GIANT:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy óriást, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   GUARDIAN:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy őrszemet, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   IRON_GOLEM:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy vasgólemet, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   MAGMA_CUBE:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy magma kockát, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   MUSHROOM_COW:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy múúmbát, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   PIG_ZOMBIE:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy zombi-malacembert, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   PLAYER:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy játékost ({victim-name}), nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+   SHULKER:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy shulkert, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   SILVERFISH:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy ezüstmolyt, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   SKELETON:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy csontvázat, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   SLIME:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy nyálkát, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   SNOWMAN:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy hóembert, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   SPIDER:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy pókot, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   SQUID:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy tintahalat, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   VILLAGER:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy falusit, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   WITCH:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy boszorkányt, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   WITHER:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy withert, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   ZOMBIE:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy zombit, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
