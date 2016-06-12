@@ -231,6 +231,17 @@ Entities:
          Random-message: false
          Messages:
             - '{prefix} Elveszítettél {currency}{money}-t'
+
+   POLAR_BEAR:
+         Reward:
+            Random-message: false
+            Messages:
+               - '{prefix} Megöltél egy jegesmedvét, nyertél {currency}{money}-t'
+         Loss:
+            Random-message: false
+            Messages:
+               - '{prefix} Elveszítettél {currency}{money}-t'
+
    SHULKER:
       Reward:
          Random-message: false

@@ -138,6 +138,11 @@ PLAYER:
       Limit: 1000
       Chance: 100%
 
+POLAR_BEAR:
+   Money:
+      Chance: 100%
+      Value: 1 ? 2
+
 SHULKER:
    Money:
       Chance: 100%

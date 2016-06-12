@@ -232,6 +232,16 @@ Entities:
          Messages:
             - '{prefix} Ztratil jsi {currency}{money}'
 
+   POLAR_BEAR:
+         Reward:
+            Random-message: false
+            Messages:
+               - '{prefix} Zabil jsi polar bear, a obdržel jsi {currency}{money}'
+         Loss:
+            Random-message: false
+            Messages:
+               - '{prefix} Ztratil jsi {currency}{money}'
+
    SHULKER:
       Reward:
          Random-message: false

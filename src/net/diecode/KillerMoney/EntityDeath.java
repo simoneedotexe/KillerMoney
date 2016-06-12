@@ -16,7 +16,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
-import org.bukkit.event.entity.PlayerDeathEvent;
 
 import java.util.HashMap;
 import java.util.UUID;
@@ -150,7 +149,6 @@ public class EntityDeath implements Listener {
     }
 
     private void moneyProcessor(Mobs mobs, Player killer, LivingEntity entity) {
-
         if (!Utils.chanceGenerator(mobs.getMoneyChance())) {
             return;
         }
@@ -178,7 +176,6 @@ public class EntityDeath implements Listener {
                     new KillerMoneyMoneyLossEvent(killer, mobs, money, EventSource.ENTITY_KILL, entity)
             );
         }
-
     }
 
     private void cashTransferProcessor(Mobs mobs, Player killer, Player victim) {

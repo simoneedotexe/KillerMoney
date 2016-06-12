@@ -232,6 +232,16 @@ Entities:
          Messages:
             - '{prefix} Vous perdez {currency}{money}'
 
+   POLAR_BEAR:
+         Reward:
+            Random-message: false
+            Messages:
+               - '{prefix} Vous avez tué un polar bear, vous gagnez {currency}{money}'
+         Loss:
+            Random-message: false
+            Messages:
+               - '{prefix} Vous perdez {currency}{money}'
+
    SHULKER:
       Reward:
          Random-message: false
