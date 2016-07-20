@@ -2,6 +2,7 @@ package net.diecode.KillerMoney;
 
 import net.diecode.KillerMoney.Configs.Configs;
 import net.diecode.KillerMoney.CustomEvents.*;
+import net.diecode.KillerMoney.CustomObjects.CustomCommand;
 import net.diecode.KillerMoney.CustomObjects.CustomItems;
 import net.diecode.KillerMoney.CustomObjects.Mobs;
 import net.diecode.KillerMoney.Enums.EventSource;
@@ -215,8 +216,7 @@ public class EntityDeath implements Listener {
 
             KillerMoney.getInstance().getServer().getPluginManager().callEvent(
                     new KillerMoneyCustomItemDropEvent(
-                            killer, mobs, currentItem, entity, currentItem.getItem(),
-                            entity.getLocation()
+                            killer, mobs, currentItem, entity, currentItem.getItem(), entity.getLocation()
                     )
             );
         }
@@ -225,9 +225,13 @@ public class EntityDeath implements Listener {
 
     private void customCommandProcessor(Mobs mobs, Player killer, LivingEntity entity) {
         // custom commands event
-        for (String currentCommand : mobs.getCustomCommands()) {
-            KillerMoney.getInstance().getServer().getPluginManager().callEvent(
-                    new KillerMoneyRunCustomCommandEvent(killer, mobs, entity, currentCommand)
+        for (CustomCommand cc : mobs.getCustomCommands()) {
+            if (!Utils.chanceGenerator(cc.getChance())) {
+                continue;
+            }
+
+            Bukkit.getPluginManager().callEvent(
+                    new KillerMoneyRunCustomCommandEvent(killer, mobs, entity, cc.getCommand())
             );
         }
 

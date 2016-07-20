@@ -21,6 +21,24 @@ public class Mobs {
     private static int cashTransferLimit = 0;
     private static int cashTransferChance = 100;
 
+    private EntityType entityType;
+
+    private String permission;
+
+    private List<String> disabledOnWorlds;
+
+    private int moneyChance;
+    private double moneyMin;
+    private double moneyMax;
+    private boolean moneyEnabled;
+
+    private boolean clearDefaultItemEnabled;
+    private ArrayList<CustomItems> items = new ArrayList<CustomItems>();
+    private boolean customItemDropEnabled;
+
+    private List<CustomCommand> customCommands;
+    private boolean customCommandsEnabled;
+
     static {
         initialize();
     }
@@ -315,7 +333,28 @@ public class Mobs {
                 mobObject.setCustomCommandsEnabled(true);
                 if (mobsConfig.getStringList(currentMobType + ".Custom-commands") != null) {
                     List<String> customCommands = mobsConfig.getStringList(currentMobType + ".Custom-commands");
-                    mobObject.setCustomCommands(customCommands);
+                    List<CustomCommand> commands = new ArrayList<CustomCommand>();
+
+                    for (String cmd : customCommands) {
+                        String[] splitted = cmd.split(";");
+                        CustomCommand cc;
+
+                        if (splitted.length == 1) {
+                            cc = new CustomCommand(splitted[0], 100);
+                        } else {
+                            int chance = Integer.valueOf(splitted[1].replaceAll("\\D+", ""));
+
+                            if (chance > 100) {
+                                chance = 100;
+                            }
+
+                            cc = new CustomCommand(splitted[0], chance);
+                        }
+
+                        commands.add(cc);
+                    }
+
+                    mobObject.setCustomCommands(commands);
                 } else {
                     mobObject.setCustomCommandsEnabled(false);
                 }
@@ -359,24 +398,6 @@ public class Mobs {
         }
 
     }
-
-    private EntityType entityType;
-
-    private String permission;
-
-    private List<String> disabledOnWorlds;
-
-    private int moneyChance;
-    private double moneyMin;
-    private double moneyMax;
-    private boolean moneyEnabled;
-
-    private boolean clearDefaultItemEnabled;
-    private ArrayList<CustomItems> items = new ArrayList<CustomItems>();
-    private boolean customItemDropEnabled;
-
-    private List<String> customCommands;
-    private boolean customCommandsEnabled;
 
     public static boolean containsEntityInInstances(EntityType entity) {
         for (Mobs currentMobType : getMobsObjectList()) {
@@ -458,11 +479,11 @@ public class Mobs {
         this.items = items;
     }
 
-    public List<String> getCustomCommands() {
+    public List<CustomCommand> getCustomCommands() {
         return customCommands;
     }
 
-    public void setCustomCommands(List<String> customCommands) {
+    public void setCustomCommands(List<CustomCommand> customCommands) {
         this.customCommands = customCommands;
     }
 

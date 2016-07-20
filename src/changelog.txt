@@ -1,3 +1,7 @@
+3.16
+--
+- Added Custom command chance settings
+
 3.15
 --
 - Updated to 1.10

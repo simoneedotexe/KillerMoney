@@ -25,7 +25,7 @@ PIG:
                - 'world_nether'
             Permission: 'killermoney.vip'
    Custom-commands:
-      - 'say {player} killed a PIG'
+      - 'say {player} killed a PIG;75%'
 
 SHEEP:
    Money:
