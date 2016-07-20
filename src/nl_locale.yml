@@ -1,0 +1,353 @@
+prefix: '&7[KillerMoney]&c'
+currency: '€'
+
+Entities:
+   PIG:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een varken gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
+
+   SHEEP:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een schaaap gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
+
+   CHICKEN:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een kip gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
+
+   COW:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een koe gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
+
+   HORSE:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een paard gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
+
+   RABBIT:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een konijn gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
+
+   WOLF:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een wolf gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
+
+   OCELOT:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een ocelot gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
+
+   BAT:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een vleermuis gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
+
+   BLAZE:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een blaze gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
+
+   CAVE_SPIDER:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een Grottenspin gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
+
+   CREEPER:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een creeper gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
+
+   ENDER_DRAGON:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een ender draak gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
+
+   ENDERMAN:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een enderman gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
+
+   ENDERMITE:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een endermijt gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
+
+   GHAST:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een ghast gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
+
+   GIANT:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een giant gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
+
+   GUARDIAN:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een bewaarder gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
+
+   IRON_GOLEM:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een ijzeren golem gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
+
+   MAGMA_CUBE:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een magmakubus gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
+
+   MUSHROOM_COW:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een loeizwam gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
+
+   PIG_ZOMBIE:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een zombievarken gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
+
+   PLAYER:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een speler ({victim-name}) gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
+
+   POLAR_BEAR:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een ijsbeer gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
+
+   SHULKER:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een shulker gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
+
+   SILVERFISH:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een zilvervis gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
+
+   SKELETON:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een skelet gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
+
+   SLIME:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een slijmkubus gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
+
+   SNOWMAN:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een sneeuwman gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
+
+   SPIDER:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een spin gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
+
+   SQUID:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een inktvis gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
+
+   VILLAGER:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een dorpeling gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
+
+   WITCH:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een heks gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
+
+   WITHER:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een wither gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
+
+   ZOMBIE:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Je hebt een zombie gedood, je ontvangt {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Je verliest {currency}{money}'
