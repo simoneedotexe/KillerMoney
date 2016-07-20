@@ -1,6 +1,7 @@
 3.16
 --
 - Added Custom command chance settings
+- Added Dutch translation
 
 3.15
 --
