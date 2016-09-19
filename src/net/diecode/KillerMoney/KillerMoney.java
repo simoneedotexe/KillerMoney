@@ -8,8 +8,7 @@ import net.diecode.KillerMoney.CustomObjects.Mobs;
 import net.diecode.KillerMoney.Functions.*;
 import net.diecode.KillerMoney.Loggers.ConsoleLogger;
 import net.milkbowl.vault.economy.Economy;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
+import net.milkbowl.vault.permission.Permission;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -19,6 +18,7 @@ public class KillerMoney extends JavaPlugin {
 
     private static KillerMoney plugin;
     private static Economy economy = null;
+    private static Permission permission = null;
     private static MobArenaHandler maHandler = null;
 
     private Mobs mobs;
@@ -39,20 +39,18 @@ public class KillerMoney extends JavaPlugin {
         return maHandler;
     }
 
-    private boolean initializeVault() {
-        if (getServer().getPluginManager().getPlugin("Vault") != null) {
-            RegisteredServiceProvider<Economy> economyProvider =
-                    getServer().getServicesManager().getRegistration(net.milkbowl.vault.economy.Economy.class);
-            if (economyProvider != null) {
-                economy = economyProvider.getProvider();
-            }
-            return (economy != null);
-        } else {
-            return false;
+    private boolean initEconomy() {
+        RegisteredServiceProvider<Economy> economyProvider =
+                getServer().getServicesManager().getRegistration(net.milkbowl.vault.economy.Economy.class);
+
+        if (economyProvider != null) {
+            economy = economyProvider.getProvider();
         }
+
+        return (economy != null);
     }
 
-    private void initializeMetrics() {
+    private void initMetrics() {
         try {
             new Metrics(this).start();
             ConsoleLogger.info("Metrics initialized");
@@ -82,7 +80,7 @@ public class KillerMoney extends JavaPlugin {
         langMessages = new LangMessages();
         entityDeath = new EntityDeath();
 
-        initializeMetrics();
+        initMetrics();
 
         if (Configs.isUpdateCheckEnabled()) {
             getServer().getScheduler().runTaskTimerAsynchronously(this, new Runnable() {
@@ -95,9 +93,10 @@ public class KillerMoney extends JavaPlugin {
             }, 20L, 20L * 60 * 60 * 24);
         }
 
-        if (!initializeVault()) {
+        if (!initEconomy()) {
             ConsoleLogger.info("Vault or economy plugin not found! Please install them, and restart server.");
             getServer().getPluginManager().disablePlugin(this);
+
             return;
         }
 

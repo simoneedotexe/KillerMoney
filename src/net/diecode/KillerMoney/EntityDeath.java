@@ -72,6 +72,8 @@ public class EntityDeath implements Listener {
             return;
         }
 
+        System.out.println("MULTIPLIER: " + Utils.getMultiplier(killer));
+
         if (Configs.getGlobalDisabledWorlds().contains(victim.getLocation().getWorld().getName())) {
             return;
         }
@@ -156,7 +158,7 @@ public class EntityDeath implements Listener {
 
         double money = Utils.randomNumber(mobs.getMoneyMin(), mobs.getMoneyMax());
 
-        money *= Utils.getPermMultiplier(killer);
+        money *= Utils.getMultiplier(killer);
 
         money = Utils.decimalFormating(money);
 

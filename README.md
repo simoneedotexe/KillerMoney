@@ -3,7 +3,7 @@
 When a player kill an entity, this plugins let you charge/give money or even give any item or run a command.
 
 ### Abilities of the plugin
-- Giving or chargeing a player by either a fix amount of money, or random between a max and minimum amount when they kill an entity
+- Giving or charging a player by either a fix amount of money, or random between a max and minimum amount when they kill an entity
 - Charging the victim of a PVP
 - Fully customisable loot dropping when an entity die
 - Running a command of your choice when an entity die
@@ -22,8 +22,8 @@ When a player kill an entity, this plugins let you charge/give money or even giv
 - /killermoney reload - Reloading config files 
 
 ### Permissions
-- killermoney.cmd.reload - /killermoney reload permission
-- killermoney.multiplier.1...10 - Money multiplier permission ( minimum 1, maximum 10 )
+- killermoney.admin - /killermoney reload permission
+- killermoney.multiplier.X - Money multiplier permission ( for example: killermoney.multiplier.100 -> money * 100! )
 - Anything else that you gave for entities! 
 
 ### Installing guide

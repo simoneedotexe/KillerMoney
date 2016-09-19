@@ -3,6 +3,7 @@ package net.diecode.KillerMoney.Commands;
 import net.diecode.KillerMoney.Configs.Configs;
 import net.diecode.KillerMoney.CustomObjects.LangMessages;
 import net.diecode.KillerMoney.CustomObjects.Mobs;
+import net.diecode.KillerMoney.Enums.Permissions;
 import net.diecode.KillerMoney.KillerMoney;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -16,6 +17,7 @@ public class KillerMoneyCommand implements CommandExecutor {
 
         if (strings.length < 1) {
             KillerMoney.getInstance().getServer().dispatchCommand(commandSender, "killermoney help");
+
             return true;
         }
 
@@ -34,8 +36,9 @@ public class KillerMoneyCommand implements CommandExecutor {
         }
 
         if (strings[0].equalsIgnoreCase("reload")) {
-            if (!commandSender.isOp() || !commandSender.hasPermission("killermoney.admin")) {
+            if (!commandSender.isOp() && !commandSender.hasPermission(Permissions.ADMIN.getPerm())) {
                 commandSender.sendMessage("You have not enough permission");
+
                 return true;
             }
 
@@ -48,6 +51,7 @@ public class KillerMoneyCommand implements CommandExecutor {
             LangMessages.initialize();
 
             commandSender.sendMessage("Configs reloaded");
+
             return true;
         }
 
@@ -61,10 +65,11 @@ public class KillerMoneyCommand implements CommandExecutor {
             commandSender.sendMessage(ChatColor.DARK_GRAY + ">" + ChatColor.RED + " version: " +
                     ChatColor.YELLOW + "v" + KillerMoney.getInstance().getDescription().getVersion());
             commandSender.sendMessage(ChatColor.DARK_GRAY + ">" + ChatColor.RED + " author: " +
-                    ChatColor.YELLOW + "diecode" + ChatColor.RED + " | " + ChatColor.YELLOW + "www.diecode.net");
+                    ChatColor.YELLOW + "@diecode" + ChatColor.RED + " | " + ChatColor.YELLOW + "www.diecode.net");
             commandSender.sendMessage(ChatColor.DARK_GRAY + ">" + ChatColor.RED + " website: " +
                     ChatColor.YELLOW + KillerMoney.getInstance().getDescription().getWebsite());
             commandSender.sendMessage("");
+
             return true;
         }
 
