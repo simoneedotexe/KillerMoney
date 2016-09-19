@@ -72,8 +72,6 @@ public class EntityDeath implements Listener {
             return;
         }
 
-        System.out.println("MULTIPLIER: " + Utils.getMultiplier(killer));
-
         if (Configs.getGlobalDisabledWorlds().contains(victim.getLocation().getWorld().getName())) {
             return;
         }
