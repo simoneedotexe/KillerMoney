@@ -9,6 +9,7 @@ import net.diecode.KillerMoney.Functions.*;
 import net.diecode.KillerMoney.Loggers.ConsoleLogger;
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.permission.Permission;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -23,7 +24,9 @@ public class KillerMoney extends JavaPlugin {
 
     private Mobs mobs;
     private LangMessages langMessages;
-    private EntityDeath entityDeath;
+    private MSGraphs msGraphs;
+
+    private static boolean msHooked;
 
     private Update checkUpdate;
 
@@ -68,6 +71,14 @@ public class KillerMoney extends JavaPlugin {
         }
     }
 
+    public void hookMS() {
+        if ((Bukkit.getPluginManager().getPlugin("MineStatus-Universal") != null)
+                && !Configs.getEnabledGraphs().isEmpty()) {
+            msHooked = true;
+            msGraphs = new MSGraphs();
+        }
+    }
+
     @Override
     public void onEnable() {
         plugin = this;
@@ -78,7 +89,6 @@ public class KillerMoney extends JavaPlugin {
 
         mobs = new Mobs();
         langMessages = new LangMessages();
-        entityDeath = new EntityDeath();
 
         initMetrics();
 
@@ -115,6 +125,10 @@ public class KillerMoney extends JavaPlugin {
 
         getCommand("killermoney").setExecutor(new KillerMoneyCommand());
 
+        if (Configs.isHookMineStatus()) {
+            hookMS();
+        }
+
         /*
         for (EntityType entity : EntityType.values()) {
             ConsoleLogger.info(entity.toString());
@@ -135,9 +149,11 @@ public class KillerMoney extends JavaPlugin {
         plugin = null;
         mobs = null;
         langMessages = null;
-        entityDeath = null;
         economy = null;
         maHandler = null;
     }
 
+    public static boolean isMsHooked() {
+        return msHooked;
+    }
 }

@@ -22,6 +22,8 @@ public class Configs {
     private static boolean globalDisableFunctionInCreativeMode;
     private static boolean hookMobArena;
     private static boolean processConfigInArena;
+    private static boolean hookMineStatus;
+    private static ArrayList<String> enabledGraphs = new ArrayList<String>();
 
     private static File versionFile = null;
     private static FileConfiguration versionConfig;
@@ -92,6 +94,14 @@ public class Configs {
          */
         hookMobArena = config.getBoolean("Hook.MobArena.Enabled");
         processConfigInArena = config.getBoolean("Hook.MobArena.Config-processing-when-players-in-arena");
+
+        hookMineStatus = config.getBoolean("Hook.MineStatus.Enabled");
+
+        for (String s : config.getConfigurationSection("Hook.MineStatus.Graphs").getKeys(false)) {
+            if (config.getBoolean("Hook.MineStatus.Graphs." + s)) {
+                enabledGraphs.add(s);
+            }
+        }
     }
 
     public static void loadVersionConfig() {
@@ -151,6 +161,11 @@ public class Configs {
         try {
             double version = getVersionConfig().getDouble("plugin-version");
             double currentVersion = Double.parseDouble(KillerMoney.getInstance().getDescription().getVersion());
+
+            if (version < 3.2) {
+                KillerMoney.getInstance().getConfig().set("Hook.MineStatus.Enabled", true);
+                KillerMoney.getInstance().getConfig().set("Hook.MineStatus.Graphs.MOB-KILLS", true);
+            }
 
             if (version < 3.11) {
                 KillerMoney.getInstance().getConfig().set("Decimal-places", 2);
@@ -234,5 +249,13 @@ public class Configs {
 
     public static FileConfiguration getVersionConfig() {
         return versionConfig;
+    }
+
+    public static boolean isHookMineStatus() {
+        return hookMineStatus;
+    }
+
+    public static ArrayList<String> getEnabledGraphs() {
+        return enabledGraphs;
     }
 }

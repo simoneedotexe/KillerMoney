@@ -6,6 +6,7 @@ import net.diecode.KillerMoney.CustomObjects.CustomCommand;
 import net.diecode.KillerMoney.CustomObjects.CustomItems;
 import net.diecode.KillerMoney.CustomObjects.Mobs;
 import net.diecode.KillerMoney.Enums.EventSource;
+import net.diecode.KillerMoney.Enums.MobType;
 import net.diecode.KillerMoney.Enums.MoneyType;
 import net.diecode.KillerMoney.Functions.Farming;
 import org.bukkit.Bukkit;
@@ -21,10 +22,16 @@ import org.bukkit.event.entity.EntityDeathEvent;
 
 import java.util.HashMap;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class EntityDeath implements Listener {
 
     private HashMap<UUID, UUID> lastDamager = new HashMap<UUID, UUID>();
+    private static ConcurrentHashMap<MobType, Integer> killedMobTypeCounter = new ConcurrentHashMap<MobType, Integer>();
+
+    public EntityDeath() {
+        resetMobTypeCounter();
+    }
 
     @EventHandler
     public void onEntityDeath(EntityDeathEvent event) {
@@ -71,6 +78,13 @@ public class EntityDeath implements Listener {
 
         if (killer == null) {
             return;
+        }
+
+        /**
+         * MS support -> MOB-KILLS Graph
+         */
+        if (KillerMoney.isMsHooked() && Configs.getEnabledGraphs().contains("MOB-KILLS")) {
+            increaseMobTypeCounter(victimType);
         }
 
         if (Configs.getGlobalDisabledWorlds().contains(victim.getLocation().getWorld().getName())) {
@@ -256,6 +270,32 @@ public class EntityDeath implements Listener {
             );
         }
 
+    }
+
+    private void increaseMobTypeCounter(EntityType entity) {
+        MobType type = MobType.getType(entity);
+
+        if (type == null) {
+            return;
+        }
+
+        if (killedMobTypeCounter.containsKey(type)) {
+            killedMobTypeCounter.put(type, killedMobTypeCounter.get(type) + 1);
+        } else {
+            killedMobTypeCounter.put(type, 1);
+        }
+    }
+
+    public static void resetMobTypeCounter() {
+        killedMobTypeCounter.clear();
+
+        for (MobType mt : MobType.values()) {
+            killedMobTypeCounter.put(mt, 0);
+        }
+    }
+
+    public static ConcurrentHashMap<MobType, Integer> getKilledMobTypeCounter() {
+        return killedMobTypeCounter;
     }
 
     @EventHandler

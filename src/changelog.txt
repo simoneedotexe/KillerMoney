@@ -1,3 +1,9 @@
+3.2
+--
+- "Lose Money" option to player
+- MineStatus support: MOB-KILLS
+- Minor fixes
+
 3.17
 --
 - Modified permission system

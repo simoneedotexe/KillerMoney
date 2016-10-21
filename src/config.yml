@@ -27,3 +27,7 @@ Hook:
     MobArena:
         Enabled: false
         Config-processing-when-players-in-arena: false
+    MineStatus:
+        Enabled: true
+        Graphs:
+          MOB-KILLS: true
