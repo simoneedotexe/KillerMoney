@@ -8,7 +8,7 @@ import org.bukkit.event.Listener;
 
 public class RunCommand implements Listener {
 
-    @EventHandler (priority = EventPriority.MONITOR)
+    @EventHandler (priority = EventPriority.NORMAL)
     public void onRunCommand(KillerMoneyRunCustomCommandEvent event) {
 
         if (event.isCancelled()) {

@@ -13,7 +13,7 @@ import org.bukkit.event.Listener;
 
 public class MoneyReward implements Listener {
 
-    @EventHandler (priority = EventPriority.MONITOR)
+    @EventHandler (priority = EventPriority.NORMAL)
     public void onMoneyReward(KillerMoneyMoneyRewardEvent event) {
 
         if (event.isCancelled()) {

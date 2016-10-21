@@ -27,10 +27,15 @@ public class Mobs {
 
     private List<String> disabledOnWorlds;
 
-    private int moneyChance;
-    private double moneyMin;
-    private double moneyMax;
-    private boolean moneyEnabled;
+    private int rewardMoneyChance;
+    private double rewardMoneyMin;
+    private double rewardMoneyMax;
+    private boolean rewardMoneyEnabled;
+
+    private int loseMoneyChance;
+    private double loseMoneyMin;
+    private double loseMoneyMax;
+    private boolean loseMoneyEnabled;
 
     private boolean clearDefaultItemEnabled;
     private ArrayList<CustomItems> items = new ArrayList<CustomItems>();
@@ -84,8 +89,8 @@ public class Mobs {
         Set<String> mobTypes = mobsConfig.getConfigurationSection("").getKeys(false);
 
         for (String currentMobType : mobTypes) {
-
             String formattedMobType = currentMobType.toUpperCase().replace(" ", "_");
+
             /**
              * Set up entity type
              */
@@ -121,10 +126,10 @@ public class Mobs {
 
 
             /**
-             * Set up money chance
+             * Set up reward money chance
              */
             if (mobsConfig.get(currentMobType + ".Money") != null) {
-                mobObject.setMoneyEnabled(true);
+                mobObject.setRewardMoneyEnabled(true);
                 int moneyChance = 100;
                 if (mobsConfig.getString(currentMobType + ".Money.Chance") != null) {
                     moneyChance = Integer.valueOf(
@@ -139,10 +144,10 @@ public class Mobs {
                         moneyChance = 1;
                     }
                 }
-                mobObject.setMoneyChance(moneyChance);
+                mobObject.setRewardMoneyChance(moneyChance);
 
                 /**
-                 * Set up money value
+                 * Set up reward money value
                  */
                 if (mobsConfig.getString(currentMobType + ".Money.Value") != null) {
                     String moneyValue = mobsConfig.getString(currentMobType + ".Money.Value").replaceAll("\\s", "");
@@ -157,17 +162,62 @@ public class Mobs {
                         moneyMax = Double.valueOf(moneyValue);
                     }
 
-                    mobObject.setMoneyMin(moneyMin);
-                    mobObject.setMoneyMax(moneyMax);
+                    mobObject.setRewardMoneyMin(moneyMin);
+                    mobObject.setRewardMoneyMax(moneyMax);
                 } else {
                     ConsoleLogger.warning("Missing Money Value at " + currentMobType + " mob type. Money reward disabled.");
-                    mobObject.setMoneyEnabled(false);
+                    mobObject.setRewardMoneyEnabled(false);
                 }
-
             } else {
-                mobObject.setMoneyEnabled(false);
+                mobObject.setRewardMoneyEnabled(false);
             }
 
+            /**
+             * Set up lose money chance
+             */
+            if (mobsConfig.get(currentMobType + ".Lose") != null) {
+                mobObject.setLoseMoneyEnabled(true);
+                int loseMoneyChance = 100;
+                if (mobsConfig.getString(currentMobType + ".Lose.Chance") != null) {
+                    loseMoneyChance = Integer.valueOf(
+                            mobsConfig.getString(currentMobType + ".Lose.Chance").replaceAll("%", "")
+                    );
+
+                    if (loseMoneyChance > 100) {
+                        loseMoneyChance = 100;
+                    }
+
+                    if (loseMoneyChance < 1) {
+                        loseMoneyChance = 1;
+                    }
+                }
+                mobObject.setLoseMoneyChance(loseMoneyChance);
+
+                /**
+                 * Set up lose money value
+                 */
+                if (mobsConfig.getString(currentMobType + ".Lose.Value") != null) {
+                    String moneyValue = mobsConfig.getString(currentMobType + ".Lose.Value").replaceAll("\\s", "");
+                    double loseMoneyMin, loseMoneyMax;
+
+                    if (moneyValue.contains("?")) {
+                        String[] splittedValue = moneyValue.split("\\?");
+                        loseMoneyMin = Double.valueOf(splittedValue[0]);
+                        loseMoneyMax = Double.valueOf(splittedValue[1]);
+                    } else {
+                        loseMoneyMin = Double.valueOf(moneyValue);
+                        loseMoneyMax = Double.valueOf(moneyValue);
+                    }
+
+                    mobObject.setLoseMoneyMin(loseMoneyMin);
+                    mobObject.setLoseMoneyMax(loseMoneyMax);
+                } else {
+                    ConsoleLogger.warning("Missing Lose Money Value at " + currentMobType + " mob type. Money losing disabled.");
+                    mobObject.setLoseMoneyEnabled(false);
+                }
+            } else {
+                mobObject.setLoseMoneyEnabled(false);
+            }
 
             /**
              * Set up item drop
@@ -393,7 +443,6 @@ public class Mobs {
                             mobsConfig.getString(currentMobType + ".Cash-transfer.Chance").replace("%", "")
                     );
                 }
-
             }
         }
 
@@ -439,28 +488,28 @@ public class Mobs {
         this.permission = permission;
     }
 
-    public int getMoneyChance() {
-        return moneyChance;
+    public int getRewardMoneyChance() {
+        return rewardMoneyChance;
     }
 
-    public void setMoneyChance(int moneyChance) {
-        this.moneyChance = moneyChance;
+    public void setRewardMoneyChance(int rewardMoneyChance) {
+        this.rewardMoneyChance = rewardMoneyChance;
     }
 
-    public double getMoneyMin() {
-        return moneyMin;
+    public double getRewardMoneyMin() {
+        return rewardMoneyMin;
     }
 
-    public void setMoneyMin(double moneyMin) {
-        this.moneyMin = moneyMin;
+    public void setRewardMoneyMin(double rewardMoneyMin) {
+        this.rewardMoneyMin = rewardMoneyMin;
     }
 
-    public double getMoneyMax() {
-        return moneyMax;
+    public double getRewardMoneyMax() {
+        return rewardMoneyMax;
     }
 
-    public void setMoneyMax(double moneyMax) {
-        this.moneyMax = moneyMax;
+    public void setRewardMoneyMax(double rewardMoneyMax) {
+        this.rewardMoneyMax = rewardMoneyMax;
     }
 
     public boolean isClearDefaultItemEnabled() {
@@ -487,12 +536,12 @@ public class Mobs {
         this.customCommands = customCommands;
     }
 
-    public boolean isMoneyEnabled() {
-        return moneyEnabled;
+    public boolean isRewardMoneyEnabled() {
+        return rewardMoneyEnabled;
     }
 
-    public void setMoneyEnabled(boolean moneyEnabled) {
-        this.moneyEnabled = moneyEnabled;
+    public void setRewardMoneyEnabled(boolean rewardMoneyEnabled) {
+        this.rewardMoneyEnabled = rewardMoneyEnabled;
     }
 
     public boolean isCustomItemDropEnabled() {
@@ -529,5 +578,37 @@ public class Mobs {
 
     public static int getCashTransferChance() {
         return cashTransferChance;
+    }
+
+    public int getLoseMoneyChance() {
+        return loseMoneyChance;
+    }
+
+    public void setLoseMoneyChance(int loseMoneyChance) {
+        this.loseMoneyChance = loseMoneyChance;
+    }
+
+    public double getLoseMoneyMin() {
+        return loseMoneyMin;
+    }
+
+    public void setLoseMoneyMin(double loseMoneyMin) {
+        this.loseMoneyMin = loseMoneyMin;
+    }
+
+    public double getLoseMoneyMax() {
+        return loseMoneyMax;
+    }
+
+    public void setLoseMoneyMax(double loseMoneyMax) {
+        this.loseMoneyMax = loseMoneyMax;
+    }
+
+    public boolean isLoseMoneyEnabled() {
+        return loseMoneyEnabled;
+    }
+
+    public void setLoseMoneyEnabled(boolean loseMoneyEnabled) {
+        this.loseMoneyEnabled = loseMoneyEnabled;
     }
 }

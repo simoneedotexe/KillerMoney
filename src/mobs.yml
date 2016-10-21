@@ -133,10 +133,16 @@ PIG_ZOMBIE:
       Value: 1 ? 2
 
 PLAYER:
+   Money:
+      Chance: 100%
+      Value: 1 ? 2
    Cash-transfer:
       Percent: 25%
       Limit: 1000
       Chance: 100%
+   Lose:
+      Chance: 100%
+      Value: 1 ? 2
 
 POLAR_BEAR:
    Money:

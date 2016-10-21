@@ -6,6 +6,7 @@ import net.diecode.KillerMoney.CustomObjects.CustomCommand;
 import net.diecode.KillerMoney.CustomObjects.CustomItems;
 import net.diecode.KillerMoney.CustomObjects.Mobs;
 import net.diecode.KillerMoney.Enums.EventSource;
+import net.diecode.KillerMoney.Enums.MoneyType;
 import net.diecode.KillerMoney.Functions.Farming;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -121,12 +122,17 @@ public class EntityDeath implements Listener {
         }
 
         /**
-         * Moneys
+         * Money reward
          */
-        if (mobs.isMoneyEnabled()) {
-            moneyProcessor(mobs, killer, victim);
+        if (mobs.isRewardMoneyEnabled()) {
+            moneyProcessor(mobs, killer, victim, MoneyType.REWARD);
         }
 
+        if (mobs.isLoseMoneyEnabled()) {
+            if (victim instanceof Player) {
+                moneyProcessor(mobs, (Player) victim, killer, MoneyType.LOSE);
+            }
+        }
 
         /**
          * Custom item drops
@@ -149,32 +155,47 @@ public class EntityDeath implements Listener {
 
     }
 
-    private void moneyProcessor(Mobs mobs, Player killer, LivingEntity entity) {
-        if (!Utils.chanceGenerator(mobs.getMoneyChance())) {
-            return;
-        }
+    private void moneyProcessor(Mobs mobs, Player p, LivingEntity entity, MoneyType type) {
+        double money;
 
-        double money = Utils.randomNumber(mobs.getMoneyMin(), mobs.getMoneyMax());
+        if (type == MoneyType.REWARD) {
+            if (!Utils.chanceGenerator(mobs.getRewardMoneyChance())) {
+                return;
+            }
 
-        money *= Utils.getMultiplier(killer);
+            money = Utils.randomNumber(mobs.getRewardMoneyMin(), mobs.getRewardMoneyMax());
+            money *= Utils.getMultiplier(p);
+            money = Utils.decimalFormating(money);
 
-        money = Utils.decimalFormating(money);
+            // money is positive
+            if (money > 0) {
+                KillerMoney.getInstance().getServer().getPluginManager().callEvent(
+                        new KillerMoneyMoneyRewardEvent(p, mobs, money, EventSource.ENTITY_KILL, entity)
+                );
+            }
 
-        // money is positive
-        if (money > 0) {
+            // money is negative
+            if (money < 0) {
+                money *= -1;
+
+                KillerMoney.getInstance().getServer().getPluginManager().callEvent(
+                        new KillerMoneyMoneyLoseEvent(p, mobs, money, EventSource.ENTITY_KILL, entity)
+                );
+            }
+        } else {
+            if (!Utils.chanceGenerator(mobs.getLoseMoneyChance())) {
+                return;
+            }
+
+            money = Utils.randomNumber(mobs.getLoseMoneyMin(), mobs.getLoseMoneyMax());
+            money = Utils.decimalFormating(money);
+
+            if (money < 0) {
+                money *= -1;
+            }
 
             KillerMoney.getInstance().getServer().getPluginManager().callEvent(
-                    new KillerMoneyMoneyRewardEvent(killer, mobs, money, EventSource.ENTITY_KILL, entity)
-            );
-        }
-
-        // money is negative
-        if (money < 0) {
-
-            money *= -1;
-
-            KillerMoney.getInstance().getServer().getPluginManager().callEvent(
-                    new KillerMoneyMoneyLossEvent(killer, mobs, money, EventSource.ENTITY_KILL, entity)
+                    new KillerMoneyMoneyLoseEvent(p, mobs, money, EventSource.ENTITY_KILL, entity)
             );
         }
     }

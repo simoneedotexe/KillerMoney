@@ -7,7 +7,7 @@ import org.bukkit.event.Listener;
 
 public class CustomItemDrop implements Listener {
 
-    @EventHandler (priority = EventPriority.MONITOR)
+    @EventHandler (priority = EventPriority.NORMAL)
     public void onCustomItemDrop(KillerMoneyCustomItemDropEvent event) {
 
         if (event.isCancelled()) {

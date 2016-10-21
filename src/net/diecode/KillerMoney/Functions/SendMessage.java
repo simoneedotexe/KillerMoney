@@ -13,7 +13,7 @@ import java.util.Random;
 
 public class SendMessage implements Listener {
 
-    @EventHandler (priority = EventPriority.MONITOR)
+    @EventHandler (priority = EventPriority.NORMAL)
     public void onSendRewardMessage(KillerMoneySendMessageEvent event) {
         if (event.isCancelled()) {
             return;

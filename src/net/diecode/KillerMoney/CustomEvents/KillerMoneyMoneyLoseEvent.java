@@ -8,7 +8,7 @@ import org.bukkit.event.Cancellable;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
-public class KillerMoneyMoneyLossEvent extends Event implements Cancellable {
+public class KillerMoneyMoneyLoseEvent extends Event implements Cancellable {
 
     private static final HandlerList handlers = new HandlerList();
 
@@ -19,7 +19,7 @@ public class KillerMoneyMoneyLossEvent extends Event implements Cancellable {
     private EventSource eventSource;
     private boolean cancelled;
 
-    public KillerMoneyMoneyLossEvent(Player player, Mobs entityConfig, double money, EventSource eventSource, LivingEntity entity) {
+    public KillerMoneyMoneyLoseEvent(Player player, Mobs entityConfig, double money, EventSource eventSource, LivingEntity entity) {
         this.player = player;
         this.entityConfig = entityConfig;
         this.money = money;

@@ -1,7 +1,7 @@
 package net.diecode.KillerMoney.Functions;
 
 import net.diecode.KillerMoney.CustomEvents.KillerMoneyCashTransferEvent;
-import net.diecode.KillerMoney.CustomEvents.KillerMoneyMoneyLossEvent;
+import net.diecode.KillerMoney.CustomEvents.KillerMoneyMoneyLoseEvent;
 import net.diecode.KillerMoney.CustomEvents.KillerMoneyMoneyRewardEvent;
 import net.diecode.KillerMoney.Enums.EventSource;
 import net.diecode.KillerMoney.KillerMoney;
@@ -13,7 +13,7 @@ import org.bukkit.event.Listener;
 
 public class CashTransfer implements Listener {
 
-    @EventHandler (priority = EventPriority.MONITOR)
+    @EventHandler (priority = EventPriority.NORMAL)
     public void onCashTransfer(KillerMoneyCashTransferEvent event) {
 
         if (event.isCancelled()) {
@@ -43,7 +43,7 @@ public class CashTransfer implements Listener {
         );
 
         KillerMoney.getInstance().getServer().getPluginManager().callEvent(
-                new KillerMoneyMoneyLossEvent(
+                new KillerMoneyMoneyLoseEvent(
                         victim, event.getEntityConfig(), transferingMoney, EventSource.CASH_TRANSFER, killer
                 )
         );

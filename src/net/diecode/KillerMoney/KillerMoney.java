@@ -105,7 +105,7 @@ public class KillerMoney extends JavaPlugin {
         }
 
         getServer().getPluginManager().registerEvents(new MoneyReward(), this);
-        getServer().getPluginManager().registerEvents(new MoneyLoss(), this);
+        getServer().getPluginManager().registerEvents(new MoneyLose(), this);
         getServer().getPluginManager().registerEvents(new SendMessage(), this);
         getServer().getPluginManager().registerEvents(new RunCommand(), this);
         getServer().getPluginManager().registerEvents(new CustomItemDrop(), this);
