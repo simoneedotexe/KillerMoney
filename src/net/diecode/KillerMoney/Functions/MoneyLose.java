@@ -14,20 +14,13 @@ public class MoneyLose implements Listener {
 
     @EventHandler (priority = EventPriority.NORMAL)
     public void onMoneyLose(KillerMoneyMoneyLoseEvent event) {
-
-        System.out.println("1");
-
         if (event.isCancelled()) {
             return;
         }
 
-        System.out.println("2");
-
         Player player = event.getPlayer();
         EntityType entityType = event.getEntity().getType();
         double money = event.getMoney();
-
-        System.out.println("3");
 
         KillerMoney.getEconomy().withdrawPlayer(player, money);
 
@@ -47,8 +40,6 @@ public class MoneyLose implements Listener {
                     )
             );
         }
-
-        System.out.println("4");
     }
 
 }
