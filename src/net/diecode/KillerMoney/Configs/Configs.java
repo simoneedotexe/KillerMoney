@@ -165,6 +165,7 @@ public class Configs {
             if (version < 3.2) {
                 KillerMoney.getInstance().getConfig().set("Hook.MineStatus.Enabled", true);
                 KillerMoney.getInstance().getConfig().set("Hook.MineStatus.Graphs.MOB-KILLS", true);
+                KillerMoney.getInstance().saveConfig();
             }
 
             if (version < 3.11) {
