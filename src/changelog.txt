@@ -1,27 +1,31 @@
+3.21
+---
+- Added "COLLECTED-MONEY" Graph
+
 3.2
---
+---
 - "Lose Money" option to player
 - MineStatus support: MOB-KILLS
 - Minor fixes
 
 3.17
---
+---
 - Modified permission system
 - Added "km" alias for killermoney command
 - Fixed KillerMoney command permissions
 - Removed unused random number function
 
 3.16
---
+---
 - Added Custom command chance settings
 - Added Dutch translation
 
 3.15
---
+---
 - Updated to 1.10
 
 3.14
---
+---
 - Updated to 1.9
 - Updated dependencies
 - Fixed deprecated methods

@@ -13,6 +13,8 @@ import org.bukkit.event.Listener;
 
 public class MoneyReward implements Listener {
 
+    private static double collectedMoney = 0;
+
     @EventHandler (priority = EventPriority.NORMAL)
     public void onMoneyReward(KillerMoneyMoneyRewardEvent event) {
 
@@ -25,6 +27,8 @@ public class MoneyReward implements Listener {
         double money = (event.getMoney() * Configs.getGlobalMoneyMultiplier());
 
         KillerMoney.getEconomy().depositPlayer(player, money);
+
+        collectedMoney += money;
 
         LangMessages langMessages = LangMessages.getLangMessagesFromList(entityType);
 
@@ -42,7 +46,13 @@ public class MoneyReward implements Listener {
                     )
             );
         }
-
     }
 
+    public static double getCollectedMoney() {
+        return collectedMoney;
+    }
+
+    public static void resetCollectedMoney() {
+        collectedMoney = 0;
+    }
 }

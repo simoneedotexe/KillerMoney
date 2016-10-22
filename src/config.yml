@@ -31,3 +31,4 @@ Hook:
         Enabled: true
         Graphs:
           MOB-KILLS: true
+          COLLECTED-MONEY: true

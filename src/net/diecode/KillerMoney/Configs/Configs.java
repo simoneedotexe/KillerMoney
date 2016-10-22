@@ -162,6 +162,11 @@ public class Configs {
             double version = getVersionConfig().getDouble("plugin-version");
             double currentVersion = Double.parseDouble(KillerMoney.getInstance().getDescription().getVersion());
 
+            if (version < 3.21) {
+                KillerMoney.getInstance().getConfig().set("Hook.MineStatus.Graphs.COLLECTED-MONEY", true);
+                KillerMoney.getInstance().saveConfig();
+            }
+
             if (version < 3.2) {
                 KillerMoney.getInstance().getConfig().set("Hook.MineStatus.Enabled", true);
                 KillerMoney.getInstance().getConfig().set("Hook.MineStatus.Graphs.MOB-KILLS", true);
