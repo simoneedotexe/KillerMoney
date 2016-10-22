@@ -1,6 +1,6 @@
 3.21
 ---
-- Added "COLLECTED-MONEY" Graph
+- MineStatus support: Added "COLLECTED-MONEY" Graph
 
 3.2
 ---
