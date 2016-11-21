@@ -22,7 +22,7 @@ public class Configs {
     private static boolean globalDisableFunctionInCreativeMode;
     private static boolean hookMobArena;
     private static boolean processConfigInArena;
-    private static boolean hookMineStatus;
+    private static boolean hookMineChart;
     private static ArrayList<String> enabledGraphs = new ArrayList<String>();
 
     private static File versionFile = null;
@@ -95,10 +95,10 @@ public class Configs {
         hookMobArena = config.getBoolean("Hook.MobArena.Enabled");
         processConfigInArena = config.getBoolean("Hook.MobArena.Config-processing-when-players-in-arena");
 
-        hookMineStatus = config.getBoolean("Hook.MineStatus.Enabled");
+        hookMineChart = config.getBoolean("Hook.MineChart.Enabled");
 
-        for (String s : config.getConfigurationSection("Hook.MineStatus.Graphs").getKeys(false)) {
-            if (config.getBoolean("Hook.MineStatus.Graphs." + s)) {
+        for (String s : config.getConfigurationSection("Hook.MineChart.Graphs").getKeys(false)) {
+            if (config.getBoolean("Hook.MineChart.Graphs." + s)) {
                 enabledGraphs.add(s);
             }
         }
@@ -162,14 +162,21 @@ public class Configs {
             double version = getVersionConfig().getDouble("plugin-version");
             double currentVersion = Double.parseDouble(KillerMoney.getInstance().getDescription().getVersion());
 
+            if (version < 3.3) {
+                KillerMoney.getInstance().getConfig().set("Hook.MineChart.Enabled", true);
+                KillerMoney.getInstance().getConfig().set("Hook.MineChart.Graphs.MOB-KILLS", true);
+                KillerMoney.getInstance().getConfig().set("Hook.MineChart.Graphs.COLLECTED-MONEY", true);
+                KillerMoney.getInstance().saveConfig();
+            }
+
             if (version < 3.21) {
-                KillerMoney.getInstance().getConfig().set("Hook.MineStatus.Graphs.COLLECTED-MONEY", true);
+                KillerMoney.getInstance().getConfig().set("Hook.MineChart.Graphs.COLLECTED-MONEY", true);
                 KillerMoney.getInstance().saveConfig();
             }
 
             if (version < 3.2) {
-                KillerMoney.getInstance().getConfig().set("Hook.MineStatus.Enabled", true);
-                KillerMoney.getInstance().getConfig().set("Hook.MineStatus.Graphs.MOB-KILLS", true);
+                KillerMoney.getInstance().getConfig().set("Hook.MineChart.Enabled", true);
+                KillerMoney.getInstance().getConfig().set("Hook.MineChart.Graphs.MOB-KILLS", true);
                 KillerMoney.getInstance().saveConfig();
             }
 
@@ -179,7 +186,7 @@ public class Configs {
                 KillerMoney.getInstance().getConfig().set("Global-settings.Money-multiplier", 1);
                 KillerMoney.getInstance().getConfig().set("Global-settings.Disable-functions-on-these-worlds",
                         Arrays.asList("world_the_end"));
-                KillerMoney.getInstance().getConfig().set("Global-settings.Disable-functions-in-creative-mode", true);
+                KillerMoney.getInstance().getConfig().set("Global-settings.Disable-functions-in-creative-mode", false);
                 KillerMoney.getInstance().saveConfig();
             }
 
@@ -257,8 +264,8 @@ public class Configs {
         return versionConfig;
     }
 
-    public static boolean isHookMineStatus() {
-        return hookMineStatus;
+    public static boolean isHookMineChart() {
+        return hookMineChart;
     }
 
     public static ArrayList<String> getEnabledGraphs() {

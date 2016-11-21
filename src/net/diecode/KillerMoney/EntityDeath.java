@@ -81,9 +81,9 @@ public class EntityDeath implements Listener {
         }
 
         /**
-         * MS support -> MOB-KILLS Graph
+         * MineChart support -> MOB-KILLS Graph
          */
-        if (KillerMoney.isMsHooked() && Configs.getEnabledGraphs().contains("MOB-KILLS")) {
+        if (KillerMoney.isMineChartHooked() && Configs.getEnabledGraphs().contains("MOB-KILLS")) {
             increaseMobTypeCounter(victimType);
         }
 

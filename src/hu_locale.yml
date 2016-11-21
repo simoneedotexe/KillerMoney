@@ -42,11 +42,31 @@ Entities:
          Messages:
             - '{prefix} Elveszítettél {currency}{money}-t'
 
+   DONKEY:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy szamarat, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
    HORSE:
       Reward:
          Random-message: false
          Messages:
             - '{prefix} Megöltél egy lovat, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   LLAMA:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy lámát, nyertél {currency}{money}-t'
       Loss:
          Random-message: false
          Messages:
@@ -122,6 +142,16 @@ Entities:
          Messages:
             - '{prefix} Elveszítettél {currency}{money}-t'
 
+   ELDER_GUARDIAN:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy vén őrszemet, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
    ENDER_DRAGON:
       Reward:
          Random-message: false
@@ -147,6 +177,26 @@ Entities:
          Random-message: false
          Messages:
             - '{prefix} Megöltél egy végbogarat, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   EVOKER:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy idézőt, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   COW:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy tehenet, nyertél {currency}{money}-t'
       Loss:
          Random-message: false
          Messages:
@@ -182,6 +232,16 @@ Entities:
          Messages:
             - '{prefix} Elveszítettél {currency}{money}-t'
 
+   HUSK:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy kiszáradt zombit, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
    IRON_GOLEM:
       Reward:
          Random-message: false
@@ -197,6 +257,16 @@ Entities:
          Random-message: false
          Messages:
             - '{prefix} Megöltél egy magma kockát, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   MULE:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy öszvért, nyertél {currency}{money}-t'
       Loss:
          Random-message: false
          Messages:
@@ -241,6 +311,16 @@ Entities:
             Random-message: false
             Messages:
                - '{prefix} Elveszítettél {currency}{money}-t'
+
+   SKELETON_HORSE:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy csontvázlovat, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
 
    SHULKER:
       Reward:
@@ -302,6 +382,16 @@ Entities:
          Messages:
             - '{prefix} Elveszítettél {currency}{money}-t'
 
+   STRAY:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy kóborlót, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
    SQUID:
       Reward:
          Random-message: false
@@ -312,11 +402,31 @@ Entities:
          Messages:
             - '{prefix} Elveszítettél {currency}{money}-t'
 
+   VEX:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy bosszancsot, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
    VILLAGER:
       Reward:
          Random-message: false
          Messages:
             - '{prefix} Megöltél egy falusit, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   VINDICATOR:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy bosszúállót, nyertél {currency}{money}-t'
       Loss:
          Random-message: false
          Messages:
@@ -342,11 +452,41 @@ Entities:
          Messages:
             - '{prefix} Elveszítettél {currency}{money}-t'
 
+   WITHER_SKELETON:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy withercsontvázat, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
    ZOMBIE:
       Reward:
          Random-message: false
          Messages:
             - '{prefix} Megöltél egy zombit, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   ZOMBIE_HORSE:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy zombilovat, nyertél {currency}{money}-t'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} Elveszítettél {currency}{money}-t'
+
+   ZOMBIE_VILLAGER:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} Megöltél egy élőhalott falusit, nyertél {currency}{money}-t'
       Loss:
          Random-message: false
          Messages:

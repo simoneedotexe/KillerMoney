@@ -42,7 +42,17 @@ COW:
       Chance: 100%
       Value: 1 ? 2
 
+DONKEY:
+   Money:
+      Chance: 100%
+      Value: 1 ? 2
+
 HORSE:
+   Money:
+      Chance: 100%
+      Value: 1 ? 2
+
+LLAMA:
    Money:
       Chance: 100%
       Value: 1 ? 2
@@ -82,6 +92,11 @@ CREEPER:
       Chance: 100%
       Value: 1 ? 2
 
+ELDER_GUARDIAN:
+   Money:
+      Chance: 100%
+      Value: 1 ? 2
+
 ENDER_DRAGON:
    Money:
       Chance: 100%
@@ -93,6 +108,11 @@ ENDERMAN:
       Value: 1 ? 2
 
 ENDERMITE:
+   Money:
+      Chance: 100%
+      Value: 1 ? 2
+
+EVOKER:
    Money:
       Chance: 100%
       Value: 1 ? 2
@@ -112,12 +132,22 @@ GUARDIAN:
       Chance: 100%
       Value: 1 ? 2
 
+HUSK:
+   Money:
+      Chance: 100%
+      Value: 1 ? 2
+
 IRON_GOLEM:
    Money:
       Chance: 100%
       Value: 1 ? 2
 
 MAGMA_CUBE:
+   Money:
+      Chance: 100%
+      Value: 1 ? 2
+
+MULE:
    Money:
       Chance: 100%
       Value: 1 ? 2
@@ -145,6 +175,11 @@ PLAYER:
       Value: 1 ? 2
 
 POLAR_BEAR:
+   Money:
+      Chance: 100%
+      Value: 1 ? 2
+
+SKELETON_HORSE:
    Money:
       Chance: 100%
       Value: 1 ? 2
@@ -179,7 +214,17 @@ SPIDER:
       Chance: 100%
       Value: 1 ? 2
 
+STRAY:
+   Money:
+      Chance: 100%
+      Value: 1 ? 2
+
 SQUID:
+   Money:
+      Chance: 100%
+      Value: 1 ? 2
+
+VEX:
    Money:
       Chance: 100%
       Value: 1 ? 2
@@ -188,6 +233,11 @@ VILLAGER:
    Money:
       Chance: 100%
       Value: -500
+
+VINDICATOR:
+   Money:
+      Chance: 100%
+      Value: 1 ? 2
 
 WITCH:
    Money:
@@ -199,7 +249,22 @@ WITHER:
       Chance: 100%
       Value: 1 ? 2
 
+WITHER_SKELETON:
+   Money:
+      Chance: 100%
+      Value: 1 ? 2
+
 ZOMBIE:
    Money:
       Chance: 100%
       Value: 5
+
+ZOMBIE_HORSE:
+   Money:
+      Chance: 100%
+      Value: 1 ? 2
+
+ZOMBIE_VILLAGER:
+   Money:
+      Chance: 100%
+      Value: 1 ? 2

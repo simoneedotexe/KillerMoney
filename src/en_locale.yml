@@ -42,11 +42,31 @@ Entities:
          Messages:
             - '{prefix} You lost {currency}{money}'
 
+   DONKEY:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} You killed a donkey, you earned {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} You lost {currency}{money}'
+
    HORSE:
       Reward:
          Random-message: false
          Messages:
             - '{prefix} You killed a horse, you earned {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} You lost {currency}{money}'
+
+   LLAMA:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} You killed a llama, you earned {currency}{money}'
       Loss:
          Random-message: false
          Messages:
@@ -122,6 +142,16 @@ Entities:
          Messages:
             - '{prefix} You lost {currency}{money}'
 
+   ELDER_GUARDIAN:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} You killed an elder guardian, you earned {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} You lost {currency}{money}'
+
    ENDER_DRAGON:
       Reward:
          Random-message: false
@@ -147,6 +177,16 @@ Entities:
          Random-message: false
          Messages:
             - '{prefix} You killed an endermite, you earned {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} You lost {currency}{money}'
+
+   EVOKER:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} You killed an evoker, you earned {currency}{money}'
       Loss:
          Random-message: false
          Messages:
@@ -182,6 +222,16 @@ Entities:
          Messages:
             - '{prefix} You lost {currency}{money}'
 
+   HUSK:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} You killed a husk, you earned {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} You lost {currency}{money}'
+
    IRON_GOLEM:
       Reward:
          Random-message: false
@@ -197,6 +247,16 @@ Entities:
          Random-message: false
          Messages:
             - '{prefix} You killed a magma cube, you earned {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} You lost {currency}{money}'
+
+   MULE:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} You killed a mule, you earned {currency}{money}'
       Loss:
          Random-message: false
          Messages:
@@ -237,6 +297,16 @@ Entities:
          Random-message: false
          Messages:
             - '{prefix} You killed a polar bear, you earned {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} You lost {currency}{money}'
+
+   SKELETON_HORSE:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} You killed a skeleton horse, you earned {currency}{money}'
       Loss:
          Random-message: false
          Messages:
@@ -302,6 +372,16 @@ Entities:
          Messages:
             - '{prefix} You lost {currency}{money}'
 
+   STRAY:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} You killed a stray, you earned {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} You lost {currency}{money}'
+
    SQUID:
       Reward:
          Random-message: false
@@ -312,11 +392,31 @@ Entities:
          Messages:
             - '{prefix} You lost {currency}{money}'
 
+   VEX:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} You killed a vex, you earned {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} You lost {currency}{money}'
+
    VILLAGER:
       Reward:
          Random-message: false
          Messages:
             - '{prefix} You killed a villager, you earned {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} You lost {currency}{money}'
+
+   VINDICATOR:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} You killed a vindicator, you earned {currency}{money}'
       Loss:
          Random-message: false
          Messages:
@@ -342,11 +442,41 @@ Entities:
          Messages:
             - '{prefix} You lost {currency}{money}'
 
+   WITHER_SKELETON:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} You killed a wither skeleton, you earned {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} You lost {currency}{money}'
+
    ZOMBIE:
       Reward:
          Random-message: false
          Messages:
             - '{prefix} You killed a zombie, you earned {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} You lost {currency}{money}'
+
+   ZOMBIE_HORSE:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} You killed a zombie horse, you earned {currency}{money}'
+      Loss:
+         Random-message: false
+         Messages:
+            - '{prefix} You lost {currency}{money}'
+
+   ZOMBIE_VILLAGER:
+      Reward:
+         Random-message: false
+         Messages:
+            - '{prefix} You killed a zombie villager, you earned {currency}{money}'
       Loss:
          Random-message: false
          Messages:

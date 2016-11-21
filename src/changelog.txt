@@ -1,6 +1,8 @@
-3.21
+3.3
 ---
-- MineStatus support: Added "COLLECTED-MONEY" Graph
+- Fixed a problem in MineChart (MineStatus) API support caused by rebrand
+- MineChart support: Added "COLLECTED-MONEY" Graph
+- Updated to 1.11
 
 3.2
 ---

@@ -24,9 +24,9 @@ public class KillerMoney extends JavaPlugin {
 
     private Mobs mobs;
     private LangMessages langMessages;
-    private MSGraphs msGraphs;
+    private MineChartGraphs mineChartGraphs;
 
-    private static boolean msHooked;
+    private static boolean mineChartHooked;
 
     private Update checkUpdate;
 
@@ -71,11 +71,11 @@ public class KillerMoney extends JavaPlugin {
         }
     }
 
-    public void hookMS() {
-        if ((Bukkit.getPluginManager().getPlugin("MineStatus-Universal") != null)
+    public void hookMineChart() {
+        if ((Bukkit.getPluginManager().getPlugin("MineChart") != null)
                 && !Configs.getEnabledGraphs().isEmpty()) {
-            msHooked = true;
-            msGraphs = new MSGraphs();
+            mineChartHooked = true;
+            mineChartGraphs = new MineChartGraphs();
         }
     }
 
@@ -125,8 +125,8 @@ public class KillerMoney extends JavaPlugin {
 
         getCommand("killermoney").setExecutor(new KillerMoneyCommand());
 
-        if (Configs.isHookMineStatus()) {
-            hookMS();
+        if (Configs.isHookMineChart()) {
+            hookMineChart();
         }
 
         /*
@@ -153,7 +153,7 @@ public class KillerMoney extends JavaPlugin {
         maHandler = null;
     }
 
-    public static boolean isMsHooked() {
-        return msHooked;
+    public static boolean isMineChartHooked() {
+        return mineChartHooked;
     }
 }
