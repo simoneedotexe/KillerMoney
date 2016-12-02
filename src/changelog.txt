@@ -1,6 +1,6 @@
 3.4
 ---
-
+- Removed unused "Global-money-multiplier" option
 
 3.3
 ---
