@@ -13,14 +13,11 @@ Farming:
     Disable-egg-farming: false
 
 Global-settings:
+    # The money multiplier. You can change it on double coins weekend. Money * Multiplier.
     Money-multiplier: 1
     Disable-functions-on-these-worlds:
         - world_the_end
     Disable-functions-in-creative-mode: false
-
-
-# The money multiplier. You can change it on double coins weekend. Money * Multiplier.
-Global-money-multiplier: 1
 
 # Hook settings
 Hook:

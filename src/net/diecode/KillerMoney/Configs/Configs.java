@@ -182,7 +182,6 @@ public class Configs {
 
             if (version < 3.11) {
                 KillerMoney.getInstance().getConfig().set("Decimal-places", 2);
-                KillerMoney.getInstance().getConfig().set("Global-money-multiplier", null);
                 KillerMoney.getInstance().getConfig().set("Global-settings.Money-multiplier", 1);
                 KillerMoney.getInstance().getConfig().set("Global-settings.Disable-functions-on-these-worlds",
                         Arrays.asList("world_the_end"));
