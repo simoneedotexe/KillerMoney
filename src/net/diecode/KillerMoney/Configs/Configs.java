@@ -21,7 +21,7 @@ public class Configs {
     private static ArrayList<String> globalDisabledWorlds;
     private static boolean globalDisableFunctionInCreativeMode;
     private static boolean hookMobArena;
-    private static boolean processConfigInArena;
+    private static boolean disableFunctionsInMA;
     private static boolean hookMineChart;
     private static ArrayList<String> enabledGraphs = new ArrayList<String>();
 
@@ -93,7 +93,7 @@ public class Configs {
          * Mob Arena hook settings
          */
         hookMobArena = config.getBoolean("Hook.MobArena.Enabled");
-        processConfigInArena = config.getBoolean("Hook.MobArena.Config-processing-when-players-in-arena");
+        disableFunctionsInMA = config.getBoolean("Hook.MobArena.Disable-functions-when-player-is-fighting-in-arena");
 
         hookMineChart = config.getBoolean("Hook.MineChart.Enabled");
 
@@ -162,6 +162,10 @@ public class Configs {
             double version = getVersionConfig().getDouble("plugin-version");
             double currentVersion = Double.parseDouble(KillerMoney.getInstance().getDescription().getVersion());
 
+            if (version < 3.4) {
+
+            }
+
             if (version < 3.3) {
                 KillerMoney.getInstance().getConfig().set("Hook.MineChart.Enabled", true);
                 KillerMoney.getInstance().getConfig().set("Hook.MineChart.Graphs.MOB-KILLS", true);
@@ -215,8 +219,8 @@ public class Configs {
         return hookMobArena;
     }
 
-    public static boolean isProcessConfigInArena() {
-        return processConfigInArena;
+    public static boolean isDisableFunctionsInMA() {
+        return disableFunctionsInMA;
     }
 
     public static boolean isDisableSpawnerFarming() {

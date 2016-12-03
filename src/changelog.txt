@@ -1,6 +1,7 @@
 3.4
 ---
 - Removed unused "Global-money-multiplier" option
+- "Config-processing when players in arena" renamed to "Disable-functions-when-player-is-fighting-in-arena" in config
 
 3.3
 ---

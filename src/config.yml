@@ -23,7 +23,7 @@ Global-settings:
 Hook:
     MobArena:
         Enabled: false
-        Config-processing-when-players-in-arena: false
+        Disable-functions-when-player-is-fighting-in-arena: true
     MineChart:
         Enabled: true
         Graphs:

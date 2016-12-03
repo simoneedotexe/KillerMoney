@@ -7,7 +7,6 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.EntityType;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class KillerMoneyAPI {
 
@@ -29,7 +28,7 @@ public class KillerMoneyAPI {
      * @return  True if process-events is enabled in config
      */
     public boolean processEventsInMobArena() {
-        return Configs.isProcessConfigInArena();
+        return Configs.isDisableFunctionsInMA();
     }
 
     /**

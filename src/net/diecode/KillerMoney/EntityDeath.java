@@ -122,10 +122,10 @@ public class EntityDeath implements Listener {
         /**
          * MobArena check
          */
-        if (KillerMoney.getMaHandler() != null && !Configs.isProcessConfigInArena()) {
-                if (KillerMoney.getMaHandler().isPlayerInArena(killer)) {
-                    return;
-                }
+        if (KillerMoney.getMaHandler() != null && Configs.isDisableFunctionsInMA()) {
+            if (KillerMoney.getMaHandler().isPlayerInArena(killer)) {
+                return;
+            }
         }
 
         /**
