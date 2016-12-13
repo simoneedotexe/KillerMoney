@@ -15,6 +15,7 @@ public class LangMessages {
     private static ArrayList<LangMessages> langMessagesObjectList;
     private static String prefix;
     private static String currency;
+    private static String reachedDailyLimit;
 
     static {
         initialize();
@@ -59,10 +60,18 @@ public class LangMessages {
             currency = ChatColor.translateAlternateColorCodes('&', currency);
         }
 
+        reachedDailyLimit = langConfig.getString("you-reached-daily-limit");
+
+        if (reachedDailyLimit == null) {
+            reachedDailyLimit = "You reached daily limit";
+        }
+
+        reachedDailyLimit = ChatColor.translateAlternateColorCodes('&', reachedDailyLimit);
+
+
         Set<String> entityTypes = langConfig.getConfigurationSection("Entities").getKeys(false);
 
         for (String currentEntityType : entityTypes) {
-
 
             /**
              * Set up entity type
@@ -189,5 +198,9 @@ public class LangMessages {
 
     public static ArrayList<LangMessages> getLangMessagesObjectList() {
         return langMessagesObjectList;
+    }
+
+    public static String getReachedDailyLimit() {
+        return prefix + " " + reachedDailyLimit;
     }
 }

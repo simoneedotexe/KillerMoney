@@ -122,6 +122,7 @@ public class KillerMoney extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new CashTransfer(), this);
         getServer().getPluginManager().registerEvents(new Farming(), this);
         getServer().getPluginManager().registerEvents(new EntityDeath(), this);
+        getServer().getPluginManager().registerEvents(new CommonEvents(), this);
 
         getCommand("killermoney").setExecutor(new KillerMoneyCommand());
 

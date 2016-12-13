@@ -2,9 +2,7 @@ package net.diecode.KillerMoney;
 
 import net.diecode.KillerMoney.Configs.Configs;
 import net.diecode.KillerMoney.CustomEvents.*;
-import net.diecode.KillerMoney.CustomObjects.CustomCommand;
-import net.diecode.KillerMoney.CustomObjects.CustomItems;
-import net.diecode.KillerMoney.CustomObjects.Mobs;
+import net.diecode.KillerMoney.CustomObjects.*;
 import net.diecode.KillerMoney.Enums.EventSource;
 import net.diecode.KillerMoney.Enums.MobType;
 import net.diecode.KillerMoney.Enums.MoneyType;
@@ -50,6 +48,7 @@ public class EntityDeath implements Listener {
          */
         if (Farming.containsInList(victim.getUniqueId())) {
             Farming.removeFromList(victim.getUniqueId());
+
             return;
         }
 
@@ -124,6 +123,24 @@ public class EntityDeath implements Listener {
          */
         if (KillerMoney.getMaHandler() != null && Configs.isDisableFunctionsInMA()) {
             if (KillerMoney.getMaHandler().isPlayerInArena(killer)) {
+                return;
+            }
+        }
+
+        if (mobs.getDailyLimit() > 0) {
+            EntityCounter ec = DataStore.getEntityCounter(killer);
+
+            if (ec == null) {
+                ec = new EntityCounter(killer.getUniqueId());
+            }
+
+            ec.increase(victimType);
+
+            int counter = ec.get(victimType);
+
+            if (counter > mobs.getDailyLimit()) {
+                killer.sendMessage(LangMessages.getReachedDailyLimit());
+
                 return;
             }
         }

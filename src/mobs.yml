@@ -26,6 +26,7 @@ PIG:
             Permission: 'killermoney.vip'
    Custom-commands:
       - 'say {player} killed a PIG;75%'
+   Daily-limit: 10
 
 SHEEP:
    Money:

@@ -1,11 +1,12 @@
 package net.diecode.KillerMoney.Functions;
 
 import net.diecode.KillerMoney.Configs.Configs;
-import org.bukkit.entity.Entity;
+import net.diecode.KillerMoney.DataStore;
+import net.diecode.KillerMoney.KillerMoney;
+import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
-import org.bukkit.event.world.ChunkUnloadEvent;
 
 import java.util.ArrayList;
 import java.util.UUID;
@@ -13,6 +14,15 @@ import java.util.UUID;
 public class Farming implements Listener {
 
     private static ArrayList<UUID> spawnedMobs = new ArrayList<UUID>();
+
+    public Farming() {
+        Bukkit.getScheduler().runTaskTimer(KillerMoney.getInstance(), new Runnable() {
+            @Override
+            public void run() {
+                DataStore.getEntityCounterObj().clear();
+            }
+        }, 20L * 60 * 60 * 24, 20L * 60 * 60 * 24);
+    }
 
     public static boolean containsInList(UUID uuid) {
         return spawnedMobs.contains(uuid);
@@ -45,19 +55,6 @@ public class Farming implements Listener {
             if (Configs.isDisableEggFarming()) {
                 spawnedMobs.add(event.getEntity().getUniqueId());
                 return;
-            }
-        }
-    }
-
-    @EventHandler
-    public void onChunkUnload(ChunkUnloadEvent event) {
-        if (event.isCancelled()) {
-            return;
-        }
-
-        for (Entity currentEntity : event.getChunk().getEntities()) {
-            if (spawnedMobs.contains(currentEntity.getUniqueId())) {
-                spawnedMobs.remove(currentEntity.getUniqueId());
             }
         }
     }

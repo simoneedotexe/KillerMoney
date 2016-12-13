@@ -44,6 +44,8 @@ public class Mobs {
     private List<CustomCommand> customCommands;
     private boolean customCommandsEnabled;
 
+    private int dailyLimit;
+
     static {
         initialize();
     }
@@ -412,6 +414,10 @@ public class Mobs {
                 mobObject.setCustomCommandsEnabled(false);
             }
 
+            if (mobsConfig.get(currentMobType + ".Daily-limit") != null) {
+                mobObject.setDailyLimit(mobsConfig.getInt(currentMobType + ".Daily-limit"));
+            }
+
             getMobsObjectList().add(mobObject);
 
             /**
@@ -610,5 +616,13 @@ public class Mobs {
 
     public void setLoseMoneyEnabled(boolean loseMoneyEnabled) {
         this.loseMoneyEnabled = loseMoneyEnabled;
+    }
+
+    public int getDailyLimit() {
+        return dailyLimit;
+    }
+
+    public void setDailyLimit(int dailyLimit) {
+        this.dailyLimit = dailyLimit;
     }
 }

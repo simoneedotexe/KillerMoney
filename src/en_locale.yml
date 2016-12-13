@@ -1,5 +1,6 @@
 prefix: '&7[KillerMoney]&c'
 currency: '$'
+you-reached-daily-limit: 'You reached daily limit'
 
 Entities:
    PIG:
