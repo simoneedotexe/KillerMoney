@@ -1,5 +1,6 @@
-package net.diecode.KillerMoney.commands;
+package net.diecode.KillerMoney.managers;
 
+import net.diecode.KillerMoney.commands.KMCommand;
 import net.diecode.KillerMoney.enums.KMPermissions;
 import net.diecode.KillerMoney.enums.SenderType;
 

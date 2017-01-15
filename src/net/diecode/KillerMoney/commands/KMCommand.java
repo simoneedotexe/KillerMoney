@@ -4,6 +4,7 @@ import net.diecode.KillerMoney.commands.subcommands.HelpCommand;
 import net.diecode.KillerMoney.commands.subcommands.ReloadCommand;
 import net.diecode.KillerMoney.enums.KMPermissions;
 import net.diecode.KillerMoney.enums.SenderType;
+import net.diecode.KillerMoney.managers.CommandManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

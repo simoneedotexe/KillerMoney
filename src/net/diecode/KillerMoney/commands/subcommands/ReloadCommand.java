@@ -1,6 +1,6 @@
 package net.diecode.KillerMoney.commands.subcommands;
 
-import net.diecode.KillerMoney.commands.CommandManager;
+import net.diecode.KillerMoney.managers.CommandManager;
 import net.diecode.KillerMoney.enums.KMPermissions;
 
 public class ReloadCommand extends CommandManager {

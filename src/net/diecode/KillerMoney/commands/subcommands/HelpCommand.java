@@ -1,6 +1,6 @@
 package net.diecode.KillerMoney.commands.subcommands;
 
-import net.diecode.KillerMoney.commands.CommandManager;
+import net.diecode.KillerMoney.managers.CommandManager;
 
 public class HelpCommand extends CommandManager {
 
