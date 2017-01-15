@@ -1,5 +1,6 @@
 package net.diecode.KillerMoney;
 
+import net.diecode.KillerMoney.commands.KMCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.IOException;
@@ -21,6 +22,8 @@ public class BukkitMain extends JavaPlugin {
         instance = this;
 
         initMetrics();
+
+        getCommand("km").setExecutor(new KMCommand());
     }
 
     @Override

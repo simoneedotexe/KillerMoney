@@ -4,3 +4,9 @@ version: 4.0.0
 softdepend: [Vault, MobArena, MineChart]
 author: diecode
 website: http://dev.bukkit.org/bukkit-plugins/killermoney/
+commands:
+    km:
+        description: "This is the main command of KillerMoney"
+        usage: "Please type /<command> help"
+        aliases: [killermoney]
+        default: true
