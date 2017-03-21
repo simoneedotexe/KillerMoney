@@ -1,0 +1,24 @@
+Check-update: true
+Global-settings:
+    Money:
+        Decimal-places: 2
+        Item-drop:
+            Enabled: true
+            Item-name: "${amount}"
+            Item-material: GOLD_INGOT
+    Farming:
+        Disable-spawner-farming: true
+        Disable-spawner-egg-farming: true
+    General:
+        Message-method: CHAT
+        Allowed-gamemodes: SURVIVAL, CREATIVE
+    Limit:
+        Reset-time: 24
+        Reached-limit-message: true
+Hook:
+    MobArena:
+        Enabled: true
+    MineChart:
+        Enabled: true
+        Graphs:
+            MONEY: true
