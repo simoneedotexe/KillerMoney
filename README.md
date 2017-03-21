@@ -20,12 +20,12 @@
 * /km reload
 
 ## Installing
-Step 0: If you have either KillerMoney 1.x, 2.x or 3.x installed, delete it with all files and configurations.
-Step 1: Install VAULT and Economy plugins (for example Essentials, BOSEconomy, iConomy, etc.) if you want use money reward feature.
-Step 2: Download the latest version of KillerMoney and copy it into your plugins folder.
-Step 3: Restart your server for the plugin files to generate and for the plugin to load.
-Step 4: Customise config.yml and entities.yml files to your like and set your language in the lang.yml file.
-Step 5: Use it and send feedback for future developments
+* Step 0: If you have either KillerMoney 1.x, 2.x or 3.x installed, delete it with all files and configurations.
+* Step 1: Install VAULT and Economy plugins (for example Essentials, BOSEconomy, iConomy, etc.) if you want use money reward feature.
+* Step 2: Download the latest version of KillerMoney and copy it into your plugins folder.
+* Step 3: Restart your server for the plugin files to generate and for the plugin to load.
+* Step 4: Customise config.yml and entities.yml files to your like and set your language in the lang.yml file.
+* Step 5: Use it and send feedback for future developments
 
 ## API
 It will be available in 4.1.0
