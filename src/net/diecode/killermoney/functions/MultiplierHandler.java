@@ -45,10 +45,10 @@ public class MultiplierHandler implements Listener {
         timer = Bukkit.getScheduler().runTaskTimer(BukkitMain.getInstance(), new Runnable() {
             @Override
             public void run() {
+                minuteLeft--;
+
                 if (minuteLeft < 1) {
                     cancel();
-                } else {
-                    minuteLeft--;
                 }
             }
         }, 20L * 60, 20L * 60);
