@@ -45,6 +45,11 @@ public class CItemHandler implements Listener {
 
         for (CItem cItem : cItems) {
             if (cItem.chanceGen()) {
+                if ((cItem.getPermission() != null && !cItem.getPermission().isEmpty())
+                        && (!killer.hasPermission(cItem.getPermission()))) {
+                    continue;
+                }
+
                 if (!hasItemLimitBypass(killer)) {
                     if (cItem.isReachedLimit(killer.getUniqueId())) {
                         continue;

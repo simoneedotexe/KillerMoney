@@ -131,6 +131,6 @@ public class MoneyProperties {
         }
 
         return new BigDecimal(limit * MoneyHandler.getLimitMultiplier(player))
-                .setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_UP);
+                .setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_EVEN);
     }
 }

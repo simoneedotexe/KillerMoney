@@ -51,7 +51,7 @@ public class CashTransferHandler implements Listener {
             }
         }
 
-        moneySum = moneySum.setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_UP);
+        moneySum = moneySum.setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_EVEN);
 
         Bukkit.getPluginManager().callEvent(new KMLoseMoneyCashTransferEvent(e.getCashTransferProperties(),
                 e.getDamagers(), e.getVictim(), moneySum));
@@ -124,12 +124,12 @@ public class CashTransferHandler implements Listener {
         }
 
         BigDecimal victimsMoney = new BigDecimal(BukkitMain.getEconomy().getBalance(victim));
-        BigDecimal money = victimsMoney.divide(new BigDecimal(100), BigDecimal.ROUND_HALF_UP).multiply(
-                new BigDecimal(ctp.getPercent())).setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_UP);
+        BigDecimal money = victimsMoney.divide(new BigDecimal(100), BigDecimal.ROUND_HALF_EVEN).multiply(
+                new BigDecimal(ctp.getPercent())).setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_EVEN);
 
         if (ctp.getMaxAmount() != 0 && ctp.getMaxAmount() < money.intValue()) {
             money = new BigDecimal(ctp.getMaxAmount()).setScale(DefaultConfig.getDecimalPlaces(),
-                    BigDecimal.ROUND_HALF_UP);
+                    BigDecimal.ROUND_HALF_EVEN);
         }
 
         BigDecimal dividedMoney = BigDecimal.ZERO;
@@ -144,6 +144,11 @@ public class CashTransferHandler implements Listener {
                     Player p = Bukkit.getPlayer(ed.getPlayerUUID());
 
                     if (p != null) {
+                        if ((ctp.getPermission() != null && !ctp.getPermission().isEmpty())
+                                && (!p.hasPermission(ctp.getPermission()))) {
+                            continue;
+                        }
+
                         hasLimitBypass = hasMoneyLimitBypass(p);
                     }
 
@@ -159,11 +164,11 @@ public class CashTransferHandler implements Listener {
 
                     // Calculating the money
                     BigDecimal x = ed.getDamage().divide(new BigDecimal(victim.getMaxHealth()),
-                            BigDecimal.ROUND_HALF_UP);
+                            BigDecimal.ROUND_HALF_EVEN);
 
                     // Calculating remaining limit
                     remainingLimit = new BigDecimal(ctp.getLimit() - ctp.getCurrentLimitValue(ed.getPlayerUUID())
-                            .doubleValue()).setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_UP);
+                            .doubleValue()).setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_EVEN);
 
                     // Divided money by victim damage
                     dividedMoney = new BigDecimal(money.multiply(x).doubleValue());
@@ -179,13 +184,18 @@ public class CashTransferHandler implements Listener {
                     }
 
                     // Set scale
-                    dividedMoney = dividedMoney.setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_UP);
+                    dividedMoney = dividedMoney.setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_EVEN);
 
                     ed.setCalculatedMoney(dividedMoney);
                     filteredDamagers.add(ed);
                 }
             } else {
                 // Division method is LAST_HIT
+                if ((ctp.getPermission() != null && !ctp.getPermission().isEmpty())
+                        && (!killer.hasPermission(ctp.getPermission()))) {
+                    return;
+                }
+
                 if (!hasMoneyLimitBypass(killer)) {
                     if (ctp.isReachedLimit(killer.getUniqueId())) {
                         if (DefaultConfig.isReachedLimitMessage()) {
@@ -198,7 +208,7 @@ public class CashTransferHandler implements Listener {
 
                 // Calculating remaining limit
                 remainingLimit = new BigDecimal(ctp.getLimit() - ctp.getCurrentLimitValue(killer.getUniqueId())
-                        .doubleValue()).setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_UP);
+                        .doubleValue()).setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_EVEN);
 
                 dividedMoney = money;
 
@@ -209,7 +219,7 @@ public class CashTransferHandler implements Listener {
                 }
 
                 // Set scale
-                dividedMoney = dividedMoney.setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_UP);
+                dividedMoney = dividedMoney.setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_EVEN);
 
                 filteredDamagers.add(new EntityDamage(killer.getUniqueId(), new BigDecimal(victim.getMaxHealth()),
                         dividedMoney));

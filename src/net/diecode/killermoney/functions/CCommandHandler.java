@@ -50,6 +50,11 @@ public class CCommandHandler implements Listener {
 
         for (CCommand cCommand : commands) {
             if (cCommand.chanceGen()) {
+                if ((cCommand.getPermission() != null && !cCommand.getPermission().isEmpty())
+                        && (!killer.hasPermission(cCommand.getPermission()))) {
+                    continue;
+                }
+
                 if (!hasCommandLimitBypass(killer)) {
                     if (cCommand.isReachedLimit(killer.getUniqueId())) {
                         continue;

@@ -65,7 +65,7 @@ public class MoneyHandler implements Listener {
             } else {
                 BigDecimal money = ed.getCalculatedMoney().multiply(new BigDecimal(-1));
 
-                money = money.setScale(2, BigDecimal.ROUND_HALF_UP);
+                money = money.setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_EVEN);
 
                 Bukkit.getPluginManager().callEvent(new KMLoseMoneyEvent(e.getMoneyProperties(), p,
                         money, e.getVictim(), ed.getDamage()));
@@ -179,7 +179,7 @@ public class MoneyHandler implements Listener {
             item.remove();
             BigDecimal money = new BigDecimal(Double.valueOf(item.getCustomName()
                     .replaceAll("[^0-9.]", "")))
-                    .setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_UP);
+                    .setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_EVEN);
 
             EntityType entityType = EntityType.valueOf(is.getItemMeta().getLore().get(1));
             EntityProperties ep = EntityManager.getEntityProperties(entityType);
@@ -208,7 +208,7 @@ public class MoneyHandler implements Listener {
         }
 
         BigDecimal money = new BigDecimal(Utils.randomNumber(mp.getMinMoney(),
-                mp.getMaxMoney())).setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_UP);
+                mp.getMaxMoney())).setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_EVEN);
         BigDecimal dividedMoney;
         BigDecimal remainingLimit;
         BigDecimal playerLimit;
@@ -221,6 +221,11 @@ public class MoneyHandler implements Listener {
             if (mp.getDivisionMethod() == DivisionMethod.SHARED) {
                 for (EntityDamage ed : damagers) {
                     Player p = Bukkit.getPlayer(ed.getPlayerUUID());
+
+                    if ((mp.getPermission() != null && !mp.getPermission().isEmpty())
+                            && (!p.hasPermission(mp.getPermission()))) {
+                        continue;
+                    }
 
                     if (!hasMoneyLimitBypass(p)) {
                         if (mp.isReachedLimit(ed.getPlayerUUID())) {
@@ -236,11 +241,11 @@ public class MoneyHandler implements Listener {
                     playerLimit = mp.getLimit(killer);
 
                     // Calculating the money
-                    BigDecimal x = ed.getDamage().divide(new BigDecimal(victim.getMaxHealth()), BigDecimal.ROUND_HALF_UP);
+                    BigDecimal x = ed.getDamage().divide(new BigDecimal(victim.getMaxHealth()), BigDecimal.ROUND_HALF_EVEN);
 
                     // Calculating remaining limit
                     remainingLimit = playerLimit.subtract(mp.getCurrentLimitValue(ed.getPlayerUUID()))
-                            .setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_UP);
+                            .setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_EVEN);
 
                     // Divided money by victim damage
                     dividedMoney = new BigDecimal(money.multiply(x).doubleValue());
@@ -256,13 +261,18 @@ public class MoneyHandler implements Listener {
                     }
 
                     // Set scale
-                    dividedMoney = dividedMoney.setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_UP);
+                    dividedMoney = dividedMoney.setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_EVEN);
 
                     ed.setCalculatedMoney(dividedMoney);
                     filteredDamagers.add(ed);
                 }
             } else {
                 // Division method is LAST_HIT
+                if ((mp.getPermission() != null && !mp.getPermission().isEmpty())
+                        && (!killer.hasPermission(mp.getPermission()))) {
+                    return;
+                }
+
                 if (!hasMoneyLimitBypass(killer)) {
                     if (mp.isReachedLimit(killer.getUniqueId())) {
                         if (DefaultConfig.isReachedLimitMessage()) {
@@ -291,7 +301,7 @@ public class MoneyHandler implements Listener {
                 dividedMoney = dividedMoney.multiply(new BigDecimal(MultiplierHandler.getMultiplier()));
 
                 // Set scale
-                dividedMoney = dividedMoney.setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_UP);
+                dividedMoney = dividedMoney.setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_EVEN);
 
                 filteredDamagers.add(new EntityDamage(killer.getUniqueId(),
                         new BigDecimal(victim.getMaxHealth()), dividedMoney));
@@ -306,13 +316,13 @@ public class MoneyHandler implements Listener {
                 for (EntityDamage ed : damagers) {
 
                     // Calculating the money
-                    BigDecimal x = ed.getDamage().divide(new BigDecimal(victim.getMaxHealth()), BigDecimal.ROUND_HALF_UP);
+                    BigDecimal x = ed.getDamage().divide(new BigDecimal(victim.getMaxHealth()), BigDecimal.ROUND_HALF_EVEN);
 
                     // Divided money by victim damage
                     dividedMoney = new BigDecimal(money.multiply(x).doubleValue());
 
                     // Set scale
-                    dividedMoney = dividedMoney.setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_UP);
+                    dividedMoney = dividedMoney.setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_EVEN);
 
                     ed.setCalculatedMoney(dividedMoney);
                     filteredDamagers.add(ed);
@@ -322,7 +332,7 @@ public class MoneyHandler implements Listener {
                 dividedMoney = money;
 
                 // Set scale
-                dividedMoney = dividedMoney.setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_UP);
+                dividedMoney = dividedMoney.setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_EVEN);
 
                 filteredDamagers.add(new EntityDamage(killer.getUniqueId(), new BigDecimal(victim.getMaxHealth()), dividedMoney));
             }

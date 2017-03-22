@@ -147,7 +147,7 @@ public class EntityManager implements Listener {
             dmg = entity.getHealth();
         }
 
-        BigDecimal damage = new BigDecimal(dmg).setScale(1, BigDecimal.ROUND_HALF_UP);
+        BigDecimal damage = new BigDecimal(dmg).setScale(2, BigDecimal.ROUND_HALF_EVEN);
 
         if (entityDamages.containsKey(euuid)) {
             ArrayList<EntityDamage> damages = entityDamages.get(euuid);
