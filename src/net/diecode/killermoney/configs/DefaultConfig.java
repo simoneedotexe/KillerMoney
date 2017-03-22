@@ -21,6 +21,7 @@ public class DefaultConfig extends ConfigManager {
     private static int decimalPlaces;
     private static MessageMethod messageMethod;
     private static boolean hookMobArena;
+    private static boolean disableRewardsInArena;
     private static boolean hookMineChart;
     private static ArrayList<String> enabledGraphs = new ArrayList<>();
     private static boolean antiFarmingSpawner;
@@ -69,6 +70,9 @@ public class DefaultConfig extends ConfigManager {
 
         // Mobarena support
         hookMobArena = getConfig().getBoolean("Hook.MobArena.Enabled");
+
+        // Disable reward in mobarena
+        disableRewardsInArena = getConfig().getBoolean("Hook.MobArena.Disable-rewards-in-arena");
 
         // Farming settings
         antiFarmingSpawner = getConfig().getBoolean("Global-settings.Farming.Disable-spawner-farming");
@@ -161,6 +165,10 @@ public class DefaultConfig extends ConfigManager {
 
     public static boolean isHookMobArena() {
         return hookMobArena;
+    }
+
+    public static boolean isDisableRewardsInArena() {
+        return disableRewardsInArena;
     }
 
     public static boolean isHookMineChart() {

@@ -61,7 +61,7 @@ public class EntityManager implements Listener {
         }
 
         // MobArena support
-        if (BukkitMain.getMobArenaHandler() != null) {
+        if ((BukkitMain.getMobArenaHandler() != null) && DefaultConfig.isDisableRewardsInArena()) {
             if (BukkitMain.getMobArenaHandler().isPlayerInArena(killerP)) {
                 return;
             }

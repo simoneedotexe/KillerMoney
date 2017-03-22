@@ -27,6 +27,7 @@ Configurable-permissions:
 Hook:
     MobArena:
         Enabled: false
+        Disable-rewards-in-arena: true
     MineChart:
         Enabled: true
         Graphs:
