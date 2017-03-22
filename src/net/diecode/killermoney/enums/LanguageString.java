@@ -6,7 +6,7 @@ public enum LanguageString {
     GENERAL_PREFIX("&7[ &aKillerMoney &7] > "),
     GENERAL_CURRENCY("$"),
     GENERAL_YOU_KILLED_AN_ENTITY_AND_EARN_MONEY("&7You killed a(n) entity (&a{0}&7, &a{1}&7). You earned &a${2}&7. Your damage was: &a{3}"), //{0} = entity type, {1} = entity_name, {2} = money, {3} = damage
-    GENERAL_YOU_KILLED_AN_ENTITY_AND_LOSE_MONEY("&7You killed a(n) entity (&a{0}&7, &a{1}77). You lost &a${2}&7. Your damage was: &a{3}"), //{0} = entity type, {1} = entity_name, {2} = money, {3} = damage
+    GENERAL_YOU_KILLED_AN_ENTITY_AND_LOSE_MONEY("&7You killed a(n) entity (&a{0}&7, &a{1}&7). You lost &a${2}&7. Your damage was: &a{3}"), //{0} = entity type, {1} = entity_name, {2} = money, {3} = damage
     GENERAL_YOU_PICKED_UP_MONEY("&7You picked up &a${0}&7."), // {0} = money
     GENERAL_CONFIGS_ARE_RELOADED("&7Configs are reloaded"),
     GENERAL_LIMIT_REACHED("&aLimit reached. &7Limit will be reset after {0}"), // {0} = reset time
