@@ -22,7 +22,7 @@
 ## Permissions
 | Permission | Description |
 | ------------- | ------------- |
-| km.admin | for admin commands: limit, multiplier, reload |
+| km.admin | For admin commands: limit, multiplier, reload |
 | km.bypass.moneylimit | Bypass money limit |
 | km.bypass.itemlimit | Bypass item limit |
 | km.bypass.commandlimit | Bypass command limit |
