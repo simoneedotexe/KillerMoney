@@ -10,8 +10,8 @@ Global-settings:
             Item-name: "&c${amount}"
             Item-material: GOLD_INGOT
     Farming:
-        Disable-spawner-farming: false
-        Disable-spawner-egg-farming: false
+        Disable-spawner-farming: true
+        Disable-spawner-egg-farming: true
     General:
         Message-method: CHAT
         Allowed-gamemodes: SURVIVAL, CREATIVE
@@ -20,16 +20,16 @@ Global-settings:
         Reached-limit-message: true
 Configurable-permissions:
     Money-multipliers:
-        donator: 1.2
+        donator: 1.5
         vip: 2
-        elite: 3
+        elite: 2.5
     Limit-multipliers:
-        donator: 1.2
+        donator: 1.5
         vip: 2
-        elite: 3
+        elite: 2.5
 Hook:
     MobArena:
-        Enabled: true
+        Enabled: false
         Disable-rewards-in-arena: true
     MineChart:
         Enabled: true
@@ -71,8 +71,8 @@ Drop money reward on the ground.
 ```yaml
 Global-settings:
     Farming:
-        Disable-spawner-farming: false
-        Disable-spawner-egg-farming: false
+        Disable-spawner-farming: true
+        Disable-spawner-egg-farming: true
 ```
 
 **Disable-spawner-farming:** Disable reward when the entity spawned from spawner.
@@ -121,7 +121,7 @@ Example 3: If you created a new one then you must set permission to permission g
 ```yaml
 Hook:
     MobArena:
-        Enabled: true
+        Enabled: false
         Disable-rewards-in-arena: true
     MineChart:
         Enabled: true
