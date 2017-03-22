@@ -19,6 +19,15 @@
 * /km multiplier
 * /km reload
 
+# Permissions
+* km.admin -> for admin commands: limit, multiplier, reload)
+* km.money.multiplier.NAME_FROM_CONFIG -> Money multiplier
+* km.moneylimit.multiplier.NAME_FROM.CONFIG -> Money limit multiplier
+* km.bypass.moneylimit -> Bypass money limit
+* km.bypass.itemlimit -> Bypass item limit
+* km.bypass.commandlimit -> Bypass command limit
+* km.bypass.cashtransferlimit -> Bypass cash transfer limit
+
 ## Installing
 * Step 0: If you have either KillerMoney 1.x, 2.x or 3.x installed, delete it with all files and configurations.
 * Step 1: Install VAULT and Economy plugins (for example Essentials, BOSEconomy, iConomy, etc.) if you want use money reward feature.
