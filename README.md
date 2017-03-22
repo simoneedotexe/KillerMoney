@@ -19,14 +19,16 @@
 + /km multiplier <set, get, reset>
 + /km reload
 
-# Permissions
-+ **km.admin** -> for admin commands: limit, multiplier, reload)
-+ **km.bypass.moneylimit** -> Bypass money limit
-+ **km.bypass.itemlimit** -> Bypass item limit
-+ **km.bypass.commandlimit** -> Bypass command limit
-+ **km.bypass.cashtransferlimit** -> Bypass cash transfer limit
-+ **km.money.multiplier.NAME_FROM_CONFIG** -> Money multiplier
-+ **km.moneylimit.multiplier.NAME_FROM.CONFIG** -> Money limit multiplier
+## Permissions
+| Permission | Description |
+| ------------- | ------------- |
+| km.admin | for admin commands: limit, multiplier, reload |
+| km.bypass.moneylimit | Bypass money limit |
+| km.bypass.itemlimit | Bypass item limit |
+| km.bypass.commandlimit | Bypass command limit |
+| km.bypass.cashtransferlimit | Bypass cash transfer limit |
+| km.money.multiplier.NAME_FROM_CONFIG | Money multiplier |
+| km.moneylimit.multiplier.NAME_FROM.CONFIG | Money limit multiplier |
 
 ## Installing
 + Step 0: If you have either KillerMoney 1.x, 2.x or 3.x installed, delete it with all files and configurations.
