@@ -32,6 +32,7 @@ import org.bukkit.permissions.PermissionAttachmentInfo;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class MoneyHandler implements Listener {
 
@@ -211,7 +212,7 @@ public class MoneyHandler implements Listener {
         BigDecimal dividedMoney;
         BigDecimal remainingLimit;
         BigDecimal playerLimit;
-        ArrayList<EntityDamage> filteredDamagers = new ArrayList<EntityDamage>();
+        ArrayList<EntityDamage> filteredDamagers = new ArrayList<>();
 
         // Money earning (deposit)
         if (money.doubleValue() > 0) {
@@ -332,46 +333,28 @@ public class MoneyHandler implements Listener {
         }
     }
 
-    public static double getMoneyMultiplier(Player p) {
-        double multiplier = 1;
-
+    private static double getMoneyMultiplier(Player p) {
         if (p != null) {
-            for (PermissionAttachmentInfo pai : p.getEffectivePermissions()) {
-                String perm = pai.getPermission().toLowerCase();
-
-                if (perm.contains(KMPermission.MONEY_MULTIPLIER.get())) {
-                    perm = perm.replace(KMPermission.MONEY_MULTIPLIER.get() + ".", "");
-                    double tmpMultiplier = Double.valueOf(perm);
-
-                    if (tmpMultiplier > multiplier) {
-                        multiplier = tmpMultiplier;
-                    }
+            for (Map.Entry<String, Double> multiplier : DefaultConfig.getMoneyMultipliers().entrySet()) {
+                if (p.hasPermission(KMPermission.MONEY_MULTIPLIER.get() + "." + multiplier.getKey())) {
+                    return multiplier.getValue();
                 }
             }
         }
 
-        return multiplier;
+        return 1;
     }
 
     public static double getLimitMultiplier(Player p) {
-        double multiplier = 1;
-
         if (p != null) {
-            for (PermissionAttachmentInfo pai : p.getEffectivePermissions()) {
-                String perm = pai.getPermission().toLowerCase();
-
-                if (perm.contains(KMPermission.LIMIT_MONEY_MULTIPLIER.get())) {
-                    perm = perm.replace(KMPermission.LIMIT_MONEY_MULTIPLIER.get() + ".", "");
-                    double tmpMultiplier = Double.valueOf(perm);
-
-                    if (tmpMultiplier > multiplier) {
-                        multiplier = tmpMultiplier;
-                    }
+            for (Map.Entry<String, Double> multiplier : DefaultConfig.getLimitMultipliers().entrySet()) {
+                if (p.hasPermission(KMPermission.LIMIT_MONEY_MULTIPLIER.get() + "." + multiplier.getKey())) {
+                    return multiplier.getValue();
                 }
             }
         }
 
-        return multiplier;
+        return 1;
     }
 
     private static boolean hasMoneyLimitBypass(Player player) {

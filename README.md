@@ -1,4 +1,4 @@
-# KillerMoney 4 (Bukkit plugin)
+# KillerMoney 4 (Bukkit plugin) (WIP)
 
 ## Abilities of the plugin
 * Giving or charging a player by either a fix amount of money, or random between a max and minimum amount when they kill an entity

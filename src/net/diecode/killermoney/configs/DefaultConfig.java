@@ -8,7 +8,10 @@ import net.md_5.bungee.api.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Set;
 
 public class DefaultConfig extends ConfigManager {
 
@@ -19,16 +22,19 @@ public class DefaultConfig extends ConfigManager {
     private static MessageMethod messageMethod;
     private static boolean hookMobArena;
     private static boolean hookMineChart;
-    private static ArrayList<String> enabledGraphs = new ArrayList<String>();
+    private static ArrayList<String> enabledGraphs = new ArrayList<>();
     private static boolean antiFarmingSpawner;
     private static boolean antiFarmingSpawnerEgg;
     private static int limitResetTime;
     private static boolean reachedLimitMessage;
-    private static ArrayList<GameMode> allowedGameModes = new ArrayList<GameMode>();
+    private static ArrayList<GameMode> allowedGameModes = new ArrayList<>();
 
     private static boolean moneyItemDropEnabled;
     private static String moneyItemName;
     private static Material moneyItemMaterial = Material.GOLD_INGOT;
+
+    private static HashMap<String, Double> moneyMultipliers = new HashMap<>();
+    private static HashMap<String, Double> limitMultipliers = new HashMap<>();
 
     public DefaultConfig(String fileName) {
         super(fileName);
@@ -103,6 +109,31 @@ public class DefaultConfig extends ConfigManager {
             Logger.warning("Invalid money item material. Using default: " + moneyItemMaterial.name());
         }
 
+        Set<String> perms = getConfig().getConfigurationSection("Configurable-permissions.Money-multipliers")
+                .getKeys(false);
+
+        for (String s : perms) {
+            try {
+                double value = getConfig().getDouble("Configurable-permissions.Money-multipliers." + s);
+
+                moneyMultipliers.put(s, value);
+            } catch (Exception e) {
+                Logger.warning("Invalid money multiplier value at: " + s);
+            }
+        }
+
+        perms = getConfig().getConfigurationSection("Configurable-permissions.Limit-multipliers").getKeys(false);
+
+        for (String s : perms) {
+            try {
+                double value = getConfig().getDouble("Configurable-permissions.Limit-multipliers." + s);
+
+                limitMultipliers.put(s, value);
+            } catch (Exception e) {
+                Logger.warning("Invalid limit multiplier value at: " + s);
+            }
+        }
+
         hookMineChart = getConfig().getBoolean("Hook.MineChart.Enabled");
 
         for (String s : getConfig().getConfigurationSection("Hook.MineChart.Graphs").getKeys(false)) {
@@ -170,5 +201,13 @@ public class DefaultConfig extends ConfigManager {
 
     public static Material getMoneyItemMaterial() {
         return moneyItemMaterial;
+    }
+
+    public static HashMap<String, Double> getMoneyMultipliers() {
+        return moneyMultipliers;
+    }
+
+    public static HashMap<String, Double> getLimitMultipliers() {
+        return limitMultipliers;
     }
 }

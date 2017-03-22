@@ -3,16 +3,16 @@ package net.diecode.killermoney.enums;
 public enum KMPermission {
 
     ADMIN("admin"),
-    MONEY_MULTIPLIER("multiplier.money"),
+    MONEY_MULTIPLIER("money.multiplier"),
 
-    LIMIT_MONEY_MULTIPLIER("multiplier.limit.money"),
-    LIMIT_ITEM_MULTIPLIER("multiplier.limit.item"),
-    LIMIT_COMMAND_MULTIPLIER("multiplier.limit.command"),
+    LIMIT_MONEY_MULTIPLIER("moneylimit.multiplier"),
+    //LIMIT_ITEM_MULTIPLIER("itemlimit.multiplier"),
+    //LIMIT_COMMAND_MULTIPLIER("commandlimit.multiplier"),
 
-    BYPASS_MONEY_LIMIT("bypass.limit.money"),
-    BYPASS_ITEM_LIMIT("bypass.limit.item"),
-    BYPASS_COMMAND_LIMIT("bypass.limit.command"),
-    BYPASS_MONEY_LIMIT_CASH_TRANSFER("bypass.limit.money.cashtransfer");
+    BYPASS_MONEY_LIMIT("bypass.moneylimit"),
+    BYPASS_ITEM_LIMIT("bypass.itemlimit"),
+    BYPASS_COMMAND_LIMIT("bypass.commandlimit"),
+    BYPASS_MONEY_LIMIT_CASH_TRANSFER("bypass.cashtransferlimit");
 
     private String perm;
 
@@ -21,7 +21,7 @@ public enum KMPermission {
     }
 
     public String get() {
-        return "killermoney." + perm;
+        return "km." + perm;
     }
 
 }
