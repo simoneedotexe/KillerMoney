@@ -240,7 +240,7 @@ Cash-transfer:
     Percent: 25%
     Max-amount: 5000
     Chance: 100%
-    Division-method: 'LAST_HIT' OR 'SHARED'
+    Division-method: 'LAST_HIT'
     Permission: 'km.custom.permission'
     Limit: 10000
 ```
