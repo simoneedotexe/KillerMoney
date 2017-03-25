@@ -22,6 +22,7 @@ public class HelpCommand extends CommandManager {
         sender.sendMessage(ChatColor.GREEN + "/km help" + ChatColor.GRAY + " | These help messages");
         sender.sendMessage(ChatColor.GREEN + "/km info" + ChatColor.GRAY + " | Show general info about KillerMoney");
         sender.sendMessage(ChatColor.GREEN + "/km reload" + ChatColor.GRAY + " | Reload configs");
+        sender.sendMessage(ChatColor.GREEN + "/km limit" + ChatColor.GRAY + " | Reset limits");
         sender.sendMessage(ChatColor.GREEN + "/km multiplier <function> [value]" + ChatColor.GRAY + " | Set a custom multiplier for given amount of time");
     }
 }
