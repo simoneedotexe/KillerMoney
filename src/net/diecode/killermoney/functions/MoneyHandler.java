@@ -177,7 +177,7 @@ public class MoneyHandler implements Listener {
             e.setCancelled(true);
 
             item.remove();
-            BigDecimal money = new BigDecimal(Double.valueOf(item.getCustomName()
+            BigDecimal money = new BigDecimal(Double.valueOf(ChatColor.stripColor(item.getCustomName())
                     .replaceAll("[^0-9.]", "")))
                     .setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_EVEN);
 
