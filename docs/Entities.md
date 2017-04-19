@@ -41,6 +41,7 @@ PLAYER:
                     ItemStack:
                         ==: org.bukkit.inventory.ItemStack
                         type: DIAMOND_SWORD
+                        amount: 32
                     Chance: 80%
                     Permission: 'km.custom.permission'
                     Limit: 200
@@ -161,7 +162,7 @@ Custom-item-drop:
             ItemStack:
                 ==: org.bukkit.inventory.ItemStack
                 type: DIAMOND_SWORD
-            Random-amount: 1 ? 20
+                amount: 32
             Chance: 80%
             Permission: 'km.custom.permission'
             Limit: 200
@@ -205,13 +206,13 @@ ItemStack:
 ItemStack:
     ==: org.bukkit.inventory.ItemStack
     type: GOLD_INGOT
-        amount: 32
-        meta:
-          ==: ItemMeta
-          meta-type: UNSPECIFIC
-          display-name: "§rAmazing gold ingot"
-          lore:
-          - "Nicest"
+    amount: 32
+    meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        display-name: "§cAmazing gold ingot"
+        lore:
+        - "§2Nicest"
 ```
 
 + **Iron sword with enchants**
@@ -219,13 +220,12 @@ ItemStack:
 ItemStack:
     ==: org.bukkit.inventory.ItemStack
     type: IRON_SWORD
-        damage: 1
-        amount: 1
-        meta:
-            ==: ItemMeta
-            meta-type: UNSPECIFIC
-            enchants:
-                SHARPNESS: 1
+    meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        enchants:
+            KNOCKBACK: 1
+            FIRE_ASPECT: 1
 ```
 
 + **Random-amount:** Set random amount for ItemStack. If you don't want random amount, just remove it. _<optional, there isn't default value>_
