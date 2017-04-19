@@ -43,7 +43,7 @@ public class CCommandHandler implements Listener {
             }
         } else {
             CCommand cCommand = cCommandProperties.getCCommands().get(
-                    new Random(cCommandProperties.getCCommands().size()).nextInt());
+                    new Random().nextInt(cCommandProperties.getCCommands().size()));
 
             commands.add(cCommand);
         }

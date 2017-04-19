@@ -38,7 +38,7 @@ public class CItemHandler implements Listener {
                 cItems.add(cItem);
             }
         } else {
-            CItem cItem = cItemProperties.getCItems().get(new Random(cItemProperties.getCItems().size()).nextInt());
+            CItem cItem = cItemProperties.getCItems().get(new Random().nextInt(cItemProperties.getCItems().size()));
 
             cItems.add(cItem);
         }
