@@ -1,3 +1,7 @@
+4.0.2
+---
+- (Fixed) Update checker
+
 4.0.1
 ---
 - (Fixed) Random-method in Command and Item section

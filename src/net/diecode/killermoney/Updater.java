@@ -17,6 +17,7 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Arrays;
 
 /**
  * This class is a barebones example of how to use the BukkitDev ServerMods API to check for file updates.
@@ -43,6 +44,8 @@ public class Updater implements Listener {
     private static final String API_HOST = "https://api.curseforge.com";
 
     private static boolean updateAvailable = false;
+
+    String newestVersion;
 
     /**
      * Query the API to find the latest approved file's details.
@@ -99,7 +102,7 @@ public class Updater implements Listener {
                 // Get the version's game version
                 String versionGameVersion = (String) latest.get(API_GAME_VERSION_VALUE);
 
-                final String[] newestVersion = versionName.replaceAll("[a-zA-Z ]", "").split(".");
+                newestVersion = versionName.replaceAll("[^\\d.]", "");
 
                 Bukkit.getScheduler().scheduleSyncDelayedTask(BukkitMain.getInstance(), new Runnable() {
                     @Override
@@ -113,21 +116,15 @@ public class Updater implements Listener {
                                 Logger.info("| Your version: " +
                                         BukkitMain.getInstance().getDescription().getVersion() +
                                         " | " + "New version: " + newestVersion);
-                                Logger.info("| Please update KillerMoney!");
                                 Logger.info("| " + BukkitMain.getInstance().getDescription().getWebsite());
                                 Logger.info("------------------------------");
 
                                 for (Player player : Bukkit.getOnlinePlayers()) {
                                     if (player.isOp() || player.hasPermission(KMPermission.ADMIN.get())) {
-
                                         player.sendMessage(ChatColor.DARK_AQUA + " --- " + ChatColor.AQUA + "KillerMoney Update available" + ChatColor.DARK_AQUA + " --- ");
-                                        player.sendMessage("");
-                                        player.sendMessage(ChatColor.DARK_AQUA + "> Your version: " + BukkitMain.getInstance().getDescription().getVersion() + ChatColor.GRAY + " | " + ChatColor.AQUA + "New version: " + newestVersion);
+                                        player.sendMessage(ChatColor.DARK_AQUA + "> Your version: " + BukkitMain.getInstance().getDescription().getVersion() + ChatColor.GRAY + " | " + ChatColor.DARK_AQUA + "New version: " + newestVersion);
                                         player.sendMessage(ChatColor.DARK_AQUA + "> You can download the latest version from ");
                                         player.sendMessage(ChatColor.DARK_AQUA + "> " + ChatColor.AQUA + BukkitMain.getInstance().getDescription().getWebsite() );
-                                        player.sendMessage("");
-                                        player.sendMessage(ChatColor.DARK_AQUA + "> " + ChatColor.AQUA + "Please update as soon as possible!");
-                                        player.sendMessage("");
                                         player.sendMessage(ChatColor.DARK_AQUA + " --- ");
                                     }
                                 }
@@ -159,28 +156,32 @@ public class Updater implements Listener {
             return;
         }
 
-        Player player = event.getPlayer();
+        final Player player = event.getPlayer();
 
         if (player.isOp() || player.hasPermission(KMPermission.ADMIN.get())) {
-            player.sendMessage(ChatColor.DARK_AQUA + " --- " + ChatColor.AQUA + "KillerMoney Update available" + ChatColor.DARK_AQUA + " --- ");
-            player.sendMessage("");
-            player.sendMessage(ChatColor.DARK_AQUA + "> You can download the latest version from ");
-            player.sendMessage(ChatColor.DARK_AQUA + "> " + ChatColor.AQUA + BukkitMain.getInstance().getDescription().getWebsite() );
-            player.sendMessage("");
-            player.sendMessage(ChatColor.DARK_AQUA + "> " + ChatColor.AQUA + "Please update as soon as possible!");
-            player.sendMessage("");
-            player.sendMessage(ChatColor.DARK_AQUA + " --- ");
+            Bukkit.getScheduler().runTaskLater(BukkitMain.getInstance(), new Runnable() {
+                @Override
+                public void run() {
+                    player.sendMessage(ChatColor.DARK_AQUA + " --- " + ChatColor.AQUA + "KillerMoney Update available" + ChatColor.DARK_AQUA + " --- ");
+                    player.sendMessage(ChatColor.DARK_AQUA + "> Your version: " + BukkitMain.getInstance().getDescription().getVersion() + ChatColor.GRAY + " | " + ChatColor.DARK_AQUA + "New version: " + newestVersion);
+                    player.sendMessage(ChatColor.DARK_AQUA + "> You can download the latest version from ");
+                    player.sendMessage(ChatColor.DARK_AQUA + "> " + ChatColor.AQUA + BukkitMain.getInstance().getDescription().getWebsite() );
+                    player.sendMessage(ChatColor.DARK_AQUA + " --- ");
+                }
+            }, 5L);
+
         }
     }
 
-    public static boolean isNewest(String[] updateNumbers) {
+    public static boolean isNewest(String version) {
         int[] updateVersion = new int[3];
         int[] currentVersion = new int[3];
+        String[] newestVersion = version.split("\\.");
+        String[] currentNumbers = BukkitMain.getInstance().getDescription().getVersion()
+                .replaceAll("[^\\d.]", "").split("\\.");
 
-        String[] currentNumbers = BukkitMain.getInstance().getDescription().getVersion().split(".");
-
-        for (int i = 0; i < updateNumbers.length; i++) {
-            updateVersion[i] = Integer.parseInt(updateNumbers[i]);
+        for (int i = 0; i < newestVersion.length; i++) {
+            updateVersion[i] = Integer.parseInt(newestVersion[i]);
             currentVersion[i] = Integer.parseInt(currentNumbers[i]);
         }
 
