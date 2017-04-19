@@ -1,7 +1,9 @@
-# This config is not contains all features. Please check this document: _site_
-# If you don't want a feature, just disable or remove it.
+# This config is not contains all features. Please check documentation at https://github.com/diecode/KillerMoney/blob/master/docs/Entities.md
+# If you don't want use a feature, just disable or remove it.
 
-# Support on _bukkit_, _spigot_ page or Twitter: @diecode
+# Support on
+# - https://dev.bukkit.org/projects/killermoney
+# - https://www.spigotmc.org/resources/killermoney.485/
 
 BAT:
     '*':

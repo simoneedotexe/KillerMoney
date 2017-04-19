@@ -1,3 +1,5 @@
+# Please check documentation at https://github.com/diecode/KillerMoney/blob/master/docs/Config.md
+
 Check-update: true
 Global-settings:
     Money:
