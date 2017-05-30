@@ -8,6 +8,7 @@ Global-settings:
             Enabled: false
             Item-name: "&c${amount}"
             Item-material: GOLD_INGOT
+            Anyone-can-pick-it-up: true
     Farming:
         Disable-spawner-farming: true
         Disable-spawner-egg-farming: true

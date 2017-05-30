@@ -32,6 +32,7 @@ public class DefaultConfig extends ConfigManager {
     private static boolean moneyItemDropEnabled;
     private static String moneyItemName;
     private static Material moneyItemMaterial = Material.GOLD_INGOT;
+    private static boolean moneyItemAnyonePickUp;
 
     private static HashMap<String, Double> moneyMultipliers = new HashMap<>();
     private static HashMap<String, Double> limitMultipliers = new HashMap<>();
@@ -105,6 +106,7 @@ public class DefaultConfig extends ConfigManager {
         // Money Item drop settings
         moneyItemDropEnabled = getConfig().getBoolean("Global-settings.Money.Item-drop.Enabled");
         moneyItemName = ChatColor.translateAlternateColorCodes('&', getConfig().getString("Global-settings.Money.Item-drop.Item-name"));
+        moneyItemAnyonePickUp = getConfig().getBoolean("Global-settings.Money.Item-drop.Anyone-can-pick-it-up");
 
         try {
             moneyItemMaterial = Material.valueOf(getConfig().getString("Global-settings.Money.Item-drop.Item-material"));
@@ -208,6 +210,10 @@ public class DefaultConfig extends ConfigManager {
 
     public static Material getMoneyItemMaterial() {
         return moneyItemMaterial;
+    }
+
+    public static boolean isMoneyItemAnyonePickUp() {
+        return moneyItemAnyonePickUp;
     }
 
     public static HashMap<String, Double> getMoneyMultipliers() {

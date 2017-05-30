@@ -33,6 +33,7 @@ import org.bukkit.permissions.PermissionAttachmentInfo;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.UUID;
 
 public class MoneyHandler implements Listener {
 
@@ -57,7 +58,7 @@ public class MoneyHandler implements Listener {
             if (ed.getCalculatedMoney().doubleValue() > 0) {
                 if (DefaultConfig.isMoneyItemDropEnabled()) {
                     Bukkit.getPluginManager().callEvent(new KMMoneyItemDropEvent(generateItemStack(ed.getCalculatedMoney(),
-                            e.getVictim().getType()), e.getVictim().getLocation()));
+                            e.getVictim().getType(), p), e.getVictim().getLocation()));
                 } else {
                     Bukkit.getPluginManager().callEvent(new KMEarnMoneyDepositEvent(e.getMoneyProperties(), p,
                             ed.getCalculatedMoney(), e.getVictim(), ed.getDamage()));
@@ -176,7 +177,6 @@ public class MoneyHandler implements Listener {
         if (isMoneyItem(is)) {
             e.setCancelled(true);
 
-            item.remove();
             BigDecimal money = new BigDecimal(Double.valueOf(ChatColor.stripColor(item.getCustomName())
                     .replaceAll("[^0-9.]", "")))
                     .setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_EVEN);
@@ -188,9 +188,18 @@ public class MoneyHandler implements Listener {
                 return;
             }
 
+            UUID uuid = UUID.fromString(is.getItemMeta().getLore().get(2));
+            Player owner = Bukkit.getPlayer(uuid);
+
+            if (!DefaultConfig.isMoneyItemAnyonePickUp() && !owner.equals(e.getPlayer())) {
+                return;
+            }
+
             WorldProperties wp = EntityManager.getWorldProperties(ep, e.getItem().getLocation().getWorld().getName());
 
             if (wp != null) {
+                item.remove();
+
                 Bukkit.getPluginManager().callEvent(new KMEarnMoneyPickedUpEvent(wp.getMoneyProperties(),
                         e.getPlayer(), money));
             }
@@ -371,7 +380,7 @@ public class MoneyHandler implements Listener {
         return (player != null) && player.hasPermission(KMPermission.BYPASS_MONEY_LIMIT.get());
     }
 
-    public static ItemStack generateItemStack(final BigDecimal reward, final EntityType entityType) {
+    public static ItemStack generateItemStack(final BigDecimal reward, final EntityType entityType, final Player player) {
         ItemStack moneyItem = new ItemStack(DefaultConfig.getMoneyItemMaterial());
         ItemMeta im = moneyItem.getItemMeta();
 
@@ -383,6 +392,7 @@ public class MoneyHandler implements Listener {
             {
                 add(moneyItemDropLore + reward.doubleValue());
                 add(entityType.name());
+                add(player.getUniqueId().toString());
             }
         };
 

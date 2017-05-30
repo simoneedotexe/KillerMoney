@@ -42,7 +42,7 @@ public class CashTransferHandler implements Listener {
             if (DefaultConfig.isMoneyItemDropEnabled()) {
                 Bukkit.getPluginManager().callEvent(
                         new KMMoneyItemDropEvent(MoneyHandler.generateItemStack(ed.getCalculatedMoney(),
-                                e.getVictim().getType()), e.getVictim().getLocation()));
+                                e.getVictim().getType(), killer), e.getVictim().getLocation()));
 
             } else {
                 Bukkit.getPluginManager().callEvent(
