@@ -1,3 +1,7 @@
+4.1.0
+---
+- (Added) "Anyone-can-pick-it-up" option for money item drop in config
+
 4.0.2
 ---
 - (Fixed) Update checker
