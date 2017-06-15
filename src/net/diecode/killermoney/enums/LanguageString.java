@@ -56,6 +56,7 @@ public enum LanguageString {
     ENTITIES_OCELOT("Ocelot"),
     ENTITIES_PIG("Pig"),
     ENTITIES_PIG_ZOMBIE("Pig zombie"),
+    ENTITIES_PARROT("Parrot"),
     ENTITIES_PLAYER("Player"),
     ENTITIES_POLAR_BEAR("Polar bear"),
     ENTITIES_RABBIT("Rabbit"),
