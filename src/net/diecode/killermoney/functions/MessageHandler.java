@@ -5,7 +5,6 @@ import net.diecode.killermoney.Logger;
 import net.diecode.killermoney.configs.DefaultConfig;
 import net.diecode.killermoney.enums.LanguageString;
 import net.diecode.killermoney.enums.MessageMethod;
-import net.diecode.killermoney.enums.ServerVersion;
 import net.diecode.killermoney.events.KMSendActionBarMessageEvent;
 import net.diecode.killermoney.events.KMSendMessageEvent;
 import net.diecode.killermoney.interfaces.ActionBar;
@@ -67,26 +66,16 @@ public class MessageHandler implements Listener {
     }
 
     public static void initActionBar() {
-        String version = "";
+        String version;
 
         try {
             version = Bukkit.getServer().getClass().getPackage().getName().replace(".",  ",").split(",")[3];
+
+            Class actionBarClass = Class.forName("net.diecode.killermoney.compatibility.actionbar.ActionBar_" + version);
+
+            actionBar = (ActionBar)actionBarClass.newInstance();
         } catch (Exception e) {
 
-        }
-
-        for (ServerVersion sv : ServerVersion.values()) {
-            try {
-                if (sv.name().equals(version)) {
-                    Class clazz = Class.forName("net.diecode.killermoney.compatibility.actionbar.ActionBar_" + version);
-
-                    actionBar = (ActionBar)clazz.newInstance();
-
-                    break;
-                }
-            } catch (Exception e) {
-
-            }
         }
 
         if (actionBar == null) {
