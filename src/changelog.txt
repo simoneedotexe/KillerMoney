@@ -1,6 +1,7 @@
 4.1.0
 ---
 - (Added) "Anyone-can-pick-it-up" option for money item drop in config
+- (Modification) Changed values in default config: "Disable-spawner-egg-farming: false" and "Allowed-gamemodes: SURVIVAL, CREATIVE"
 
 4.0.2
 ---

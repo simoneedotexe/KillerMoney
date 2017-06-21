@@ -5,6 +5,7 @@ import net.diecode.killermoney.commands.KMCommand;
 import net.diecode.killermoney.configs.DefaultConfig;
 import net.diecode.killermoney.configs.EntitiesConfig;
 import net.diecode.killermoney.configs.LangConfig;
+import net.diecode.killermoney.configs.VersionConfig;
 import net.diecode.killermoney.functions.*;
 import net.diecode.killermoney.managers.EntityManager;
 import net.milkbowl.vault.economy.Economy;
@@ -18,6 +19,7 @@ public class BukkitMain extends JavaPlugin {
     private static DefaultConfig defaultConfig;
     private static LangConfig langConfig;
     private static EntitiesConfig entitiesConfig;
+    private static VersionConfig versionConfig;
     private static Metrics metrics;
 
     private static Economy economy;
@@ -77,6 +79,7 @@ public class BukkitMain extends JavaPlugin {
         defaultConfig = new DefaultConfig("config.yml");
         langConfig = new LangConfig("lang.yml");
         entitiesConfig = new EntitiesConfig("entities.yml");
+        versionConfig = new VersionConfig("version.yml");
         updater = new Updater();
 
         initMetrics();

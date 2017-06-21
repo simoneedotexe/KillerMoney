@@ -11,10 +11,10 @@ Global-settings:
             Anyone-can-pick-it-up: true
     Farming:
         Disable-spawner-farming: true
-        Disable-spawner-egg-farming: true
+        Disable-spawner-egg-farming: false
     General:
         Message-method: CHAT
-        Allowed-gamemodes: SURVIVAL
+        Allowed-gamemodes: SURVIVAL, CREATIVE
     Limit:
         Reset-time: 24
         Reached-limit-message: true
