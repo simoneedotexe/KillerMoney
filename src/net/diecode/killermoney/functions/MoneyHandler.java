@@ -352,27 +352,35 @@ public class MoneyHandler implements Listener {
     }
 
     public static double getMoneyMultiplier(Player p) {
+        double biggest = 1;
+
         if (p != null) {
             for (Map.Entry<String, Double> multiplier : DefaultConfig.getMoneyMultipliers().entrySet()) {
                 if (p.hasPermission(KMPermission.MONEY_MULTIPLIER.get() + "." + multiplier.getKey())) {
-                    return multiplier.getValue();
+                    if (biggest < multiplier.getValue()) {
+                        biggest = multiplier.getValue();
+                    }
                 }
             }
         }
 
-        return 1;
+        return biggest;
     }
 
     public static double getLimitMultiplier(Player p) {
+        double biggest = 1;
+
         if (p != null) {
             for (Map.Entry<String, Double> multiplier : DefaultConfig.getLimitMultipliers().entrySet()) {
                 if (p.hasPermission(KMPermission.LIMIT_MONEY_MULTIPLIER.get() + "." + multiplier.getKey())) {
-                    return multiplier.getValue();
+                    if (biggest < multiplier.getValue()) {
+                        biggest = multiplier.getValue();
+                    }
                 }
             }
         }
 
-        return 1;
+        return biggest;
     }
 
     public static boolean hasMoneyLimitBypass(Player player) {

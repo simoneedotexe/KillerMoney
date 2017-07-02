@@ -1,7 +1,9 @@
 4.1.0
 ---
 - (Added) "Anyone-can-pick-it-up" option for money item drop in config
+- (Added) Built-in versioning system for better plugin update
 - (Modification) Changed values in default config: "Disable-spawner-egg-farming: false" and "Allowed-gamemodes: SURVIVAL, CREATIVE"
+- (Fixed) Major money and limit multiplier bug
 
 4.0.2
 ---
