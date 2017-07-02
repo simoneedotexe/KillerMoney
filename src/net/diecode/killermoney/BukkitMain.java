@@ -5,8 +5,9 @@ import net.diecode.killermoney.commands.KMCommand;
 import net.diecode.killermoney.configs.DefaultConfig;
 import net.diecode.killermoney.configs.EntitiesConfig;
 import net.diecode.killermoney.configs.LangConfig;
-import net.diecode.killermoney.configs.VersionConfig;
 import net.diecode.killermoney.functions.*;
+import net.diecode.killermoney.configs.SuperConfig;
+import net.diecode.killermoney.managers.ConfigManager;
 import net.diecode.killermoney.managers.EntityManager;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
@@ -16,10 +17,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class BukkitMain extends JavaPlugin {
 
     private static BukkitMain instance;
-    private static DefaultConfig defaultConfig;
-    private static LangConfig langConfig;
-    private static EntitiesConfig entitiesConfig;
-    private static VersionConfig versionConfig;
     private static Metrics metrics;
 
     private static Economy economy;
@@ -76,10 +73,9 @@ public class BukkitMain extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
-        defaultConfig = new DefaultConfig("config.yml");
-        langConfig = new LangConfig("lang.yml");
-        entitiesConfig = new EntitiesConfig("entities.yml");
-        versionConfig = new VersionConfig("version.yml");
+
+        ConfigManager.init();
+
         updater = new Updater();
 
         initMetrics();
@@ -126,9 +122,6 @@ public class BukkitMain extends JavaPlugin {
     @Override
     public void onDisable() {
         instance = null;
-        defaultConfig = null;
-        langConfig = null;
-        entitiesConfig = null;
         updater = null;
     }
 

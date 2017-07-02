@@ -3,7 +3,6 @@ package net.diecode.killermoney.configs;
 import net.diecode.killermoney.Logger;
 import net.diecode.killermoney.enums.MessageMethod;
 import net.diecode.killermoney.functions.MessageHandler;
-import net.diecode.killermoney.managers.ConfigManager;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
@@ -12,10 +11,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
-public class DefaultConfig extends ConfigManager {
+public class DefaultConfig extends SuperConfig {
 
     private static DefaultConfig instance;
 
+    private static int configVersion;
     private static boolean checkUpdate;
     private static int decimalPlaces;
     private static MessageMethod messageMethod;
@@ -42,12 +42,20 @@ public class DefaultConfig extends ConfigManager {
 
         instance = this;
 
-        load();
+        init();
+    }
+
+    private void init() {
+        // Get config version
+        configVersion = DefaultConfig.getInstance().getConfig().getInt("Config-version");
     }
 
     @Override
     public void load() {
         reload();
+
+        // Get config version
+        configVersion = DefaultConfig.getInstance().getConfig().getInt("Config-version");
 
         // Check update
         checkUpdate = getConfig().getBoolean("Check-update");
@@ -150,6 +158,10 @@ public class DefaultConfig extends ConfigManager {
 
     public static DefaultConfig getInstance() {
         return instance;
+    }
+
+    public static int getConfigVersion() {
+        return configVersion;
     }
 
     public static boolean isCheckUpdate() {

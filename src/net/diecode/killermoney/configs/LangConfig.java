@@ -1,12 +1,11 @@
 package net.diecode.killermoney.configs;
 
 import net.diecode.killermoney.enums.LanguageString;
-import net.diecode.killermoney.managers.ConfigManager;
 import org.bukkit.ChatColor;
 
 import java.util.HashMap;
 
-public class LangConfig extends ConfigManager {
+public class LangConfig extends SuperConfig {
 
     private static LangConfig instance;
     private static HashMap<LanguageString, String> strings = new HashMap<LanguageString, String>();
@@ -15,22 +14,6 @@ public class LangConfig extends ConfigManager {
         super(fileName);
 
         instance = this;
-
-        load();
-    }
-
-    private void generate() {
-        for (LanguageString ls : LanguageString.values()) {
-            int firstLine = ls.name().indexOf("_");
-            String parent = ls.name().substring(0, firstLine);
-            String post = ls.name().substring(firstLine + 1, ls.name().length());
-
-            if (!getConfig().isSet(parent + "." + post)) {
-                getConfig().set(parent + "." + post, ls.getString());
-            }
-
-            saveConfig();
-        }
     }
 
     @Override
@@ -59,6 +42,20 @@ public class LangConfig extends ConfigManager {
                 strings.put(LanguageString.valueOf(str),
                         ChatColor.translateAlternateColorCodes('&', getConfig().getString(parent + "." + langString)));
             }
+        }
+    }
+
+    private void generate() {
+        for (LanguageString ls : LanguageString.values()) {
+            int firstLine = ls.name().indexOf("_");
+            String parent = ls.name().substring(0, firstLine);
+            String post = ls.name().substring(firstLine + 1, ls.name().length());
+
+            if (!getConfig().isSet(parent + "." + post)) {
+                getConfig().set(parent + "." + post, ls.getString());
+            }
+
+            saveConfig();
         }
     }
 

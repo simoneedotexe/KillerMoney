@@ -1,56 +1,61 @@
 package net.diecode.killermoney.managers;
 
-import net.diecode.killermoney.BukkitMain;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
+import net.diecode.killermoney.configs.DefaultConfig;
+import net.diecode.killermoney.configs.EntitiesConfig;
+import net.diecode.killermoney.configs.LangConfig;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
+public class ConfigManager {
 
-public abstract class ConfigManager {
+    private static DefaultConfig defaultConfig;
+    private static EntitiesConfig entitiesConfig;
+    private static LangConfig langConfig;
 
-    private String fileName;
-    private File file;
-    private FileConfiguration config;
+    public static void init() {
+        defaultConfig = new DefaultConfig("config.yml");
+        entitiesConfig = new EntitiesConfig("entities.yml");
+        langConfig = new LangConfig("lang.yml");
 
-    public ConfigManager(String fileName) {
-        this.fileName = fileName;
-        this.file = new File(BukkitMain.getInstance().getDataFolder(), this.fileName);
+        checkVersionChanges();
 
-        try {
-            if (!this.file.exists()) {
-                file.getParentFile().mkdirs();
-
-                Files.copy(BukkitMain.getInstance().getResource("resources/" + this.fileName), file.toPath());
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        config = YamlConfiguration.loadConfiguration(this.file);
+        reloadConfigs();
     }
 
-    public void saveConfig() {
-        try {
-            getConfig().save(getFile());
-        } catch (IOException ioex) {
-            ioex.printStackTrace();
+    private static void checkVersionChanges() {
+        int version = DefaultConfig.getConfigVersion();
+
+        if (version < 1) {
+            // todo Config for 1.12
+            // Parrot lang.yml
+            // Parrot entities.yml
+
+            version++;
+        }
+
+        if (version != DefaultConfig.getConfigVersion()) {
+            setConfigVersion(version);
         }
     }
 
-    public File getFile() {
-        return file;
+    private static void setConfigVersion(int newVersion) {
+        DefaultConfig.getInstance().getConfig().set("Config-version", newVersion);
+        DefaultConfig.getInstance().saveConfig();
     }
 
-    public FileConfiguration getConfig() {
-        return config;
+    public static DefaultConfig getDefaultConfig() {
+        return defaultConfig;
     }
 
-    public abstract void load();
-
-    public void reload() {
-        config = YamlConfiguration.loadConfiguration(this.file);
+    public static EntitiesConfig getEntitiesConfig() {
+        return entitiesConfig;
     }
 
+    public static LangConfig getLangConfig() {
+        return langConfig;
+    }
+
+    public static void reloadConfigs() {
+        DefaultConfig.getInstance().load();
+        EntitiesConfig.getInstance().load();
+        LangConfig.getInstance().load();
+    }
 }

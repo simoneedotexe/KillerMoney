@@ -4,7 +4,6 @@ import net.diecode.killermoney.Logger;
 import net.diecode.killermoney.Utils;
 import net.diecode.killermoney.enums.DivisionMethod;
 import net.diecode.killermoney.enums.RunMethod;
-import net.diecode.killermoney.managers.ConfigManager;
 import net.diecode.killermoney.managers.EntityManager;
 import net.diecode.killermoney.objects.*;
 import org.bukkit.Bukkit;
@@ -14,7 +13,7 @@ import org.bukkit.inventory.ItemStack;
 import java.util.ArrayList;
 import java.util.Set;
 
-public class EntitiesConfig extends ConfigManager {
+public class EntitiesConfig extends SuperConfig {
 
     private static EntitiesConfig instance;
 
@@ -22,8 +21,6 @@ public class EntitiesConfig extends ConfigManager {
         super(fileName);
 
         instance = this;
-
-        load();
     }
 
     @Override

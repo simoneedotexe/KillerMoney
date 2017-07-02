@@ -28,7 +28,6 @@ import org.bukkit.event.entity.ItemSpawnEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.permissions.PermissionAttachmentInfo;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
