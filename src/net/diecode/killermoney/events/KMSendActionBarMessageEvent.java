@@ -36,8 +36,16 @@ public class KMSendActionBarMessageEvent extends Event implements Cancellable {
         return message;
     }
 
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
     public int getDuration() {
         return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
     }
 
     @Override

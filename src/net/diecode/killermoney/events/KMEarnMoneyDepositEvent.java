@@ -49,6 +49,10 @@ public class KMEarnMoneyDepositEvent extends Event implements Cancellable {
         return amount;
     }
 
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
+    }
+
     public LivingEntity getVictim() {
         return victim;
     }

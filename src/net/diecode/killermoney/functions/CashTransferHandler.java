@@ -90,7 +90,7 @@ public class CashTransferHandler implements Listener {
         StringBuilder killers = new StringBuilder();
 
         // Withdraw money
-        EconomyManager.withdraw(e.getVictim(), e.getMoney());
+        EconomyManager.withdraw(e.getVictim(), e.getAmount());
 
         for (int i = 0; i < e.getDamagers().size(); i++) {
             EntityDamage ed = e.getDamagers().get(i);
@@ -106,7 +106,7 @@ public class CashTransferHandler implements Listener {
         // Send money losing message to player
         if (e.getVictim() != null && e.getVictim().isOnline()) {
             String message = LanguageManager.cGet(LanguageString.GENERAL_YOU_KILLED_BY_PLAYER, killers.toString(),
-                    e.getMoney().doubleValue());
+                    e.getAmount().doubleValue());
 
             MessageHandler.process(e.getVictim(), message);
         }

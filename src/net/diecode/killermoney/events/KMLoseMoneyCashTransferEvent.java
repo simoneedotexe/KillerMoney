@@ -17,15 +17,15 @@ public class KMLoseMoneyCashTransferEvent extends Event implements Cancellable {
     private CashTransferProperties cashTransferProperties;
     private ArrayList<EntityDamage> damagers;
     private Player victim;
-    private BigDecimal money;
+    private BigDecimal amount;
     private boolean cancelled;
 
     public KMLoseMoneyCashTransferEvent(CashTransferProperties cashTransferProperties, ArrayList<EntityDamage> damagers,
-                                        Player victim, BigDecimal money) {
+                                        Player victim, BigDecimal amount) {
         this.cashTransferProperties = cashTransferProperties;
         this.damagers = damagers;
         this.victim = victim;
-        this.money = money;
+        this.amount = amount;
     }
 
     public HandlerList getHandlers() {
@@ -48,8 +48,12 @@ public class KMLoseMoneyCashTransferEvent extends Event implements Cancellable {
         return victim;
     }
 
-    public BigDecimal getMoney() {
-        return money;
+    public BigDecimal getAmount() {
+        return amount;
+    }
+
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
     }
 
     @Override

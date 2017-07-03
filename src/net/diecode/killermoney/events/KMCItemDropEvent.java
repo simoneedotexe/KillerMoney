@@ -56,6 +56,10 @@ public class KMCItemDropEvent extends Event implements Cancellable {
         return location;
     }
 
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
     @Override
     public boolean isCancelled() {
         return cancelled;

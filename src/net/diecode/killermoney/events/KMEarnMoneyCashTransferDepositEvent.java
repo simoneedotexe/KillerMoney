@@ -48,6 +48,10 @@ public class KMEarnMoneyCashTransferDepositEvent extends Event implements Cancel
         return amount;
     }
 
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
+    }
+
     public Player getVictim() {
         return victim;
     }
