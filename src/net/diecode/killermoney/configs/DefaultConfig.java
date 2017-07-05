@@ -34,8 +34,8 @@ public class DefaultConfig extends SuperConfig {
     private static Material moneyItemMaterial = Material.GOLD_INGOT;
     private static boolean moneyItemAnyonePickUp;
 
-    private static HashMap<String, Double> moneyMultipliers = new HashMap<>();
-    private static HashMap<String, Double> limitMultipliers = new HashMap<>();
+    private static HashMap<String, Double> permBasedMoneyMultipliers = new HashMap<>();
+    private static HashMap<String, Double> permBasedLimitMultipliers = new HashMap<>();
 
     public DefaultConfig(String fileName) {
         super(fileName);
@@ -129,7 +129,7 @@ public class DefaultConfig extends SuperConfig {
             try {
                 double value = getConfig().getDouble("Configurable-permissions.Money-multipliers." + s);
 
-                moneyMultipliers.put(s, value);
+                permBasedMoneyMultipliers.put(s, value);
             } catch (Exception e) {
                 Logger.warning("Invalid money multiplier value at: " + s);
             }
@@ -141,7 +141,7 @@ public class DefaultConfig extends SuperConfig {
             try {
                 double value = getConfig().getDouble("Configurable-permissions.Limit-multipliers." + s);
 
-                limitMultipliers.put(s, value);
+                permBasedLimitMultipliers.put(s, value);
             } catch (Exception e) {
                 Logger.warning("Invalid limit multiplier value at: " + s);
             }
@@ -228,11 +228,11 @@ public class DefaultConfig extends SuperConfig {
         return moneyItemAnyonePickUp;
     }
 
-    public static HashMap<String, Double> getMoneyMultipliers() {
-        return moneyMultipliers;
+    public static HashMap<String, Double> getPermBasedMoneyMultipliers() {
+        return permBasedMoneyMultipliers;
     }
 
-    public static HashMap<String, Double> getLimitMultipliers() {
-        return limitMultipliers;
+    public static HashMap<String, Double> getPermBasedLimitMultipliers() {
+        return permBasedLimitMultipliers;
     }
 }

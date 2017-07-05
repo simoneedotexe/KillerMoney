@@ -175,7 +175,7 @@ public class CashTransferHandler implements Listener {
 
                     // Use multipliers ( Permission based and global )
                     //dividedMoney = dividedMoney.multiply(new BigDecimal(getMoneyMultiplier(p)));
-                    //dividedMoney = dividedMoney.multiply(new BigDecimal(MultiplierHandler.getMultiplier()));
+                    //dividedMoney = dividedMoney.multiply(new BigDecimal(MultiplierHandler.getGlobalMultiplier()));
 
                     if (!hasLimitBypass) {
                         if ((ctp.getLimit() > 0) && (dividedMoney.compareTo(remainingLimit) == 1)) {

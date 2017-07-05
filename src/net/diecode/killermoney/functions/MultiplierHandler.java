@@ -2,22 +2,27 @@ package net.diecode.killermoney.functions;
 
 import net.diecode.killermoney.BukkitMain;
 import net.diecode.killermoney.Utils;
+import net.diecode.killermoney.configs.DefaultConfig;
+import net.diecode.killermoney.enums.KMPermission;
 import net.diecode.killermoney.enums.LanguageString;
-import net.diecode.killermoney.events.KMMultiplierChangedEvent;
+import net.diecode.killermoney.events.KMGlobalMultiplierChangedEvent;
 import net.diecode.killermoney.managers.LanguageManager;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.scheduler.BukkitTask;
 
+import java.util.Map;
+
 public class MultiplierHandler implements Listener {
 
-    private static double multiplier = 1;
+    private static double globalMultiplier = 1;
     private static BukkitTask timer;
     private static int minuteLeft;
 
     @EventHandler
-    public void onMultiplierChange(KMMultiplierChangedEvent e) {
+    public void onGlobalMultiplierChange(KMGlobalMultiplierChangedEvent e) {
         if (e.isCancelled()) {
             return;
         }
@@ -30,7 +35,7 @@ public class MultiplierHandler implements Listener {
             set(e.getNewValue(), e.getMinute());
 
             LanguageManager.send(e.getSender(), LanguageString.MULTIPLIER_SET_NEW_MULTIPLIER_VALUE,
-                    MultiplierHandler.getMultiplier(), Utils.getRemainingTimeHumanFormat(e.getMinute()));
+                    MultiplierHandler.getGlobalMultiplier(), Utils.getRemainingTimeHumanFormat(e.getMinute()));
         }
     }
 
@@ -39,7 +44,7 @@ public class MultiplierHandler implements Listener {
             timer.cancel();
         }
 
-        multiplier = newMultiplier;
+        globalMultiplier = newMultiplier;
         minuteLeft = minute;
 
         timer = Bukkit.getScheduler().runTaskTimer(BukkitMain.getInstance(), new Runnable() {
@@ -60,12 +65,44 @@ public class MultiplierHandler implements Listener {
             timer = null;
         }
 
-        multiplier = 1;
+        globalMultiplier = 1;
         minuteLeft = 0;
     }
 
-    public static double getMultiplier() {
-        return multiplier;
+    public static double getPermBasedMoneyMultiplier(Player p) {
+        double biggest = 1;
+
+        if (p != null) {
+            for (Map.Entry<String, Double> multiplier : DefaultConfig.getPermBasedMoneyMultipliers().entrySet()) {
+                if (p.hasPermission(KMPermission.MONEY_MULTIPLIER.get() + "." + multiplier.getKey())) {
+                    if (biggest < multiplier.getValue()) {
+                        biggest = multiplier.getValue();
+                    }
+                }
+            }
+        }
+
+        return biggest;
+    }
+
+    public static double getPermBasedMoneyLimitMultiplier(Player p) {
+        double biggest = 1;
+
+        if (p != null) {
+            for (Map.Entry<String, Double> multiplier : DefaultConfig.getPermBasedLimitMultipliers().entrySet()) {
+                if (p.hasPermission(KMPermission.LIMIT_MONEY_MULTIPLIER.get() + "." + multiplier.getKey())) {
+                    if (biggest < multiplier.getValue()) {
+                        biggest = multiplier.getValue();
+                    }
+                }
+            }
+        }
+
+        return biggest;
+    }
+
+    public static double getGlobalMultiplier() {
+        return globalMultiplier;
     }
 
     public static BukkitTask getTimer() {

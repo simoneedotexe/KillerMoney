@@ -1,6 +1,7 @@
 package net.diecode.killermoney.api;
 
 import net.diecode.killermoney.functions.MoneyHandler;
+import net.diecode.killermoney.functions.MultiplierHandler;
 import net.diecode.killermoney.managers.EconomyManager;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -21,8 +22,8 @@ public class EconomyAPI {
      * @param player
      * @return
      */
-    public static double getMoneyMultiplier(Player player) {
-        return MoneyHandler.getMoneyMultiplier(player);
+    public static double getPermBasedMoneyMultiplier(Player player) {
+        return MultiplierHandler.getPermBasedMoneyMultiplier(player);
     }
 
     /**
@@ -30,8 +31,8 @@ public class EconomyAPI {
      * @param player
      * @return
      */
-    public static double getLimitMultiplier(Player player) {
-        return MoneyHandler.getLimitMultiplier(player);
+    public static double getPermBasedLimitMultiplier(Player player) {
+        return MultiplierHandler.getPermBasedMoneyLimitMultiplier(player);
     }
 
     /**

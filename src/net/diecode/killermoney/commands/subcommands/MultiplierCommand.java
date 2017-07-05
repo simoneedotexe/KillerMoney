@@ -4,7 +4,7 @@ import net.diecode.killermoney.Utils;
 import net.diecode.killermoney.enums.KMPermission;
 import net.diecode.killermoney.enums.LanguageString;
 import net.diecode.killermoney.enums.SenderType;
-import net.diecode.killermoney.events.KMMultiplierChangedEvent;
+import net.diecode.killermoney.events.KMGlobalMultiplierChangedEvent;
 import net.diecode.killermoney.managers.CommandManager;
 import net.diecode.killermoney.managers.LanguageManager;
 import net.diecode.killermoney.functions.MultiplierHandler;
@@ -42,7 +42,7 @@ public class MultiplierCommand extends CommandManager {
                         return;
                     }
 
-                    Bukkit.getPluginManager().callEvent(new KMMultiplierChangedEvent(multiplier, minute, cs));
+                    Bukkit.getPluginManager().callEvent(new KMGlobalMultiplierChangedEvent(multiplier, minute, cs));
                 } catch (NumberFormatException e) {
                     LanguageManager.send(cs, LanguageString.MULTIPLIER_INVALID_VALUE);
                 }
@@ -56,7 +56,7 @@ public class MultiplierCommand extends CommandManager {
         if (subCommand.equalsIgnoreCase("get")) {
             if (MultiplierHandler.getTimer() != null) {
                 LanguageManager.send(cs, LanguageString.MULTIPLIER_GET_CURRENT_MULTIPLIER,
-                        MultiplierHandler.getMultiplier(),
+                        MultiplierHandler.getGlobalMultiplier(),
                         Utils.getRemainingTimeHumanFormat(MultiplierHandler.getMinuteLeft()));
             } else {
                 LanguageManager.send(cs, LanguageString.MULTIPLIER_THERE_IS_NOT_CUSTOM_MULTIPLIER_SET);
@@ -67,7 +67,7 @@ public class MultiplierCommand extends CommandManager {
 
         if (subCommand.equalsIgnoreCase("cancel")) {
             if (MultiplierHandler.getTimer() != null) {
-                Bukkit.getPluginManager().callEvent(new KMMultiplierChangedEvent(1, 0, cs));
+                Bukkit.getPluginManager().callEvent(new KMGlobalMultiplierChangedEvent(1, 0, cs));
             }  else {
                 cs.sendMessage(LanguageManager.cGet(LanguageString.MULTIPLIER_THERE_IS_NOT_CUSTOM_MULTIPLIER_SET));
             }

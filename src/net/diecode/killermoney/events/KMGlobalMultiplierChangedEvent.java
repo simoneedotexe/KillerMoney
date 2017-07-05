@@ -6,7 +6,7 @@ import org.bukkit.event.Cancellable;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
-public class KMMultiplierChangedEvent extends Event implements Cancellable {
+public class KMGlobalMultiplierChangedEvent extends Event implements Cancellable {
 
     private static final HandlerList handlers = new HandlerList();
 
@@ -15,7 +15,7 @@ public class KMMultiplierChangedEvent extends Event implements Cancellable {
     private CommandSender sender;
     private boolean cancelled;
 
-    public KMMultiplierChangedEvent(double newValue, int minute, CommandSender sender) {
+    public KMGlobalMultiplierChangedEvent(double newValue, int minute, CommandSender sender) {
         this.newValue = newValue;
         this.minute = minute;
         this.sender = sender;
@@ -30,7 +30,7 @@ public class KMMultiplierChangedEvent extends Event implements Cancellable {
     }
 
     public double getCurrentValue() {
-        return MultiplierHandler.getMultiplier();
+        return MultiplierHandler.getGlobalMultiplier();
     }
 
     public double getNewValue() {

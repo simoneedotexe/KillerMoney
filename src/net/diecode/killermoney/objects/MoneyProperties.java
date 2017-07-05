@@ -5,6 +5,7 @@ import net.diecode.killermoney.configs.DefaultConfig;
 import net.diecode.killermoney.enums.DivisionMethod;
 import net.diecode.killermoney.enums.KMPermission;
 import net.diecode.killermoney.functions.MoneyHandler;
+import net.diecode.killermoney.functions.MultiplierHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -130,7 +131,7 @@ public class MoneyProperties {
             return new BigDecimal(limit);
         }
 
-        return new BigDecimal(limit * MoneyHandler.getLimitMultiplier(player))
+        return new BigDecimal(limit * MultiplierHandler.getPermBasedMoneyLimitMultiplier(player))
                 .setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_EVEN);
     }
 }

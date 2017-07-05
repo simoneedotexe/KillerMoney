@@ -31,7 +31,6 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Map;
 import java.util.UUID;
 
 public class MoneyHandler implements Listener {
@@ -259,8 +258,8 @@ public class MoneyHandler implements Listener {
                     dividedMoney = new BigDecimal(money.multiply(x).doubleValue());
 
                     // Use multipliers ( Permission based and global )
-                    dividedMoney = dividedMoney.multiply(new BigDecimal(getMoneyMultiplier(p)));
-                    dividedMoney = dividedMoney.multiply(new BigDecimal(MultiplierHandler.getMultiplier()));
+                    dividedMoney = dividedMoney.multiply(new BigDecimal(MultiplierHandler.getPermBasedMoneyMultiplier(p)));
+                    dividedMoney = dividedMoney.multiply(new BigDecimal(MultiplierHandler.getGlobalMultiplier()));
 
                     if (!hasMoneyLimitBypass(p)) {
                         if ((mp.getLimit() > 0) && (dividedMoney.compareTo(remainingLimit) == 1)) {
@@ -305,8 +304,8 @@ public class MoneyHandler implements Listener {
                     }
                 }
 
-                dividedMoney = dividedMoney.multiply(new BigDecimal(getMoneyMultiplier(killer)));
-                dividedMoney = dividedMoney.multiply(new BigDecimal(MultiplierHandler.getMultiplier()));
+                dividedMoney = dividedMoney.multiply(new BigDecimal(MultiplierHandler.getPermBasedMoneyMultiplier(killer)));
+                dividedMoney = dividedMoney.multiply(new BigDecimal(MultiplierHandler.getGlobalMultiplier()));
 
                 // Set scale
                 dividedMoney = dividedMoney.setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_EVEN);
@@ -349,38 +348,6 @@ public class MoneyHandler implements Listener {
         if (!filteredDamagers.isEmpty()) {
             Bukkit.getPluginManager().callEvent(new KMMoneyProcessorEvent(mp, filteredDamagers, victim));
         }
-    }
-
-    public static double getMoneyMultiplier(Player p) {
-        double biggest = 1;
-
-        if (p != null) {
-            for (Map.Entry<String, Double> multiplier : DefaultConfig.getMoneyMultipliers().entrySet()) {
-                if (p.hasPermission(KMPermission.MONEY_MULTIPLIER.get() + "." + multiplier.getKey())) {
-                    if (biggest < multiplier.getValue()) {
-                        biggest = multiplier.getValue();
-                    }
-                }
-            }
-        }
-
-        return biggest;
-    }
-
-    public static double getLimitMultiplier(Player p) {
-        double biggest = 1;
-
-        if (p != null) {
-            for (Map.Entry<String, Double> multiplier : DefaultConfig.getLimitMultipliers().entrySet()) {
-                if (p.hasPermission(KMPermission.LIMIT_MONEY_MULTIPLIER.get() + "." + multiplier.getKey())) {
-                    if (biggest < multiplier.getValue()) {
-                        biggest = multiplier.getValue();
-                    }
-                }
-            }
-        }
-
-        return biggest;
     }
 
     public static boolean hasMoneyLimitBypass(Player player) {
