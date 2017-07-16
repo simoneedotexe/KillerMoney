@@ -17,7 +17,6 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.Arrays;
 
 /**
  * This class is a barebones example of how to use the BukkitDev ServerMods API to check for file updates.

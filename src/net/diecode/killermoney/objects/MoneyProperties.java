@@ -4,7 +4,6 @@ import net.diecode.killermoney.Utils;
 import net.diecode.killermoney.configs.DefaultConfig;
 import net.diecode.killermoney.enums.DivisionMethod;
 import net.diecode.killermoney.enums.KMPermission;
-import net.diecode.killermoney.functions.MoneyHandler;
 import net.diecode.killermoney.functions.MultiplierHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.EntityType;
