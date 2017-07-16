@@ -5,7 +5,7 @@ import net.diecode.killermoney.Utils;
 import net.diecode.killermoney.configs.DefaultConfig;
 import net.diecode.killermoney.enums.KMPermission;
 import net.diecode.killermoney.enums.LanguageString;
-import net.diecode.killermoney.events.KMGlobalMultiplierChangedEvent;
+import net.diecode.killermoney.events.KMGlobalMultiplierChangeEvent;
 import net.diecode.killermoney.managers.LanguageManager;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -22,7 +22,7 @@ public class MultiplierHandler implements Listener {
     private static int minuteLeft;
 
     @EventHandler
-    public void onGlobalMultiplierChange(KMGlobalMultiplierChangedEvent e) {
+    public void onGlobalMultiplierChange(KMGlobalMultiplierChangeEvent e) {
         if (e.isCancelled()) {
             return;
         }

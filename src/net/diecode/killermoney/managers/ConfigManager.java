@@ -3,6 +3,9 @@ package net.diecode.killermoney.managers;
 import net.diecode.killermoney.configs.DefaultConfig;
 import net.diecode.killermoney.configs.EntitiesConfig;
 import net.diecode.killermoney.configs.LangConfig;
+import org.bukkit.Material;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.inventory.ItemStack;
 
 public class ConfigManager {
 
@@ -24,9 +27,7 @@ public class ConfigManager {
         int version = DefaultConfig.getConfigVersion();
 
         if (version < 1) {
-            // todo Config for 1.12
-            // Parrot lang.yml
-            // Parrot entities.yml
+            setEntityData("PARROT", "Parrot");
 
             version++;
         }
@@ -41,6 +42,37 @@ public class ConfigManager {
         DefaultConfig.getInstance().saveConfig();
     }
 
+    private static void setEntityData(String entity, String langData) {
+        FileConfiguration langCfg   = LangConfig.getInstance().getConfig();
+        FileConfiguration entityCfg = EntitiesConfig.getInstance().getConfig();
+
+        langCfg.set("ENTITIES." + entity, langData);
+
+        entityCfg.set(entity + ".*.Money.Enabled", false);
+        entityCfg.set(entity + ".*.Money.Chance", "100%");
+        entityCfg.set(entity + ".*.Money.Value", "1 ? 100");
+
+        entityCfg.set(entity + ".*.Custom-commands.Enabled", false);
+        entityCfg.set(entity + ".*.Custom-commands.Commands.1.Command", "say {player} killed an entity!");
+        entityCfg.set(entity + ".*.Custom-commands.Commands.1.Chance", "100%");
+
+        entityCfg.set(entity + ".*.Custom-item-drop.Enabled", false);
+        entityCfg.set(entity + ".*.Custom-item-drop.Keep-default-items", false);
+        entityCfg.set(entity + ".*.Custom-item-drop.Items.1.ItemStack", new ItemStack(Material.GOLD_NUGGET));
+        entityCfg.set(entity + ".*.Custom-item-drop.Items.1.Random-amount", "1 ? 5");
+        entityCfg.set(entity + ".*.Custom-item-drop.Items.1.Chance", "100%");
+
+        LangConfig.getInstance().saveConfig();
+        EntitiesConfig.getInstance().saveConfig();
+
+    }
+
+    public static void reloadConfigs() {
+        DefaultConfig.getInstance().load();
+        EntitiesConfig.getInstance().load();
+        LangConfig.getInstance().load();
+    }
+
     public static DefaultConfig getDefaultConfig() {
         return defaultConfig;
     }
@@ -51,11 +83,5 @@ public class ConfigManager {
 
     public static LangConfig getLangConfig() {
         return langConfig;
-    }
-
-    public static void reloadConfigs() {
-        DefaultConfig.getInstance().load();
-        EntitiesConfig.getInstance().load();
-        LangConfig.getInstance().load();
     }
 }
