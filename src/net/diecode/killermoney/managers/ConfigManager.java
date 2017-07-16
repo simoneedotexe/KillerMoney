@@ -27,6 +27,7 @@ public class ConfigManager {
         int version = DefaultConfig.getConfigVersion();
 
         if (version < 1) {
+            DefaultConfig.getInstance().getConfig().set("Anyone-can-pick-it-up", true);
             setEntityData("PARROT", "Parrot");
 
             version++;
@@ -35,6 +36,8 @@ public class ConfigManager {
         if (version != DefaultConfig.getConfigVersion()) {
             setConfigVersion(version);
         }
+
+        DefaultConfig.getInstance().saveConfig();
     }
 
     private static void setConfigVersion(int newVersion) {
@@ -64,7 +67,6 @@ public class ConfigManager {
 
         LangConfig.getInstance().saveConfig();
         EntitiesConfig.getInstance().saveConfig();
-
     }
 
     public static void reloadConfigs() {
