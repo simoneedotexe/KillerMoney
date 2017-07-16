@@ -27,7 +27,7 @@ public class ConfigManager {
         int version = DefaultConfig.getConfigVersion();
 
         if (version < 1) {
-            DefaultConfig.getInstance().getConfig().set("Anyone-can-pick-it-up", true);
+            DefaultConfig.getInstance().getConfig().set("Global-settings.Money.Item-drop.Anyone-can-pick-it-up", true);
             setEntityData("PARROT", "Parrot");
 
             version++;
