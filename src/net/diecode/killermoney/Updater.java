@@ -186,14 +186,14 @@ public class Updater implements Listener {
 
         if (updateVersion[0] > currentVersion[0]) {
             return true;
-        } else {
-            if (updateVersion[1] > currentVersion[1]) {
-                return true;
-            } else {
-                if (updateVersion[2] > currentVersion[2]) {
-                    return true;
-                }
-            }
+        }
+
+        if ((updateVersion[0] == currentVersion[0]) && updateVersion[1] > currentVersion[1]) {
+            return true;
+        }
+
+        if ((updateVersion[0] == currentVersion[0]) && (updateVersion[1] == currentVersion[1]) && (updateVersion[2]) > (currentVersion[2])) {
+            return true;
         }
 
         return false;

@@ -1,10 +1,13 @@
 4.1.0
 ---
+- (Added) Minecraft 1.12 support (Added parrot and ACTION_BAR compatibility)
 - (Added) "Anyone-can-pick-it-up" option for money item drop in config
 - (Added) Built-in versioning system for better plugin update
 - (Added) Minimal API (WIP)
 - (Modified) Changed values in default config: "Disable-spawner-egg-farming: false" and "Allowed-gamemodes: SURVIVAL, CREATIVE"
 - (Fixed) Major money and limit multiplier bug
+- (Fixed) Update check
+- (Fixed) Plugin loading when economy or vault not installed
 
 4.0.2
 ---

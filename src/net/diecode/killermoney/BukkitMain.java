@@ -79,8 +79,6 @@ public class BukkitMain extends JavaPlugin {
 
         if (!initEconomy()) {
             Logger.warning("Vault or economy plugin not found! Money reward disabled.");
-
-            return;
         }
 
         if (DefaultConfig.isHookMobArena()) {
