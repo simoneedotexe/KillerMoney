@@ -3,7 +3,8 @@ package net.diecode.killermoney.configs;
 import net.diecode.killermoney.Logger;
 import net.diecode.killermoney.enums.MessageMethod;
 import net.diecode.killermoney.functions.MessageHandler;
-import net.md_5.bungee.api.ChatColor;
+
+import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 
