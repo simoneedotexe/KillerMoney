@@ -1,6 +1,7 @@
 4.1.1
 ---
 - (Fixed) Config loading when the server is not spigot or spigot fork
+- (Fixed) Player could change money item name
 
 4.1.0
 ---

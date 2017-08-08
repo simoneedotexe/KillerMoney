@@ -18,7 +18,7 @@ public class HelpCommand extends CommandManager {
     }
 
     public static void showHelp(CommandSender sender) {
-        sender.sendMessage(ChatColor.GREEN + "[ " + ChatColor.GRAY + "KillerMoney" + ChatColor.GREEN + " ]");
+        sender.sendMessage(ChatColor.GREEN + "[ " + ChatColor.GRAY + "KillerMoney - help" + ChatColor.GREEN + " ]");
         sender.sendMessage(ChatColor.GREEN + "/km help" + ChatColor.GRAY + " | These help messages");
         sender.sendMessage(ChatColor.GREEN + "/km info" + ChatColor.GRAY + " | Show general info about KillerMoney");
         sender.sendMessage(ChatColor.GREEN + "/km reload" + ChatColor.GRAY + " | Reload configs");

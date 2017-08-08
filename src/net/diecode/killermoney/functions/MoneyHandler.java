@@ -174,7 +174,7 @@ public class MoneyHandler implements Listener {
 
         if (isMoneyItem(is)) {
             e.setCancelled(true);
-			//read item meta, not name, because players can`t change item lore on anvil.
+
             BigDecimal money = new BigDecimal(Double.valueOf(ChatColor.stripColor(is.getItemMeta().getLore().get(0))
                     .replaceAll("[^0-9.]", "")))
                     .setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_EVEN);
