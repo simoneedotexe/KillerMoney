@@ -1,3 +1,7 @@
+4.1.2
+---
+- (Fixed) When killer left the server and any other player want pick up money item then the server drop null pointer exception
+
 4.1.1
 ---
 - (Fixed) Config loading when the server is not spigot or spigot fork
