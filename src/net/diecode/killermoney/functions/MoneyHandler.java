@@ -187,9 +187,8 @@ public class MoneyHandler implements Listener {
             }
 
             UUID uuid = UUID.fromString(is.getItemMeta().getLore().get(2));
-            Player owner = Bukkit.getPlayer(uuid);
 
-            if (!DefaultConfig.isMoneyItemAnyonePickUp() && !owner.equals(e.getPlayer())) {
+            if (!DefaultConfig.isMoneyItemAnyonePickUp() && !uuid.equals(e.getPlayer().getUniqueId())) {
                 return;
             }
 
