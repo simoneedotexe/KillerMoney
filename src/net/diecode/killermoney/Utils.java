@@ -32,6 +32,10 @@ public class Utils {
     }
 
     public static int randomNumber(int min, int max) {
+        if (min == max) {
+            return min;
+        }
+
         return new Random().nextInt(max - min) + min;
     }
 

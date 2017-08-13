@@ -60,10 +60,6 @@ public class MessageHandler implements Listener {
     }
 
     public static void process(Player player, String message) {
-        if (player.hasPermission(KMPermission.BYPASS_MESSAGES.get())) {
-            return;
-        }
-
         PluginManager pm = Bukkit.getPluginManager();
 
         switch (DefaultConfig.getMessageMethod()) {

@@ -8,8 +8,8 @@ public class PlayerWorldProperties extends WorldProperties {
 
     public PlayerWorldProperties(ArrayList<String> worlds, MoneyProperties moneyProperties,
                            CCommandProperties cCommandProperties, CItemProperties cItemProperties,
-                                 CashTransferProperties cashTransferProperties) {
-        super(worlds, moneyProperties, cCommandProperties, cItemProperties);
+                                 CashTransferProperties cashTransferProperties, CExpProperties cExpProperties) {
+        super(worlds, moneyProperties, cCommandProperties, cItemProperties, cExpProperties);
 
         this.cashTransferProperties = cashTransferProperties;
     }

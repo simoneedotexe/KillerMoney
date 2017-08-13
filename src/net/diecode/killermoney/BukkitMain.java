@@ -95,6 +95,7 @@ public class BukkitMain extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new MoneyHandler(), this);
         Bukkit.getPluginManager().registerEvents(new CItemHandler(), this);
         Bukkit.getPluginManager().registerEvents(new CCommandHandler(), this);
+        Bukkit.getPluginManager().registerEvents(new CExpHandler(), this);
         Bukkit.getPluginManager().registerEvents(new MessageHandler(), this);
         Bukkit.getPluginManager().registerEvents(new CashTransferHandler(), this);
         Bukkit.getPluginManager().registerEvents(new AntiFarmingHandler(), this);

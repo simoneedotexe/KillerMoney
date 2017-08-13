@@ -27,6 +27,10 @@ BAT:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 BLAZE:
     '*':
         Money:
