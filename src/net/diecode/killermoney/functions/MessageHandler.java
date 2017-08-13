@@ -13,6 +13,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.scheduler.BukkitTask;
 
 import java.util.HashMap;
@@ -58,10 +59,16 @@ public class MessageHandler implements Listener {
     }
 
     public static void process(Player player, String message) {
-        if (DefaultConfig.getMessageMethod() == MessageMethod.ACTION_BAR && actionBar != null) {
-            Bukkit.getPluginManager().callEvent(new KMSendActionBarMessageEvent(player, message, 3));
-        } else {
-            Bukkit.getPluginManager().callEvent(new KMSendMessageEvent(player, message));
+        PluginManager pm = Bukkit.getPluginManager();
+
+        switch (DefaultConfig.getMessageMethod()) {
+            case DISABLED:              return;
+
+            case ACTION_BAR:            pm.callEvent(new KMSendActionBarMessageEvent(player, message, 3));
+                                        break;
+
+            case CHAT:                  pm.callEvent(new KMSendMessageEvent(player, message));
+                                        break;
         }
     }
 
@@ -75,11 +82,9 @@ public class MessageHandler implements Listener {
 
             actionBar = (ActionBar)actionBarClass.newInstance();
         } catch (Exception e) {
+            Logger.warning("Action bar is not compatibility with this server version. Using default \"CHAT\" value.");
 
-        }
-
-        if (actionBar == null) {
-            Logger.warning("Action bar is not compatibility with this server version.");
+            DefaultConfig.setMessageMethod(MessageMethod.CHAT);
         }
     }
 

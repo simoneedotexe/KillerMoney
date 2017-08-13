@@ -177,6 +177,10 @@ public class DefaultConfig extends SuperConfig {
         return messageMethod;
     }
 
+    public static void setMessageMethod(MessageMethod messageMethod) {
+        DefaultConfig.messageMethod = messageMethod;
+    }
+
     public static boolean isHookMobArena() {
         return hookMobArena;
     }
