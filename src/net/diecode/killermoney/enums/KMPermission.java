@@ -9,6 +9,7 @@ public enum KMPermission {
     //LIMIT_ITEM_MULTIPLIER("itemlimit.multiplier"),
     //LIMIT_COMMAND_MULTIPLIER("commandlimit.multiplier"),
 
+    BYPASS_MESSAGES("bypass.messages"),
     BYPASS_MONEY_LIMIT("bypass.moneylimit"),
     BYPASS_ITEM_LIMIT("bypass.itemlimit"),
     BYPASS_COMMAND_LIMIT("bypass.commandlimit"),

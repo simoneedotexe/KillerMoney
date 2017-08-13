@@ -3,6 +3,7 @@ package net.diecode.killermoney.functions;
 import net.diecode.killermoney.BukkitMain;
 import net.diecode.killermoney.Logger;
 import net.diecode.killermoney.configs.DefaultConfig;
+import net.diecode.killermoney.enums.KMPermission;
 import net.diecode.killermoney.enums.LanguageString;
 import net.diecode.killermoney.enums.MessageMethod;
 import net.diecode.killermoney.events.KMSendActionBarMessageEvent;
@@ -59,6 +60,10 @@ public class MessageHandler implements Listener {
     }
 
     public static void process(Player player, String message) {
+        if (player.hasPermission(KMPermission.BYPASS_MESSAGES.get())) {
+            return;
+        }
+
         PluginManager pm = Bukkit.getPluginManager();
 
         switch (DefaultConfig.getMessageMethod()) {
