@@ -1,7 +1,7 @@
 4.2.0
 ---
 - (Added) "DISABLED" option for Message-method in config
-- (Added) "KillerMoney.bypass.messages" permission
+- (Added) Custom exp drop
 
 4.1.2
 ---
