@@ -3,13 +3,14 @@ package net.diecode.killermoney.functions;
 import net.diecode.killermoney.BukkitMain;
 import net.diecode.killermoney.Logger;
 import net.diecode.killermoney.configs.DefaultConfig;
-import net.diecode.killermoney.enums.KMPermission;
 import net.diecode.killermoney.enums.LanguageString;
 import net.diecode.killermoney.enums.MessageMethod;
 import net.diecode.killermoney.events.KMSendActionBarMessageEvent;
 import net.diecode.killermoney.events.KMSendMessageEvent;
-import net.diecode.killermoney.interfaces.ActionBar;
+import net.diecode.killermoney.interfaces.IActionBar;
+import net.diecode.killermoney.managers.KMPlayerManager;
 import net.diecode.killermoney.managers.LanguageManager;
+import net.diecode.killermoney.objects.KMPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -22,7 +23,7 @@ import java.util.UUID;
 
 public class MessageHandler implements Listener {
 
-    private static ActionBar actionBar;
+    private static IActionBar actionBar;
     private static HashMap<UUID, BukkitTask> timers = new HashMap<UUID, BukkitTask>();
 
     @EventHandler
@@ -60,7 +61,12 @@ public class MessageHandler implements Listener {
     }
 
     public static void process(Player player, String message) {
+        KMPlayer kmp = KMPlayerManager.getKMPlayer(player);
         PluginManager pm = Bukkit.getPluginManager();
+
+        if (!kmp.isEnableMessages()) {
+            return;
+        }
 
         switch (DefaultConfig.getMessageMethod()) {
             case DISABLED:              return;
@@ -81,7 +87,7 @@ public class MessageHandler implements Listener {
 
             Class actionBarClass = Class.forName("net.diecode.killermoney.compatibility.actionbar.ActionBar_" + version);
 
-            actionBar = (ActionBar)actionBarClass.newInstance();
+            actionBar = (IActionBar)actionBarClass.newInstance();
         } catch (Exception e) {
             Logger.warning("Action bar is not compatibility with this server version. Using default \"CHAT\" value.");
 

@@ -2,6 +2,9 @@
 ---
 - (Added) "DISABLED" option for Message-method in config
 - (Added) Custom exp drop
+- (Added) Player config file for future updates
+- (Modification) Admin commands -> /kmadmin, players command -> /km
+- (Modification) Changed few string id in language file
 
 4.1.2
 ---

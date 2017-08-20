@@ -1,11 +1,13 @@
 package net.diecode.killermoney;
 
 import com.garbagemule.MobArena.MobArenaHandler;
+import net.diecode.killermoney.commands.KMAdminCommand;
 import net.diecode.killermoney.commands.KMCommand;
 import net.diecode.killermoney.configs.DefaultConfig;
 import net.diecode.killermoney.functions.*;
 import net.diecode.killermoney.managers.ConfigManager;
 import net.diecode.killermoney.managers.EntityManager;
+import net.diecode.killermoney.managers.KMPlayerManager;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.RegisteredServiceProvider;
@@ -90,6 +92,7 @@ public class BukkitMain extends JavaPlugin {
         }
 
         getCommand("km").setExecutor(new KMCommand());
+        getCommand("kmadmin").setExecutor(new KMAdminCommand());
 
         Bukkit.getPluginManager().registerEvents(new EntityManager(), this);
         Bukkit.getPluginManager().registerEvents(new MoneyHandler(), this);
@@ -101,6 +104,7 @@ public class BukkitMain extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new AntiFarmingHandler(), this);
         Bukkit.getPluginManager().registerEvents(new LimitHandler(), this);
         Bukkit.getPluginManager().registerEvents(new MultiplierHandler(), this);
+        Bukkit.getPluginManager().registerEvents(new KMPlayerManager(), this);
         Bukkit.getPluginManager().registerEvents(updater, this);
 
         if (DefaultConfig.isCheckUpdate()) {

@@ -1,7 +1,6 @@
 package net.diecode.killermoney.commands;
 
-import net.diecode.killermoney.commands.subcommands.km.HelpCommand;
-import net.diecode.killermoney.commands.subcommands.shared.InfoCommand;
+import net.diecode.killermoney.commands.subcommands.kmadmin.*;
 import net.diecode.killermoney.enums.KMCommandType;
 import net.diecode.killermoney.managers.CommandManager;
 
@@ -9,13 +8,13 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
-public class KMCommand implements CommandExecutor {
+public class KMAdminCommand implements CommandExecutor {
 
-    public KMCommand() {
+    public KMAdminCommand() {
         CommandManager.registerSubCommand(new HelpCommand("help"));
-
-        // Shared
-        CommandManager.registerSubCommand(new InfoCommand("info"));
+        CommandManager.registerSubCommand(new LimitCommand("limit"));
+        CommandManager.registerSubCommand(new MultiplierCommand("multiplier"));
+        CommandManager.registerSubCommand(new ReloadCommand("reload"));
     }
 
     @Override
@@ -26,7 +25,7 @@ public class KMCommand implements CommandExecutor {
             return true;
         }
 
-        CommandManager.onCommand(cs, cmd, s, tmpArgs, KMCommandType.KM);
+        CommandManager.onCommand(cs, cmd, s, tmpArgs, KMCommandType.KM_ADMIN);
 
         return true;
     }

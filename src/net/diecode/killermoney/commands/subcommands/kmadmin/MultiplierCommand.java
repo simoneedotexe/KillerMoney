@@ -1,22 +1,35 @@
-package net.diecode.killermoney.commands.subcommands;
+package net.diecode.killermoney.commands.subcommands.kmadmin;
 
 import net.diecode.killermoney.Utils;
+import net.diecode.killermoney.enums.KMCommandType;
 import net.diecode.killermoney.enums.KMPermission;
 import net.diecode.killermoney.enums.LanguageString;
 import net.diecode.killermoney.enums.SenderType;
 import net.diecode.killermoney.events.KMGlobalMultiplierChangeEvent;
-import net.diecode.killermoney.managers.CommandManager;
+import net.diecode.killermoney.objects.KMSubCommand;
 import net.diecode.killermoney.managers.LanguageManager;
 import net.diecode.killermoney.functions.MultiplierHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 
-public class MultiplierCommand extends CommandManager {
+import java.util.ArrayList;
 
-    public MultiplierCommand() {
+public class MultiplierCommand extends KMSubCommand {
+
+    public MultiplierCommand(String command) {
+        super(
+                new ArrayList<KMCommandType>()
+                {
+                    {
+                        add(KMCommandType.KM_ADMIN);
+                    }
+                },
+                command
+        );
+
         permission = KMPermission.ADMIN;
         minArgs = 1;
-        usage = LanguageManager.cGet(LanguageString.COMMANDS_COMMAND_MULTIPLIER_USAGE);
+        usage = LanguageManager.cGet(LanguageString.COMMANDS_KMADMIN_COMMAND_MULTIPLIER_USAGE);
         senderType = SenderType.ANYONE;
     }
 
@@ -47,7 +60,7 @@ public class MultiplierCommand extends CommandManager {
                     LanguageManager.send(cs, LanguageString.MULTIPLIER_INVALID_VALUE);
                 }
             } else {
-                LanguageManager.send(cs, LanguageString.COMMANDS_COMMAND_MULTIPLIER_SET_USAGE);
+                LanguageManager.send(cs, LanguageString.COMMANDS_KMADMIN_COMMAND_MULTIPLIER_SET_USAGE);
             }
 
             return;

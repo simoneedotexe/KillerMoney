@@ -10,3 +10,8 @@ commands:
         usage: "Please type /<command> help"
         aliases: [killermoney]
         default: true
+    kmadmin:
+        description: "This is the admin command of KillerMoney"
+        usage: "Please usable /<command> help"
+        aliases: [killermoneyadmin, kma]
+        default: true

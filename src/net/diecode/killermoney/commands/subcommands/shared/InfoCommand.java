@@ -1,17 +1,29 @@
-package net.diecode.killermoney.commands.subcommands;
+package net.diecode.killermoney.commands.subcommands.shared;
 
 import net.diecode.killermoney.BukkitMain;
+import net.diecode.killermoney.enums.KMCommandType;
 import net.diecode.killermoney.enums.SenderType;
-import net.diecode.killermoney.managers.CommandManager;
+import net.diecode.killermoney.objects.KMSubCommand;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 
 import java.util.ArrayList;
 
-public class InfoCommand extends CommandManager {
+public class InfoCommand extends KMSubCommand {
 
-    public InfoCommand() {
+    public InfoCommand(String command) {
+        super(
+                new ArrayList<KMCommandType>()
+                {
+                    {
+                        add(KMCommandType.KM);
+                        add(KMCommandType.KM_ADMIN);
+                    }
+                },
+                command
+        );
+
         minArgs = 0;
         aliases = new ArrayList<String>() {
             {

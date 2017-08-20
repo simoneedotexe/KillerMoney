@@ -5,8 +5,8 @@ public enum LanguageString {
     // General
     GENERAL_PREFIX("&7[ &aKillerMoney &7] > "),
     GENERAL_CURRENCY("$"),
-    GENERAL_YOU_KILLED_AN_ENTITY_AND_EARN_MONEY("&7You killed a(n) entity (&a{0}&7, &a{1}&7). You earned &a${2}&7. Your damage was: &a{3}"), //{0} = entity type, {1} = entity_name, {2} = money, {3} = damage
-    GENERAL_YOU_KILLED_AN_ENTITY_AND_LOSE_MONEY("&7You killed a(n) entity (&a{0}&7, &a{1}&7). You lost &a${2}&7. Your damage was: &a{3}"), //{0} = entity type, {1} = entity_name, {2} = money, {3} = damage
+    GENERAL_YOU_KILLED_AN_ENTITY_AND_EARN_MONEY("&7You killed a(n) entity (&a{0}&7, &a{1}&7). You earned &a${2}&7. Your damage was: &a{3}"), //{0} = entity usable, {1} = entity_name, {2} = money, {3} = damage
+    GENERAL_YOU_KILLED_AN_ENTITY_AND_LOSE_MONEY("&7You killed a(n) entity (&a{0}&7, &a{1}&7). You lost &a${2}&7. Your damage was: &a{3}"), //{0} = entity usable, {1} = entity_name, {2} = money, {3} = damage
     GENERAL_YOU_PICKED_UP_MONEY("&7You picked up &a${0}&7."), // {0} = money
     GENERAL_CONFIGS_ARE_RELOADED("&7Configs are reloaded"),
     GENERAL_LIMIT_REACHED("&aLimit reached. &7Limit will be reset after {0}"), // {0} = reset time
@@ -22,13 +22,20 @@ public enum LanguageString {
     MULTIPLIER_THE_MINUTE_MUST_BE_GREATER_THAN_ZERO("&7The minute must be greater than 0"),
     MULTIPLIER_INVALID_VALUE("&7Invalid value: Multiplier and minutes must be a positive number and greater than 0"),
 
-    COMMANDS_THIS_COMMAND_ONLY_USABLE_BY_PLAYER("&7This command is only usable by player"),
-    COMMANDS_THIS_COMMAND_ONLY_USABLE_BY_CONSOLE("&7This command is only usable by console"),
-    COMMANDS_YOU_HAVE_NOT_ENOUGH_PERMISSION("&7You have not enough permission (&a{0}&7)"), // {0} = permission
-    COMMANDS_LIMIT_RESET("&7You reset all limit values to 0."),
-    COMMANDS_COMMAND_MULTIPLIER_USAGE("&7Usage: &a/km multiplier &7<&aset&7, &aget&7, &acancel&7>"),
-    COMMANDS_COMMAND_MULTIPLIER_SET_USAGE("&7Usage: &a/km multiplier set &7<&amultiplier value&7> <&aminute&7>"),
-    COMMANDS_COMMAND_LIMIT_USAGE("&7Missing parameter. Usage: &a/km limit reset"),
+    // Commands
+    COMMANDS_SHARED_THIS_COMMAND_ONLY_USABLE_BY_PLAYER("&7This command is only usable by player"),
+    COMMANDS_SHARED_THIS_COMMAND_ONLY_USABLE_BY_CONSOLE("&7This command is only usable by console"),
+    COMMANDS_SHARED_YOU_HAVE_NOT_ENOUGH_PERMISSION("&7You have not enough permission (&a{0}&7)"), // {0} = permission
+
+    // KM Commands
+    COMMANDS_KM_MESSAGES_ENABLED("&7Kill messages &2enabled&7."),
+    COMMANDS_KM_MESSAGES_DISABLED("&7Kill messages &cdisabled&7."),
+
+    // KMADMIN Commands
+    COMMANDS_KMADMIN_LIMIT_RESET("&7You reset all limit values to 0."),
+    COMMANDS_KMADMIN_COMMAND_MULTIPLIER_USAGE("&7Usage: &a/km multiplier &7<&aset&7, &aget&7, &acancel&7>"),
+    COMMANDS_KMADMIN_COMMAND_MULTIPLIER_SET_USAGE("&7Usage: &a/km multiplier set &7<&amultiplier value&7> <&aminute&7>"),
+    COMMANDS_KMADMIN_COMMAND_LIMIT_USAGE("&7Missing parameter. Usage: &a/km limit reset"),
 
     // Entities
     ENTITIES_BAT("Bat"),
