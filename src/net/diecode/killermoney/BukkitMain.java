@@ -8,10 +8,14 @@ import net.diecode.killermoney.functions.*;
 import net.diecode.killermoney.managers.ConfigManager;
 import net.diecode.killermoney.managers.EntityManager;
 import net.diecode.killermoney.managers.KMPlayerManager;
+import net.diecode.killermoney.objects.KMPlayer;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.UUID;
 
 public class BukkitMain extends JavaPlugin {
 
@@ -103,6 +107,14 @@ public class BukkitMain extends JavaPlugin {
                     }
                 }
             }, 20L, 20L * 60 * 60 * 24);
+        }
+
+        for (Player p : Bukkit.getOnlinePlayers()) {
+            UUID pUUID = p.getUniqueId();
+
+            if (!KMPlayerManager.getKMPlayers().containsKey(pUUID)) {
+                KMPlayerManager.getKMPlayers().put(pUUID, new KMPlayer(p));
+            }
         }
     }
 
