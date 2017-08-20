@@ -5,6 +5,7 @@ import net.diecode.killermoney.enums.RunMethod;
 
 import org.bukkit.entity.EntityType;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Utils {
@@ -153,6 +154,25 @@ public class Utils {
         }
 
         return sb.toString();
+    }
+
+    public static boolean isValidInput(ArrayList<String> list, String value) {
+        for (String s : list) {
+            if (s.equalsIgnoreCase(value)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static boolean getBoolean(String value) {
+        if (value.equalsIgnoreCase("on") || value.equalsIgnoreCase("true")
+                || value.equalsIgnoreCase("enable") || value.equalsIgnoreCase("1")) {
+            return true;
+        }
+
+        return false;
     }
 
 }

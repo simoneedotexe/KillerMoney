@@ -26,10 +26,13 @@ public enum LanguageString {
     COMMANDS_SHARED_THIS_COMMAND_ONLY_USABLE_BY_PLAYER("&7This command is only usable by player"),
     COMMANDS_SHARED_THIS_COMMAND_ONLY_USABLE_BY_CONSOLE("&7This command is only usable by console"),
     COMMANDS_SHARED_YOU_HAVE_NOT_ENOUGH_PERMISSION("&7You have not enough permission (&a{0}&7)"), // {0} = permission
+    COMMANDS_SHARED_INVALID_VALUE("&7Invalid value: Must be on or off"),
 
     // KM Commands
-    COMMANDS_KM_MESSAGES_ENABLED("&7Kill messages &2enabled&7."),
+    COMMANDS_KM_MESSAGES_ENABLED("&7Kill messages &aenabled&7."),
     COMMANDS_KM_MESSAGES_DISABLED("&7Kill messages &cdisabled&7."),
+    COMMANDS_KM_MESSAGES_CURRENTLY_ENABLED("&7The kill messages enabled. You can disable it with &a/km enable-messages off"),
+    COMMANDS_KM_MESSAGES_CURRENTLY_DISABLED("&7The kill messages disabled. You can enable it with &a/km enable-messages on"),
 
     // KMADMIN Commands
     COMMANDS_KMADMIN_LIMIT_RESET("&7You reset all limit values to 0."),

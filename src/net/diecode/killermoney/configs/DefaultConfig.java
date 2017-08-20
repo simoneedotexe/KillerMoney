@@ -22,8 +22,6 @@ public class DefaultConfig extends SuperConfig {
     private static MessageMethod messageMethod;
     private static boolean hookMobArena;
     private static boolean disableRewardsInArena;
-    private static boolean hookMineChart;
-    private static ArrayList<String> enabledGraphs = new ArrayList<>();
     private static boolean antiFarmingSpawner;
     private static boolean antiFarmingSpawnerEgg;
     private static int limitResetTime;
@@ -147,14 +145,6 @@ public class DefaultConfig extends SuperConfig {
                 Logger.warning("Invalid limit multiplier value at: " + s);
             }
         }
-
-        hookMineChart = getConfig().getBoolean("Hook.MineChart.Enabled");
-
-        for (String s : getConfig().getConfigurationSection("Hook.MineChart.Graphs").getKeys(false)) {
-            if (getConfig().getBoolean("Hook.MineChart.Graphs." + s)) {
-                enabledGraphs.add(s);
-            }
-        }
     }
 
     public static DefaultConfig getInstance() {
@@ -187,14 +177,6 @@ public class DefaultConfig extends SuperConfig {
 
     public static boolean isDisableRewardsInArena() {
         return disableRewardsInArena;
-    }
-
-    public static boolean isHookMineChart() {
-        return hookMineChart;
-    }
-
-    public static ArrayList<String> getEnabledGraphs() {
-        return enabledGraphs;
     }
 
     public static boolean isAntiFarmingSpawner() {

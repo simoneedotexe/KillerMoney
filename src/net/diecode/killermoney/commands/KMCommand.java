@@ -1,5 +1,6 @@
 package net.diecode.killermoney.commands;
 
+import net.diecode.killermoney.commands.subcommands.km.EnableMessagesCommand;
 import net.diecode.killermoney.commands.subcommands.km.HelpCommand;
 import net.diecode.killermoney.commands.subcommands.shared.InfoCommand;
 import net.diecode.killermoney.enums.KMCommandType;
@@ -13,6 +14,7 @@ public class KMCommand implements CommandExecutor {
 
     public KMCommand() {
         CommandManager.registerSubCommand(new HelpCommand("help"));
+        CommandManager.registerSubCommand(new EnableMessagesCommand("enable-messages"));
 
         // Shared
         CommandManager.registerSubCommand(new InfoCommand("info"));

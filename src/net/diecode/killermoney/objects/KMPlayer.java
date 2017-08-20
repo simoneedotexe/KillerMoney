@@ -72,5 +72,7 @@ public class KMPlayer {
 
     public void setEnableMessages(boolean enableMessages) {
         this.enableMessages = enableMessages;
+
+        getConfig().set("Settings.Enable-messages", enableMessages);
     }
 }

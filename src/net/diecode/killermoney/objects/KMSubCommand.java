@@ -16,6 +16,7 @@ public abstract class KMSubCommand {
     protected int minArgs;
     protected String usage;
     protected ArrayList<String> aliases;
+    protected ArrayList<String> acceptableValues;
 
     public KMSubCommand(ArrayList<KMCommandType> usable, String command) {
         this.usable = usable;
@@ -48,6 +49,10 @@ public abstract class KMSubCommand {
 
     public ArrayList<String> getAliases() {
         return aliases;
+    }
+
+    public ArrayList<String> getAcceptableValues() {
+        return acceptableValues;
     }
 
     public abstract void run(CommandSender cs, String[] args);

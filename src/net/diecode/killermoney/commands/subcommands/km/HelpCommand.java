@@ -33,5 +33,6 @@ public class HelpCommand extends KMSubCommand {
     public static void showHelp(CommandSender sender) {
         sender.sendMessage(ChatColor.GREEN + "[ " + ChatColor.GRAY + "KillerMoney - help" + ChatColor.GREEN + " ]");
         sender.sendMessage(ChatColor.GREEN + "/km help" + ChatColor.GRAY + " | These help messages");
+        sender.sendMessage(ChatColor.GREEN + "/km enable-messages <on/off>" + ChatColor.GRAY + " | You can enable or disable the kill messages");
     }
 }

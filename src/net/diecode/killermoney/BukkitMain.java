@@ -21,7 +21,6 @@ public class BukkitMain extends JavaPlugin {
     private static Economy economy;
     private static MobArenaHandler mobArenaHandler;
     private static Updater updater;
-    private static MineChartGraphs mineChartGraphs;
 
     private void initMetrics() {
         metrics = new Metrics(this);
@@ -61,14 +60,6 @@ public class BukkitMain extends JavaPlugin {
         }
     }
 
-    public void hookMineChart() {
-        if ((Bukkit.getPluginManager().getPlugin("MineChart") != null)
-                && !DefaultConfig.getEnabledGraphs().isEmpty()) {
-            mineChartGraphs = new MineChartGraphs();
-        }
-    }
-
-
     @Override
     public void onEnable() {
         instance = this;
@@ -85,10 +76,6 @@ public class BukkitMain extends JavaPlugin {
 
         if (DefaultConfig.isHookMobArena()) {
             hookMobArena();
-        }
-
-        if (DefaultConfig.isHookMineChart()) {
-            hookMineChart();
         }
 
         getCommand("km").setExecutor(new KMCommand());
