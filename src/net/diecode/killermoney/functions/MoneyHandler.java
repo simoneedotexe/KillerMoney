@@ -25,6 +25,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.ItemSpawnEvent;
+import org.bukkit.event.inventory.InventoryPickupItemEvent;
+import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -160,6 +162,21 @@ public class MoneyHandler implements Listener {
         if (isMoneyItem(is)) {
             item.setCustomName(is.getItemMeta().getDisplayName());
             item.setCustomNameVisible(true);
+        }
+    }
+
+    @EventHandler
+    public void onHopperPickUp(InventoryPickupItemEvent e) {
+        if (!DefaultConfig.isMoneyItemDropEnabled()) {
+            return;
+        }
+
+        if (e.getInventory().getType() != InventoryType.HOPPER) {
+            return;
+        }
+
+        if (isMoneyItem(e.getItem().getItemStack())) {
+            e.setCancelled(true);
         }
     }
 
