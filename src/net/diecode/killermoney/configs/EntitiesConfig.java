@@ -462,7 +462,7 @@ public class EntitiesConfig extends SuperConfig {
                             // Division method value
                             if (getConfig().isSet(entity + "." + world + ".Cash-transfer.Division-method")) {
                                 String div = getConfig().getString(entity + "." + world
-                                        + ".Cash-transfer.Money.Division-method");
+                                        + ".Cash-transfer.Division-method");
 
                                 if (Utils.inDivisionEnum(div)) {
                                     divisionMethod = DivisionMethod.valueOf(div.toUpperCase());
