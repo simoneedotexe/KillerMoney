@@ -53,6 +53,10 @@ BLAZE:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 CAVE_SPIDER:
     '*':
         Money:
@@ -75,6 +79,10 @@ CAVE_SPIDER:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 CHICKEN:
     '*':
         Money:
@@ -97,6 +105,10 @@ CHICKEN:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 COW:
     '*':
         Money:
@@ -119,6 +131,10 @@ COW:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 CREEPER:
     '*':
         Money:
@@ -141,6 +157,10 @@ CREEPER:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 DONKEY:
     '*':
         Money:
@@ -163,6 +183,10 @@ DONKEY:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 ELDER_GUARDIAN:
     '*':
         Money:
@@ -185,6 +209,10 @@ ELDER_GUARDIAN:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 ENDER_DRAGON:
     '*':
         Money:
@@ -207,6 +235,10 @@ ENDER_DRAGON:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 ENDERMAN:
     '*':
         Money:
@@ -229,6 +261,10 @@ ENDERMAN:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 ENDERMITE:
     '*':
         Money:
@@ -251,6 +287,10 @@ ENDERMITE:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 EVOKER:
     '*':
         Money:
@@ -273,6 +313,10 @@ EVOKER:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 GHAST:
     '*':
         Money:
@@ -295,6 +339,10 @@ GHAST:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 GIANT:
     '*':
         Money:
@@ -317,6 +365,10 @@ GIANT:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 GUARDIAN:
     '*':
         Money:
@@ -339,6 +391,10 @@ GUARDIAN:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 HORSE:
     '*':
         Money:
@@ -361,6 +417,10 @@ HORSE:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 HUSK:
     '*':
         Money:
@@ -383,6 +443,10 @@ HUSK:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 IRON_GOLEM:
     '*':
         Money:
@@ -405,6 +469,10 @@ IRON_GOLEM:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 LLAMA:
     '*':
         Money:
@@ -427,6 +495,10 @@ LLAMA:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 MULE:
     '*':
         Money:
@@ -449,6 +521,10 @@ MULE:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 MUSHROOM_COW:
     '*':
         Money:
@@ -471,6 +547,10 @@ MUSHROOM_COW:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 OCELOT:
     '*':
         Money:
@@ -493,6 +573,10 @@ OCELOT:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 PARROT:
     '*':
         Money:
@@ -515,7 +599,10 @@ PARROT:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
-
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 PIG:
     '*':
         Money:
@@ -538,6 +625,10 @@ PIG:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 PIG_ZOMBIE:
     '*':
         Money:
@@ -560,6 +651,10 @@ PIG_ZOMBIE:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 PLAYER:
     '*':
         Money:
@@ -582,6 +677,10 @@ PLAYER:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
         Cash-transfer:
             Enabled: false
             Percent: 5%
@@ -609,6 +708,10 @@ POLAR_BEAR:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 RABBIT:
     '*':
         Money:
@@ -631,6 +734,10 @@ RABBIT:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 SHEEP:
     '*':
         Money:
@@ -653,6 +760,10 @@ SHEEP:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 SHULKER:
     '*':
         Money:
@@ -675,6 +786,10 @@ SHULKER:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 SILVERFISH:
     '*':
         Money:
@@ -697,6 +812,10 @@ SILVERFISH:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 SKELETON:
     '*':
         Money:
@@ -719,6 +838,10 @@ SKELETON:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 SKELETON_HORSE:
     '*':
         Money:
@@ -741,6 +864,10 @@ SKELETON_HORSE:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 SLIME:
     '*':
         Money:
@@ -763,6 +890,10 @@ SLIME:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 SNOWMAN:
     '*':
         Money:
@@ -785,6 +916,10 @@ SNOWMAN:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 SPIDER:
     '*':
         Money:
@@ -807,6 +942,10 @@ SPIDER:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 SQUID:
     '*':
         Money:
@@ -829,6 +968,10 @@ SQUID:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 STRAY:
     '*':
         Money:
@@ -851,6 +994,10 @@ STRAY:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 VEX:
     '*':
         Money:
@@ -873,6 +1020,10 @@ VEX:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 VILLAGER:
     '*':
         Money:
@@ -895,6 +1046,10 @@ VILLAGER:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 WITCH:
     '*':
         Money:
@@ -917,6 +1072,10 @@ WITCH:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 WITHER:
     '*':
         Money:
@@ -939,6 +1098,10 @@ WITHER:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 WITHER_SKELETON:
     '*':
         Money:
@@ -961,6 +1124,10 @@ WITHER_SKELETON:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 WOLF:
     '*':
         Money:
@@ -983,6 +1150,10 @@ WOLF:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 ZOMBIE:
     '*':
         Money:
@@ -1005,6 +1176,10 @@ ZOMBIE:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 ZOMBIE_HORSE:
     '*':
         Money:
@@ -1027,6 +1202,10 @@ ZOMBIE_HORSE:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 ZOMBIE_VILLAGER:
     '*':
         Money:
@@ -1049,3 +1228,7 @@ ZOMBIE_VILLAGER:
                         type: GOLD_NUGGET
                     Random-amount: 1 ? 5
                     Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%

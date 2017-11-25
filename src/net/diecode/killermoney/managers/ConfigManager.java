@@ -68,6 +68,10 @@ public class ConfigManager {
         entityCfg.set(entity + ".*.Custom-item-drop.Items.1.Random-amount", "1 ? 5");
         entityCfg.set(entity + ".*.Custom-item-drop.Items.1.Chance", "100%");
 
+        entityCfg.set(entity + ".*.Custom-exp-drop.Enabled", false);
+        entityCfg.set(entity + ".*.Custom-exp-drop.Value", "10");
+        entityCfg.set(entity + ".*.Custom-exp-drop.Chance", "100%");
+
         LangConfig.getInstance().saveConfig();
         EntitiesConfig.getInstance().saveConfig();
     }
