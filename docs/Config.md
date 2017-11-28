@@ -1,6 +1,10 @@
-## Default config for KillerMoney v4.0.0
+## Default config for KillerMoney v4.2.0
 
 ```yaml
+# Please check documentation at https://github.com/diecode/KillerMoney/blob/master/docs/Config.md
+# Do not modify this
+Config-version: 1
+
 Check-update: true
 Global-settings:
     Money:
@@ -9,9 +13,10 @@ Global-settings:
             Enabled: false
             Item-name: "&c${amount}"
             Item-material: GOLD_INGOT
+            Anyone-can-pick-it-up: true
     Farming:
         Disable-spawner-farming: true
-        Disable-spawner-egg-farming: true
+        Disable-spawner-egg-farming: false
     General:
         Message-method: CHAT
         Allowed-gamemodes: SURVIVAL, CREATIVE
@@ -31,13 +36,15 @@ Hook:
     MobArena:
         Enabled: false
         Disable-rewards-in-arena: true
-    MineChart:
-        Enabled: true
-        Graphs:
-            MONEY: true
 ```
 
 ## Configuration manual
+
+```yaml
+Config-version: 1
+```
+
++ **Config-version:** Current config version, do not modify this
 
 ```yaml
 Check-update: true
@@ -60,6 +67,7 @@ Global-settings:
             Enabled: false
             Item-name: "&c${amount}"
             Item-material: GOLD_INGOT
+            Anyone-can-pick-it-up: true
 ```
 
 Drop money reward on the ground. 
@@ -67,12 +75,13 @@ Drop money reward on the ground.
 + **Enabled:** Enable or disable Item drop function. Acceptable values: true or false
 + **Item-name:** Item name on the ground. You can use color codes in the name. The {amount} will be replaced with money amount.
 + **Item-material:** Item material. You must use valid MATERIAL name. [Acceptable values](https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html) (depend from server version)
++ **Anyone-can-pick-it-up:** Any player can pick up the money item, or only the killer
 
 ```yaml
 Global-settings:
     Farming:
         Disable-spawner-farming: true
-        Disable-spawner-egg-farming: true
+        Disable-spawner-egg-farming: false
 ```
 
 + **Disable-spawner-farming:** Disable reward when the entity spawned from spawner.
@@ -85,7 +94,7 @@ Global-settings:
         Allowed-gamemodes: SURVIVAL, CREATIVE
 ```
 
-+ **Message-method:** Money reward message position. Acceptable values: "CHAT" or "ACTION_BAR".
++ **Message-method:** Money reward message position. Acceptable values: "CHAT", "ACTION_BAR" or "DISABLED".
 + **Allowed-gamemodes:** KillerMoney disable functions in disallowed gamemodes. Acceptable values: "SURVIVAL", "CREATIVE" and "ADVENTURE".
 You can set more gamemodes.
 
@@ -123,14 +132,7 @@ Hook:
     MobArena:
         Enabled: false
         Disable-rewards-in-arena: true
-    MineChart:
-        Enabled: true
-        Graphs:
-            MONEY: true
 ```
 
 + [MobArena](https://dev.bukkit.org/projects/mobarena) is a great plugin. Players can fight with mobs in arena.
 **Disabled-rewards-in-arena:** When true and players in MobArena, then they will not get rewards.
-
-+ [MineChart](https://dev.bukkit.org/projects/minechart) help you to manage your servers.
-MONEY Graph will show you the earned and lost money every 15 minutes.

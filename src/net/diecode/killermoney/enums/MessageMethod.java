@@ -2,6 +2,6 @@ package net.diecode.killermoney.enums;
 
 public enum MessageMethod {
 
-    CHAT, ACTION_BAR
+    DISABLED, CHAT, ACTION_BAR
 
 }

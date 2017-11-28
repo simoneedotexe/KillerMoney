@@ -1,7 +1,8 @@
 package net.diecode.killermoney.api;
 
-import net.diecode.killermoney.commands.KMCommand;
+import net.diecode.killermoney.enums.KMCommandType;
 import net.diecode.killermoney.managers.CommandManager;
+import net.diecode.killermoney.objects.KMSubCommand;
 
 import java.util.HashMap;
 
@@ -9,10 +10,10 @@ public class CommandAPI {
 
     /**
      *
-     * @return Killermoney's sub commands
+     * @return subcommand
      */
-    public static HashMap<String, CommandManager> getSubCommands() {
-        return KMCommand.getSubCommands();
+    public static KMSubCommand getSubCommand(KMCommandType type, String command) {
+        return CommandManager.getSubCommand(type, command);
     }
 
 }

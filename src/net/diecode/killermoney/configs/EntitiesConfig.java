@@ -63,6 +63,7 @@ public class EntitiesConfig extends SuperConfig {
                 MoneyProperties moneyProperties = null;
                 CCommandProperties cCommandProperties = null;
                 CItemProperties cItemProperties = null;
+                CExpProperties cExpProperties = null;
                 CashTransferProperties cashTransferProperties = null;
 
                 // World value
@@ -363,6 +364,54 @@ public class EntitiesConfig extends SuperConfig {
                     }
                 }
 
+                // Exp drop
+                if (getConfig().isSet(entity + "." + world + ".Custom-exp-drop")) {
+                    boolean enabled = true;
+                    double chance = 100;
+                    int minAmount = 0;
+                    int maxAmount = 0;
+                    String permission = null;
+                    int limit = 0;
+
+                    // Enabled value
+                    if (getConfig().isSet(entity + "." + world + ".Custom-exp-drop.Enabled")) {
+                        enabled = getConfig().getBoolean(entity + "." + world + ".Custom-exp-drop.Enabled");
+                    }
+
+                    // Value amount
+                    if (getConfig().isSet(entity + "." + world + ".Custom-exp-drop.Value")) {
+                        String value = getConfig().getString(entity + "." + world + ".Custom-exp-drop.Value")
+                                .replaceAll("\\s", "");
+
+                        if (value.contains("?")) {
+                            String[] splittedValue = value.split("\\?");
+
+                            minAmount = Integer.valueOf(splittedValue[0]);
+                            maxAmount = Integer.valueOf(splittedValue[1]);
+                        } else {
+                            minAmount = Integer.valueOf(value);
+                            maxAmount = Integer.valueOf(value);
+                        }
+                    }
+
+                    // Chance value
+                    if (getConfig().isSet(entity + "." + world + ".Custom-exp-drop.Chance")) {
+                        chance = Utils.cleanChanceString(getConfig().getString(entity + "." + world + ".Custom-exp-drop.Chance"));
+                    }
+
+                    // Permission value
+                    if (getConfig().isSet(entity + "." + world + ".Custom-exp-drop.Permission")) {
+                        permission = getConfig().getString(entity + "." + world + ".Custom-exp-drop.Permission");
+                    }
+
+                    // Limit value
+                    if (getConfig().isSet(entity + "." + world + ".Custom-exp-drop.Limit")) {
+                        limit = getConfig().getInt(entity + "." + world + ".Custom-exp-drop.Limit");
+                    }
+
+                    cExpProperties = new CExpProperties(minAmount, maxAmount, chance, permission, limit, enabled);
+                }
+
                 // Set up cash transfer
                 if (entityType == EntityType.PLAYER) {
                     boolean enabled = true;
@@ -413,7 +462,7 @@ public class EntitiesConfig extends SuperConfig {
                             // Division method value
                             if (getConfig().isSet(entity + "." + world + ".Cash-transfer.Division-method")) {
                                 String div = getConfig().getString(entity + "." + world
-                                        + ".Cash-transfer.Money.Division-method");
+                                        + ".Cash-transfer.Division-method");
 
                                 if (Utils.inDivisionEnum(div)) {
                                     divisionMethod = DivisionMethod.valueOf(div.toUpperCase());
@@ -435,10 +484,10 @@ public class EntitiesConfig extends SuperConfig {
 
                 if (entityType != EntityType.PLAYER) {
                     worldProperties = new WorldProperties(worlds, moneyProperties,
-                            cCommandProperties, cItemProperties);
+                            cCommandProperties, cItemProperties, cExpProperties);
                 } else {
                     worldProperties = new PlayerWorldProperties(worlds, moneyProperties, cCommandProperties,
-                            cItemProperties, cashTransferProperties);
+                            cItemProperties, cashTransferProperties, cExpProperties);
                 }
 
                 entityProperties.getWorldProperties().add(worldProperties);

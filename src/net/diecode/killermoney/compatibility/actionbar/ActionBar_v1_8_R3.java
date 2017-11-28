@@ -1,12 +1,12 @@
 package net.diecode.killermoney.compatibility.actionbar;
 
-import net.diecode.killermoney.interfaces.ActionBar;
+import net.diecode.killermoney.interfaces.IActionBar;
 import net.minecraft.server.v1_8_R3.IChatBaseComponent;
 import net.minecraft.server.v1_8_R3.PacketPlayOutChat;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
-public class ActionBar_v1_8_R3 implements ActionBar {
+public class ActionBar_v1_8_R3 implements IActionBar {
 
     @Override
     public void sendActionBarMessage(Player player, String message) {

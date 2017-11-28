@@ -1,15 +1,21 @@
 package net.diecode.killermoney;
 
 import com.garbagemule.MobArena.MobArenaHandler;
+import net.diecode.killermoney.commands.KMAdminCommand;
 import net.diecode.killermoney.commands.KMCommand;
 import net.diecode.killermoney.configs.DefaultConfig;
 import net.diecode.killermoney.functions.*;
 import net.diecode.killermoney.managers.ConfigManager;
 import net.diecode.killermoney.managers.EntityManager;
+import net.diecode.killermoney.managers.KMPlayerManager;
+import net.diecode.killermoney.objects.KMPlayer;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.UUID;
 
 public class BukkitMain extends JavaPlugin {
 
@@ -19,7 +25,6 @@ public class BukkitMain extends JavaPlugin {
     private static Economy economy;
     private static MobArenaHandler mobArenaHandler;
     private static Updater updater;
-    private static MineChartGraphs mineChartGraphs;
 
     private void initMetrics() {
         metrics = new Metrics(this);
@@ -59,14 +64,6 @@ public class BukkitMain extends JavaPlugin {
         }
     }
 
-    public void hookMineChart() {
-        if ((Bukkit.getPluginManager().getPlugin("MineChart") != null)
-                && !DefaultConfig.getEnabledGraphs().isEmpty()) {
-            mineChartGraphs = new MineChartGraphs();
-        }
-    }
-
-
     @Override
     public void onEnable() {
         instance = this;
@@ -85,21 +82,20 @@ public class BukkitMain extends JavaPlugin {
             hookMobArena();
         }
 
-        if (DefaultConfig.isHookMineChart()) {
-            hookMineChart();
-        }
-
         getCommand("km").setExecutor(new KMCommand());
+        getCommand("kmadmin").setExecutor(new KMAdminCommand());
 
         Bukkit.getPluginManager().registerEvents(new EntityManager(), this);
         Bukkit.getPluginManager().registerEvents(new MoneyHandler(), this);
         Bukkit.getPluginManager().registerEvents(new CItemHandler(), this);
         Bukkit.getPluginManager().registerEvents(new CCommandHandler(), this);
+        Bukkit.getPluginManager().registerEvents(new CExpHandler(), this);
         Bukkit.getPluginManager().registerEvents(new MessageHandler(), this);
         Bukkit.getPluginManager().registerEvents(new CashTransferHandler(), this);
         Bukkit.getPluginManager().registerEvents(new AntiFarmingHandler(), this);
         Bukkit.getPluginManager().registerEvents(new LimitHandler(), this);
         Bukkit.getPluginManager().registerEvents(new MultiplierHandler(), this);
+        Bukkit.getPluginManager().registerEvents(new KMPlayerManager(), this);
         Bukkit.getPluginManager().registerEvents(updater, this);
 
         if (DefaultConfig.isCheckUpdate()) {
@@ -111,6 +107,14 @@ public class BukkitMain extends JavaPlugin {
                     }
                 }
             }, 20L, 20L * 60 * 60 * 24);
+        }
+
+        for (Player p : Bukkit.getOnlinePlayers()) {
+            UUID pUUID = p.getUniqueId();
+
+            if (!KMPlayerManager.getKMPlayers().containsKey(pUUID)) {
+                KMPlayerManager.getKMPlayers().put(pUUID, new KMPlayer(p));
+            }
         }
     }
 

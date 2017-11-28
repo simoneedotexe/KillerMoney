@@ -1,3 +1,13 @@
+4.2.0
+---
+- (Added) "DISABLED" option for Message-method in config
+- (Added) Custom exp drop
+- (Added) Player config file for future updates
+- (Modification) Admin commands -> /kmadmin, players command -> /km
+- (Modification) Changed few string id in language file
+- (Modification) Hopper cannot pickup money item anymore
+- (Fixed) Division-method in player cash transfer section
+
 4.1.2
 ---
 - (Fixed) When killer left the server and any other player want pick up money item then the server drop null pointer exception

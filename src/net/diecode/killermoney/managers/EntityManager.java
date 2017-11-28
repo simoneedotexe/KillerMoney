@@ -90,7 +90,14 @@ public class EntityManager implements Listener {
                 // Custom command execution reward
                 if (wp.getCCommandProperties() != null && wp.getCCommandProperties().isEnabled()) {
 
-                    CCommandHandler.process(wp.getCCommandProperties(),victim, killerP);
+                    CCommandHandler.process(wp.getCCommandProperties(), victim, killerP);
+                }
+
+                // Custom exp drop
+                if (wp.getCExpProperties() != null && wp.getCExpProperties().isEnabled()) {
+                    e.setDroppedExp(0);
+
+                    CExpHandler.process(wp.getCExpProperties(), victim.getLocation(), killerP);
                 }
 
                 // Cash transfer

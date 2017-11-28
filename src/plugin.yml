@@ -1,7 +1,7 @@
 name: KillerMoney
 main: net.diecode.killermoney.BukkitMain
-version: 4.1.2
-softdepend: [Vault, MobArena, MineChart, Multiverse-Core]
+version: 4.2.0
+softdepend: [Vault, MobArena, Multiverse-Core]
 author: diecode
 website: http://dev.bukkit.org/bukkit-plugins/killermoney/
 commands:
@@ -9,4 +9,9 @@ commands:
         description: "This is the main command of KillerMoney"
         usage: "Please type /<command> help"
         aliases: [killermoney]
+        default: true
+    kmadmin:
+        description: "This is the admin command of KillerMoney"
+        usage: "Please usable /<command> help"
+        aliases: [killermoneyadmin, kma]
         default: true

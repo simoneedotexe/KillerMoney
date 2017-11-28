@@ -3,6 +3,7 @@ package net.diecode.killermoney.managers;
 import net.diecode.killermoney.configs.DefaultConfig;
 import net.diecode.killermoney.configs.EntitiesConfig;
 import net.diecode.killermoney.configs.LangConfig;
+import net.diecode.killermoney.configs.PlayersConfig;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.inventory.ItemStack;
@@ -12,11 +13,13 @@ public class ConfigManager {
     private static DefaultConfig defaultConfig;
     private static EntitiesConfig entitiesConfig;
     private static LangConfig langConfig;
+    private static PlayersConfig playersConfig;
 
     public static void init() {
         defaultConfig = new DefaultConfig("config.yml");
         entitiesConfig = new EntitiesConfig("entities.yml");
         langConfig = new LangConfig("lang.yml");
+        playersConfig = new PlayersConfig();
 
         checkVersionChanges();
 
@@ -64,6 +67,10 @@ public class ConfigManager {
         entityCfg.set(entity + ".*.Custom-item-drop.Items.1.ItemStack", new ItemStack(Material.GOLD_NUGGET));
         entityCfg.set(entity + ".*.Custom-item-drop.Items.1.Random-amount", "1 ? 5");
         entityCfg.set(entity + ".*.Custom-item-drop.Items.1.Chance", "100%");
+
+        entityCfg.set(entity + ".*.Custom-exp-drop.Enabled", false);
+        entityCfg.set(entity + ".*.Custom-exp-drop.Value", "10");
+        entityCfg.set(entity + ".*.Custom-exp-drop.Chance", "100%");
 
         LangConfig.getInstance().saveConfig();
         EntitiesConfig.getInstance().saveConfig();

@@ -1,16 +1,29 @@
-package net.diecode.killermoney.commands.subcommands;
+package net.diecode.killermoney.commands.subcommands.kmadmin;
 
+import net.diecode.killermoney.enums.KMCommandType;
 import net.diecode.killermoney.enums.LanguageString;
 import net.diecode.killermoney.enums.SenderType;
-import net.diecode.killermoney.managers.CommandManager;
+import net.diecode.killermoney.objects.KMSubCommand;
 import net.diecode.killermoney.enums.KMPermission;
 import net.diecode.killermoney.managers.ConfigManager;
 import net.diecode.killermoney.managers.LanguageManager;
 import org.bukkit.command.CommandSender;
 
-public class ReloadCommand extends CommandManager {
+import java.util.ArrayList;
 
-    public ReloadCommand() {
+public class ReloadCommand extends KMSubCommand {
+
+    public ReloadCommand(String command) {
+        super(
+                new ArrayList<KMCommandType>()
+                {
+                    {
+                        add(KMCommandType.KM_ADMIN);
+                    }
+                },
+                command
+        );
+
         permission = KMPermission.ADMIN;
         minArgs = 0;
         senderType = SenderType.ANYONE;
