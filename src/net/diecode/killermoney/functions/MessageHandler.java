@@ -64,7 +64,7 @@ public class MessageHandler implements Listener {
         KMPlayer kmp = KMPlayerManager.getKMPlayer(player);
         PluginManager pm = Bukkit.getPluginManager();
 
-        if (!kmp.isEnableMessages()) {
+        if (kmp == null || !kmp.isEnableMessages()) {
             return;
         }
 
