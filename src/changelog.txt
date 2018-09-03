@@ -1,3 +1,7 @@
+4.3.0
+---
+- (Added) 1.13 support
+
 4.2.0
 ---
 - (Added) "DISABLED" option for Message-method in config

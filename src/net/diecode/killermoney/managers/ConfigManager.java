@@ -4,6 +4,7 @@ import net.diecode.killermoney.configs.DefaultConfig;
 import net.diecode.killermoney.configs.EntitiesConfig;
 import net.diecode.killermoney.configs.LangConfig;
 import net.diecode.killermoney.configs.PlayersConfig;
+import net.minecraft.server.v1_10_R1.BlockPurpurSlab;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.inventory.ItemStack;
@@ -28,6 +29,19 @@ public class ConfigManager {
 
     private static void checkVersionChanges() {
         int version = DefaultConfig.getConfigVersion();
+
+        if (version < 2) {
+            setEntityData("COD", "Cod");
+            setEntityData("DOLPHIN", "Dolphin");
+            setEntityData("DROWNED", "Drowned");
+            setEntityData("PHANTOM", "Phantom");
+            setEntityData("PUFFERFISH", "Pufferfish");
+            setEntityData("SALMON", "Salmon");
+            setEntityData("TROPICAL_FISH", "Tropical fish");
+            setEntityData("TURTLE", "Turtle");
+
+            version++;
+        }
 
         if (version < 1) {
             DefaultConfig.getInstance().getConfig().set("Global-settings.Money.Item-drop.Anyone-can-pick-it-up", true);
