@@ -4,7 +4,6 @@ import net.diecode.killermoney.configs.DefaultConfig;
 import net.diecode.killermoney.configs.EntitiesConfig;
 import net.diecode.killermoney.configs.LangConfig;
 import net.diecode.killermoney.configs.PlayersConfig;
-import net.minecraft.server.v1_10_R1.BlockPurpurSlab;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.inventory.ItemStack;
