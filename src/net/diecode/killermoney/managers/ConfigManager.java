@@ -29,6 +29,13 @@ public class ConfigManager {
     private static void checkVersionChanges() {
         int version = DefaultConfig.getConfigVersion();
 
+        if (version < 3) {
+            setEntityData("MAGMA_CUBE", "Magma cube");
+            setEntityData("VINDICATOR", "Vindicator");
+
+            version++;
+        }
+
         if (version < 2) {
             setEntityData("COD", "Cod");
             setEntityData("DOLPHIN", "Dolphin");
