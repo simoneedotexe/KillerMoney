@@ -112,10 +112,18 @@ public class MoneyHandler implements Listener {
 
         // Send money earning message to player
         if (e.getPlayer() != null && e.getPlayer().isOnline()) {
-            String message = LanguageManager.cGet(LanguageString.GENERAL_YOU_KILLED_AN_ENTITY_AND_EARN_MONEY,
-                    e.getVictim().getType(), LangConfig.getStrings().get(LanguageString.valueOf("ENTITIES_"
-                            + e.getVictim().getType().name())),
-                    e.getAmount().doubleValue(), e.getDamage().doubleValue());
+            String message;
+
+            // if victim is a player
+            if (e.getVictim() instanceof Player) {
+                message = LanguageManager.cGet(LanguageString.GENERAL_YOU_KILLED_A_PLAYER,
+                        e.getVictim().getName(), e.getAmount().doubleValue(), e.getDamage().doubleValue());
+            } else {
+                message = LanguageManager.cGet(LanguageString.GENERAL_YOU_KILLED_AN_ENTITY_AND_EARN_MONEY,
+                        e.getVictim().getType(), LangConfig.getStrings().get(LanguageString.valueOf("ENTITIES_"
+                                + e.getVictim().getType().name())),
+                        e.getAmount().doubleValue(), e.getDamage().doubleValue());
+            }
 
             MessageHandler.process(e.getPlayer(), message);
         }
