@@ -37,7 +37,8 @@ public class InfoCommand extends KMSubCommand {
     public void run(CommandSender cs, String[] args) {
         cs.sendMessage(ChatColor.GREEN + "[ " + ChatColor.GRAY + "KillerMoney - info" + ChatColor.GREEN + " ]");
         cs.sendMessage(ChatColor.GRAY + "Developer: " + ChatColor.GREEN + "diecode" + ChatColor.GRAY + " | Twitter: " + ChatColor.GREEN + "@diecode");
-        cs.sendMessage(ChatColor.GRAY + "Bukkit page: " + ChatColor.GREEN + "http://dev.bukkit.org/bukkit-plugins/killermoney/");
+        cs.sendMessage(ChatColor.GRAY + "PayPal for donation: " + ChatColor.GREEN + "https://www.paypal.me/krisztiangahor");
+        cs.sendMessage(ChatColor.GRAY + "Spigot page: " + ChatColor.GREEN + "https://www.spigotmc.org/resources/killermoney.485/");
         cs.sendMessage(ChatColor.GRAY + "Plugin version: " + ChatColor.GREEN + BukkitMain.getInstance().getDescription().getVersion());
     }
 }

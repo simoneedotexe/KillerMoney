@@ -3,7 +3,7 @@
 ```yaml
 # Please check documentation at https://github.com/diecode/KillerMoney/blob/master/docs/Config.md
 # Do not modify this
-Config-version: 1
+Config-version: 3
 
 Check-update: true
 Global-settings:

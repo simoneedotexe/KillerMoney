@@ -8,7 +8,6 @@ import net.diecode.killermoney.managers.KMPlayerManager;
 import net.diecode.killermoney.managers.LanguageManager;
 import net.diecode.killermoney.objects.KMPlayer;
 import net.diecode.killermoney.objects.KMSubCommand;
-import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
