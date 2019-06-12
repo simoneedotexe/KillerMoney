@@ -57,6 +57,32 @@ BLAZE:
             Enabled: false
             Value: 1 ? 100
             Chance: 100%
+CAT:
+    '*':
+        Money:
+            Enabled: false
+            Chance: 100%
+            Value: 1 ? 100
+        Custom-commands:
+            Enabled: false
+            Commands:
+                '1':
+                    Command: 'say {player} killed an entity!'
+                    Chance: 100%
+        Custom-item-drop:
+            Enabled: false
+            Keep-default-items: false
+            Items:
+                '1':
+                    ItemStack:
+                        ==: org.bukkit.inventory.ItemStack
+                        type: GOLD_NUGGET
+                    Random-amount: 1 ? 5
+                    Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 CAVE_SPIDER:
     '*':
         Money:
@@ -395,6 +421,32 @@ EVOKER:
             Enabled: false
             Value: 1 ? 100
             Chance: 100%
+FOX:
+    '*':
+        Money:
+            Enabled: false
+            Chance: 100%
+            Value: 1 ? 100
+        Custom-commands:
+            Enabled: false
+            Commands:
+                '1':
+                    Command: 'say {player} killed an entity!'
+                    Chance: 100%
+        Custom-item-drop:
+            Enabled: false
+            Keep-default-items: false
+            Items:
+                '1':
+                    ItemStack:
+                        ==: org.bukkit.inventory.ItemStack
+                        type: GOLD_NUGGET
+                    Random-amount: 1 ? 5
+                    Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 GHAST:
     '*':
         Money:
@@ -681,6 +733,32 @@ OCELOT:
             Enabled: false
             Value: 1 ? 100
             Chance: 100%
+PANDA:
+    '*':
+        Money:
+            Enabled: false
+            Chance: 100%
+            Value: 1 ? 100
+        Custom-commands:
+            Enabled: false
+            Commands:
+                '1':
+                    Command: 'say {player} killed an entity!'
+                    Chance: 100%
+        Custom-item-drop:
+            Enabled: false
+            Keep-default-items: false
+            Items:
+                '1':
+                    ItemStack:
+                        ==: org.bukkit.inventory.ItemStack
+                        type: GOLD_NUGGET
+                    Random-amount: 1 ? 5
+                    Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 PARROT:
     '*':
         Money:
@@ -760,6 +838,32 @@ PIG:
             Value: 1 ? 100
             Chance: 100%
 PIG_ZOMBIE:
+    '*':
+        Money:
+            Enabled: false
+            Chance: 100%
+            Value: 1 ? 100
+        Custom-commands:
+            Enabled: false
+            Commands:
+                '1':
+                    Command: 'say {player} killed an entity!'
+                    Chance: 100%
+        Custom-item-drop:
+            Enabled: false
+            Keep-default-items: false
+            Items:
+                '1':
+                    ItemStack:
+                        ==: org.bukkit.inventory.ItemStack
+                        type: GOLD_NUGGET
+                    Random-amount: 1 ? 5
+                    Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
+PILLAGER:
     '*':
         Money:
             Enabled: false
@@ -869,6 +973,32 @@ PUFFERFISH:
             Value: 1 ? 100
             Chance: 100%
 RABBIT:
+    '*':
+        Money:
+            Enabled: false
+            Chance: 100%
+            Value: 1 ? 100
+        Custom-commands:
+            Enabled: false
+            Commands:
+                '1':
+                    Command: 'say {player} killed an entity!'
+                    Chance: 100%
+        Custom-item-drop:
+            Enabled: false
+            Keep-default-items: false
+            Items:
+                '1':
+                    ItemStack:
+                        ==: org.bukkit.inventory.ItemStack
+                        type: GOLD_NUGGET
+                    Random-amount: 1 ? 5
+                    Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
+RAVAGER:
     '*':
         Money:
             Enabled: false
@@ -1180,6 +1310,32 @@ STRAY:
             Enabled: false
             Value: 1 ? 100
             Chance: 100%
+TRADER_LLAMA:
+    '*':
+        Money:
+            Enabled: false
+            Chance: 100%
+            Value: 1 ? 100
+        Custom-commands:
+            Enabled: false
+            Commands:
+                '1':
+                    Command: 'say {player} killed an entity!'
+                    Chance: 100%
+        Custom-item-drop:
+            Enabled: false
+            Keep-default-items: false
+            Items:
+                '1':
+                    ItemStack:
+                        ==: org.bukkit.inventory.ItemStack
+                        type: GOLD_NUGGET
+                    Random-amount: 1 ? 5
+                    Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 TROPICAL_FISH:
     '*':
         Money:
@@ -1285,6 +1441,32 @@ VILLAGER:
             Value: 1 ? 100
             Chance: 100%
 VINDICATOR:
+    '*':
+        Money:
+            Enabled: false
+            Chance: 100%
+            Value: 1 ? 100
+        Custom-commands:
+            Enabled: false
+            Commands:
+                '1':
+                    Command: 'say {player} killed an entity!'
+                    Chance: 100%
+        Custom-item-drop:
+            Enabled: false
+            Keep-default-items: false
+            Items:
+                '1':
+                    ItemStack:
+                        ==: org.bukkit.inventory.ItemStack
+                        type: GOLD_NUGGET
+                    Random-amount: 1 ? 5
+                    Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
+WANDERING_TRADER:
     '*':
         Money:
             Enabled: false

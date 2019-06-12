@@ -1,6 +1,6 @@
 # Please check documentation at https://github.com/diecode/KillerMoney/blob/master/docs/Config.md
 # Do not modify this
-Config-version: 3
+Config-version: 4
 
 Check-update: true
 Global-settings:

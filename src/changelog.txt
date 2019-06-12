@@ -1,3 +1,8 @@
+4.4.0
+---
+- (Added) 1.14 support
+- (Fixed) Missed wither lang string
+
 4.3.2
 ---
 - (Added) Magma cube and vindicator

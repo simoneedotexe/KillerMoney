@@ -29,9 +29,9 @@ public class ConfigManager {
     private static void checkVersionChanges() {
         int version = DefaultConfig.getConfigVersion();
 
-        if (version < 3) {
-            setEntityData("MAGMA_CUBE", "Magma cube");
-            setEntityData("VINDICATOR", "Vindicator");
+        if (version < 1) {
+            DefaultConfig.getInstance().getConfig().set("Global-settings.Money.Item-drop.Anyone-can-pick-it-up", true);
+            setEntityData("PARROT", "Parrot");
 
             version++;
         }
@@ -49,9 +49,21 @@ public class ConfigManager {
             version++;
         }
 
-        if (version < 1) {
-            DefaultConfig.getInstance().getConfig().set("Global-settings.Money.Item-drop.Anyone-can-pick-it-up", true);
-            setEntityData("PARROT", "Parrot");
+        if (version < 3) {
+            setEntityData("MAGMA_CUBE", "Magma cube");
+            setEntityData("VINDICATOR", "Vindicator");
+
+            version++;
+        }
+
+        if (version < 4) {
+            setEntityData("CAT", "Cat");
+            setEntityData("FOX", "Fox");
+            setEntityData("PANDA", "Panda");
+            setEntityData("PILLAGER", "Pillager");
+            setEntityData("RAVAGER", "Ravager");
+            setEntityData("TRADER_LLAMA", "Trader llama");
+            setEntityData("WANDERING_TRADER", "Wandering trader");
 
             version++;
         }
