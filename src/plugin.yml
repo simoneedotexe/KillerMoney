@@ -1,9 +1,9 @@
 name: KillerMoney
 main: net.diecode.killermoney.BukkitMain
-version: 4.3.2
+version: 4.4.0
 softdepend: [Vault, MobArena, Multiverse-Core]
 author: diecode
-website: http://dev.bukkit.org/bukkit-plugins/killermoney/
+website: https://www.spigotmc.org/resources/killermoney.485/
 commands:
     km:
         description: "This is the main command of KillerMoney"
