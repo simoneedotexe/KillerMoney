@@ -17,6 +17,7 @@ import net.diecode.killermoney.objects.MoneyProperties;
 import net.diecode.killermoney.objects.WorldProperties;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Item;
@@ -24,6 +25,7 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.ItemMergeEvent;
 import org.bukkit.event.entity.ItemSpawnEvent;
 import org.bukkit.event.inventory.InventoryPickupItemEvent;
 import org.bukkit.event.inventory.InventoryType;
@@ -32,7 +34,9 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class MoneyHandler implements Listener {
@@ -228,6 +232,26 @@ public class MoneyHandler implements Listener {
         }
     }
 
+    @EventHandler
+    public void onItemMerge(ItemMergeEvent e) {
+        ItemStack i1 = e.getEntity().getItemStack();
+        ItemStack i2 = e.getTarget().getItemStack();
+
+        if (isMoneyItem(i1)) {
+            ItemStack mergedItem = mergeItem(i1, i2);
+
+            if (mergedItem != null) {
+                Location loc = e.getTarget().getLocation();
+
+                e.getEntity().remove();
+                e.getTarget().remove();
+
+                loc.getWorld().dropItem(loc, mergedItem);
+            }
+
+        }
+    }
+
     public static void process(MoneyProperties mp, ArrayList<EntityDamage> damagers, LivingEntity victim,
                                Player killer) {
         if (BukkitMain.getEconomy() == null) {
@@ -400,6 +424,33 @@ public class MoneyHandler implements Listener {
         moneyItem.addUnsafeEnchantment(Enchantment.DURABILITY, 1);
 
         return moneyItem;
+    }
+
+    public static ItemStack mergeItem(ItemStack i1, ItemStack i2) {
+        ItemStack is = i1.clone();
+
+        if (isMoneyItem(i1) && isMoneyItem(i2)) {
+            double i1Money = Double.valueOf(ChatColor.stripColor(i1.getItemMeta().getLore().get(0)).replaceAll("[^0-9.]", ""));
+            double i2Money = Double.valueOf(ChatColor.stripColor(i2.getItemMeta().getLore().get(0)).replaceAll("[^0-9.]", ""));
+
+            BigDecimal sum = new BigDecimal(i1Money + i2Money)
+                    .setScale(DefaultConfig.getDecimalPlaces(), BigDecimal.ROUND_HALF_EVEN);
+
+            ItemMeta im = is.getItemMeta();
+            List<String> lore = im.getLore();
+
+            im.setDisplayName(DefaultConfig.getMoneyItemName()
+                    .replace("{amount}", String.valueOf(sum)));
+
+            lore.set(0, moneyItemDropLore + sum.doubleValue());
+
+            im.setLore(lore);
+            is.setItemMeta(im);
+
+            return is;
+        }
+
+        return null;
     }
 
     public static boolean isMoneyItem(ItemStack itemStack) {
