@@ -1,3 +1,7 @@
+4.5.0
+---
+- (Added) 1.15 support
+
 4.4.0
 ---
 - (Added) 1.14 support

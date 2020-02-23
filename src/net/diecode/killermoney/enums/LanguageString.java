@@ -42,6 +42,7 @@ public enum LanguageString {
 
     // Entities
     ENTITIES_BAT("Bat"),
+    ENTITIES_BEE("Bee"),
     ENTITIES_BLAZE("Blaze"),
     ENTITIES_CAT("Cat"),
     ENTITIES_CAVE_SPIDER("Cave spider"),

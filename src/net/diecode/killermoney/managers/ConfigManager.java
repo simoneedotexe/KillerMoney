@@ -68,6 +68,12 @@ public class ConfigManager {
             version++;
         }
 
+        if (version < 5) {
+            setEntityData("BEE", "Bee");
+
+            version++;
+        }
+
         if (version != DefaultConfig.getConfigVersion()) {
             setConfigVersion(version);
         }

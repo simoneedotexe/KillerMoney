@@ -31,6 +31,32 @@ BAT:
             Enabled: false
             Value: 1 ? 100
             Chance: 100%
+BEE:
+    '*':
+        Money:
+            Enabled: false
+            Chance: 100%
+            Value: 1 ? 100
+        Custom-commands:
+            Enabled: false
+            Commands:
+                '1':
+                    Command: 'say {player} killed an entity!'
+                    Chance: 100%
+        Custom-item-drop:
+            Enabled: false
+            Keep-default-items: false
+            Items:
+                '1':
+                    ItemStack:
+                        ==: org.bukkit.inventory.ItemStack
+                        type: GOLD_NUGGET
+                    Random-amount: 1 ? 5
+                    Chance: 100%
+        Custom-exp-drop:
+            Enabled: false
+            Value: 1 ? 100
+            Chance: 100%
 BLAZE:
     '*':
         Money:
