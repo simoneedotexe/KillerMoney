@@ -74,6 +74,15 @@ public class ConfigManager {
             version++;
         }
 
+        if (version < 6) {
+            setEntityData("HOGLIN", "Hoglin");
+            setEntityData("PIGLIN", "Piglin");
+            setEntityData("STRIDER", "Strider");
+            setEntityData("ZOGLIN", "Zoglin");
+
+            version++;
+        }
+
         if (version != DefaultConfig.getConfigVersion()) {
             setConfigVersion(version);
         }
